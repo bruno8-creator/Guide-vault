@@ -1,6 +1,6 @@
-# Guidora Shopify Theme Branch
+# Guide Market Shopify Theme Branch
 
-This branch is the primary Shopify theme branch for Guidora.
+This branch is the primary Shopify theme branch for Guide Market.
 
 The Next.js app remains on the `main` branch as a separate build, but Shopify Themes cannot use a Next.js app directly. Use this `shopify-theme` branch when connecting the store in Shopify.
 
