@@ -17,6 +17,53 @@
   </div>
 </section>
 
+{% assign featured_product = all_products['producto-digital'] %}
+{% if featured_product == blank %}
+  {% assign featured_product = all_products['stop-being-broke'] %}
+{% endif %}
+<section class="content-band featured-product-band">
+  <div class="section-heading">
+    <p class="eyebrow">Featured Release</p>
+    <h2>Now added to Guidora.</h2>
+    <p>
+      This section pulls from the real Shopify product with the handle
+      <strong>producto-digital</strong>. If the product is unpublished, Shopify will keep this
+      area in a safe placeholder state.
+    </p>
+  </div>
+
+  {% if featured_product != blank %}
+    <div class="featured-product-layout">
+      {% render 'product-card', product: featured_product %}
+      <div class="featured-copy">
+        <span class="lock">Real Shopify Product</span>
+        <h3>{{ featured_product.title }}</h3>
+        {% if featured_product.description != blank %}
+          <div class="rte">{{ featured_product.description | truncatewords: 34 }}</div>
+        {% else %}
+          <p>Details for this digital resource can be completed in Shopify Admin.</p>
+        {% endif %}
+        <a class="button" href="{{ featured_product.url }}">View product</a>
+      </div>
+    </div>
+  {% else %}
+    <div class="empty-section">
+      <div>
+        <p class="eyebrow">Product not visible yet</p>
+        <h3>Publish the product to Online Store.</h3>
+        <p>
+          Once the product is active and available on the Online Store sales channel, it will render
+          here automatically.
+        </p>
+      </div>
+      <div class="placeholder-grid" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+      <span class="lock">Waiting for Shopify</span>
+    </div>
+  {% endif %}
+</section>
+
 <section class="content-band">
   <div class="section-heading">
     <p class="eyebrow">Brand Value</p>

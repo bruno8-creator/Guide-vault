@@ -1,4 +1,8 @@
 <section class="shop-page">
+  {% assign featured_product = all_products['producto-digital'] %}
+  {% if featured_product == blank %}
+    {% assign featured_product = all_products['stop-being-broke'] %}
+  {% endif %}
   <div class="page-intro">
     <p class="eyebrow">Digital resources</p>
     <h1>Guidora Store</h1>
@@ -12,15 +16,21 @@
       {% endfor %}
     </div>
   {% else %}
-    <div class="vault-card centered" aria-label="Products coming soon">
-      <span class="lock">Digital releases in progress</span>
-      <h2>Products coming soon.</h2>
-      <p>Guidora is preparing its first digital releases. Join the waitlist to be notified when the store opens.</p>
-      <div class="placeholder-grid six" aria-hidden="true">
-        <span></span><span></span><span></span><span></span><span></span><span></span>
+    {% if featured_product != blank %}
+      <div class="product-grid single">
+        {% render 'product-card', product: featured_product %}
       </div>
-      <a class="button" href="/pages/contact">Join the Waitlist</a>
-    </div>
+    {% else %}
+      <div class="vault-card centered" aria-label="Products coming soon">
+        <span class="lock">Digital releases in progress</span>
+        <h2>Products coming soon.</h2>
+        <p>Guidora is preparing its first digital releases. Join the waitlist to be notified when the store opens.</p>
+        <div class="placeholder-grid six" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <a class="button" href="/pages/contact">Join the Waitlist</a>
+      </div>
+    {% endif %}
   {% endif %}
 
   <div class="store-sections compact" aria-label="Prepared empty store sections">
