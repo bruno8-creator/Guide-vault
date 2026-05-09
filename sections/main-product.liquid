@@ -124,6 +124,10 @@
           <a class="button secondary" href="{{ routes.cart_url }}">Go to cart</a>
         </div>
 
+        <div class="dynamic-checkout">
+          {{ form | payment_button }}
+        </div>
+
         <p id="VariantAvailability" class="variant-help">
           {% if product.selected_or_first_available_variant.available %}
             Available now.
