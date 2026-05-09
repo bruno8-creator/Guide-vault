@@ -1,0 +1,51 @@
+<section class="product-page">
+  <div class="product-detail">
+    <div class="product-detail-media">
+      {% if product.featured_image %}
+        {{
+          product.featured_image
+          | image_url: width: 1200
+          | image_tag:
+            loading: 'eager',
+            widths: '540, 720, 900, 1200',
+            sizes: '(min-width: 990px) 50vw, 100vw',
+            alt: product.featured_image.alt | default: product.title | escape
+        }}
+      {% else %}
+        <div class="product-card-placeholder large" aria-hidden="true">
+          <span>Guidora</span>
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="product-detail-content">
+      <p class="eyebrow">Guidora Digital Resource</p>
+      <h1>{{ product.title }}</h1>
+      {% if product.price_varies %}
+        <p class="product-price large">From {{ product.price_min | money }}</p>
+      {% else %}
+        <p class="product-price large">{{ product.price | money }}</p>
+      {% endif %}
+
+      {% if product.description != blank %}
+        <div class="rte product-description">
+          {{ product.description }}
+        </div>
+      {% else %}
+        <p class="product-description">More details for this digital resource will be added soon.</p>
+      {% endif %}
+
+      <div class="product-note">
+        <span class="lock">Digital Product</span>
+        <p>Checkout and delivery settings should be reviewed in Shopify before launch.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product details",
+  "settings": []
+}
+{% endschema %}

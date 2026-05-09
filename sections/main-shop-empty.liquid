@@ -1,19 +1,27 @@
 <section class="shop-page">
   <div class="page-intro">
-    <p class="eyebrow">Digital resources coming soon.</p>
+    <p class="eyebrow">Digital resources</p>
     <h1>Guidora Store</h1>
-    <p>The store is being prepared. New digital releases will be added soon.</p>
+    <p>Browse official Guidora releases as they become available.</p>
   </div>
 
-  <div class="vault-card centered" aria-label="Products coming soon">
-    <span class="lock">Digital releases in progress</span>
-    <h2>Products coming soon.</h2>
-    <p>Guidora is preparing its first digital releases. Join the waitlist to be notified when the store opens.</p>
-    <div class="placeholder-grid six" aria-hidden="true">
-      <span></span><span></span><span></span><span></span><span></span><span></span>
+  {% if collection.products_count > 0 %}
+    <div class="product-grid">
+      {% for product in collection.products %}
+        {% render 'product-card', product: product %}
+      {% endfor %}
     </div>
-    <a class="button" href="/pages/contact">Join the Waitlist</a>
-  </div>
+  {% else %}
+    <div class="vault-card centered" aria-label="Products coming soon">
+      <span class="lock">Digital releases in progress</span>
+      <h2>Products coming soon.</h2>
+      <p>Guidora is preparing its first digital releases. Join the waitlist to be notified when the store opens.</p>
+      <div class="placeholder-grid six" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <a class="button" href="/pages/contact">Join the Waitlist</a>
+    </div>
+  {% endif %}
 
   <div class="store-sections compact" aria-label="Prepared empty store sections">
     <div class="empty-section">
@@ -44,7 +52,7 @@
 
 {% schema %}
 {
-  "name": "Empty shop page",
+  "name": "Shop collection",
   "settings": []
 }
 {% endschema %}
