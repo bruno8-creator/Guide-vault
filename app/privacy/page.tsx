@@ -7,10 +7,10 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <PolicyLayout title="Privacy Policy" updated="Editable placeholder for Guidora.">
+    <PolicyLayout title="Privacy Policy" updated="Editable placeholder for Guide Market.">
       <p>
-        This privacy policy is a placeholder for Guidora and should be reviewed before launch.
-        Guidora is currently preparing its store base and does not currently process purchases.
+        This privacy policy is a placeholder for Guide Market and should be reviewed before launch.
+        Guide Market is currently preparing its store base and does not currently process purchases.
       </p>
       <p>
         Future data collection may include contact form submissions, waitlist email addresses,

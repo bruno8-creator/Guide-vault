@@ -21,5 +21,5 @@ export function isShopifyConfigured() {
 // Future Shopify setup:
 // 1. Add Storefront API credentials to environment variables.
 // 2. Create typed product queries in this file.
-// 3. Fetch products only after the Guidora catalog is ready.
+// 3. Fetch products only after the Guide Market catalog is ready.
 // Cart, checkout, pricing, and product rendering are intentionally inactive.

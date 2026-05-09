@@ -1,12 +1,12 @@
-# Guidora
+# Guide Market
 
-Professional ecommerce base for **Guidora**, a premium digital-first store prepared for future digital resources. The GitHub repository name is intended to be `guidevault`.
+Professional ecommerce base for **Guide Market**, a premium digital-first store prepared for future digital resources. The GitHub repository name is intended to be `guidevault`.
 
 No real products, fake products, prices, product cards, reviews, cart logic, or checkout logic are included.
 
 ## Project Overview
 
-Guidora is built as a launch-ready store foundation with a premium dark visual system, animated hero, empty shop state, waitlist section, contact form, legal pages, and a placeholder Shopify integration file.
+Guide Market is built as a launch-ready store foundation with a premium dark visual system, animated hero, empty shop state, waitlist section, contact form, legal pages, and a placeholder Shopify integration file.
 
 ## Tech Stack
 
@@ -37,7 +37,7 @@ Create the repository on GitHub as `guidevault`, then run:
 ```bash
 git remote add origin https://github.com/YOUR_USERNAME/guidevault.git
 git add .
-git commit -m "Initial Guidora ecommerce base"
+git commit -m "Initial Guide Market ecommerce base"
 git branch -M main
 git push -u origin main
 ```
@@ -79,7 +79,7 @@ Then add Storefront API queries in `lib/shopify.ts` and render catalog data only
 
 ## How To Add Products Later
 
-When Guidora is ready to launch products:
+When Guide Market is ready to launch products:
 
 1. Create real products in Shopify.
 2. Add typed product fetchers in `lib/shopify.ts`.
@@ -97,4 +97,4 @@ Update colors and global styling in `styles/globals.css`. Update layout, navigat
 
 ## How To Replace Placeholder Email
 
-The current support email placeholder is `support@guidora.com`. Replace it in `app/contact/page.tsx` and any future policy text before launch.
+The current support email placeholder is `support@guidemarket.com`. Replace it in `app/contact/page.tsx` and any future policy text before launch.

@@ -7,9 +7,9 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <PolicyLayout title="Terms of Service" updated="Editable placeholder for Guidora.">
+    <PolicyLayout title="Terms of Service" updated="Editable placeholder for Guide Market.">
       <p>
-        These terms are a placeholder for Guidora and should be reviewed before the store launches.
+        These terms are a placeholder for Guide Market and should be reviewed before the store launches.
         The website is currently a professional store base for future digital resources.
       </p>
       <p>
@@ -17,7 +17,7 @@ export default function TermsPage() {
         functionality, forms, or future commerce features.
       </p>
       <p>
-        Content, branding, designs, copy, and future resources belong to Guidora unless otherwise
+        Content, branding, designs, copy, and future resources belong to Guide Market unless otherwise
         stated. Future product terms, license details, and usage rights should be added before any
         digital release goes live.
       </p>

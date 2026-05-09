@@ -7,13 +7,13 @@ export const metadata: Metadata = {
 
 export default function RefundPolicyPage() {
   return (
-    <PolicyLayout title="Refund Policy" updated="Editable placeholder for Guidora.">
+    <PolicyLayout title="Refund Policy" updated="Editable placeholder for Guide Market.">
       <p>
         Products are not currently available for purchase. Refund terms will be updated when
         digital products are released.
       </p>
       <p>
-        Guidora is being prepared as a future digital product store. Before launch, this page should
+        Guide Market is being prepared as a future digital product store. Before launch, this page should
         define clear refund eligibility, delivery expectations, support steps, and any exceptions
         that apply to downloadable or access-based resources.
       </p>

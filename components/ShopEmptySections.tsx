@@ -25,7 +25,7 @@ export function ShopEmptySections() {
           <EmptyContentSection
             eyebrow="Top Sells"
             title="Top sells will appear after launch."
-            description="Reserved for real store data once Guidora has active digital releases and verified performance."
+            description="Reserved for real store data once Guide Market has active digital releases and verified performance."
             icon={TrendingUp}
             tiles={6}
           />
@@ -60,7 +60,7 @@ export function ShopEmptySections() {
             Join before the store opens.
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-white/68">
-            Get notified when Guidora publishes its first official digital releases.
+            Get notified when Guide Market publishes its first official digital releases.
           </p>
           <div className="mt-8">
             <WaitlistForm />

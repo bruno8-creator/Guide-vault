@@ -25,10 +25,10 @@ export function EmptyShopState() {
           <Sparkles size={14} />
           Digital releases in progress
         </p>
-        <h1 className="font-display text-4xl text-white sm:text-6xl">Guidora Store</h1>
+        <h1 className="font-display text-4xl text-white sm:text-6xl">Guide Market Store</h1>
         <p className="mt-4 text-xl font-semibold text-white">Products coming soon.</p>
         <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-white/68 sm:text-base">
-          Guidora is preparing its first digital releases. Join the waitlist to be notified
+          Guide Market is preparing its first digital releases. Join the waitlist to be notified
           when the store opens.
         </p>
         <div className="mx-auto mt-8 grid max-w-md grid-cols-3 gap-3 opacity-80">

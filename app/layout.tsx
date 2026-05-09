@@ -15,13 +15,13 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://guidora.com"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://guidemarket.com"),
   title: {
-    default: "Guidora | Premium Digital Resources",
-    template: "%s | Guidora",
+    default: "Guide Market | Premium Digital Resources",
+    template: "%s | Guide Market",
   },
   description:
-    "Guidora is a premium digital brand creating practical digital resources designed for clarity, structure, and action.",
+    "Guide Market is a premium digital brand creating practical digital resources designed for clarity, structure, and action.",
 };
 
 export default function RootLayout({

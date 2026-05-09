@@ -23,7 +23,7 @@ export function Navbar() {
           <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#d8b45b]/35 bg-[#d8b45b]/10 text-sm font-bold text-[#f3d787] shadow-[0_0_34px_rgba(216,180,91,0.18)]">
             G
           </span>
-          <span className="font-display text-xl text-white">Guidora</span>
+          <span className="font-display text-xl text-white">Guide Market</span>
         </Link>
         <div className="hidden items-center gap-8 lg:flex">
           {links.map((link) => (

@@ -81,7 +81,7 @@ export default function Home() {
               Premium digital store base
             </p>
             <h1 className="font-display text-6xl leading-[0.95] text-white sm:text-7xl lg:text-8xl">
-              Guidora
+              Guide Market
             </h1>
             <p className="mt-7 max-w-2xl text-balance text-lg leading-8 text-white/72 sm:text-xl">
               Premium digital resources designed for clarity, structure, and action.
@@ -139,7 +139,7 @@ export default function Home() {
               Built for clarity. Designed for action.
             </h2>
             <p className="mt-5 text-base leading-8 text-white/68">
-              Guidora is being built as a premium home for practical digital resources. The
+              Guide Market is being built as a premium home for practical digital resources. The
               focus is simple: clean design, useful structure, and tools that help people take
               action.
             </p>
@@ -162,7 +162,7 @@ export default function Home() {
             Future Categories
           </p>
           <h2 className="font-display text-4xl text-white sm:text-5xl">
-            What Guidora will offer
+            What Guide Market will offer
           </h2>
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -182,7 +182,7 @@ export default function Home() {
               A better way to access practical digital resources.
             </h2>
             <p className="mt-5 text-base leading-8 text-white/68">
-              Guidora is being designed as a clean, premium digital store where future
+              Guide Market is being designed as a clean, premium digital store where future
               resources will be easy to find, understand, and use.
             </p>
           </div>
@@ -199,7 +199,7 @@ export default function Home() {
             Sections ready for future releases.
           </h2>
           <p className="mt-5 text-base leading-8 text-white/68">
-            Guidora already has premium store areas prepared for future catalog updates, customer
+            Guide Market already has premium store areas prepared for future catalog updates, customer
             feedback, and featured digital resources.
           </p>
         </div>
@@ -207,7 +207,7 @@ export default function Home() {
           <EmptyContentSection
             eyebrow="Top Sells"
             title="Future best-performing resources will appear here."
-            description="This area is reserved for real catalog data once Guidora launches digital releases. No products or sales data are shown yet."
+            description="This area is reserved for real catalog data once Guide Market launches digital releases. No products or sales data are shown yet."
             icon={TrendingUp}
             tiles={6}
           />
@@ -234,7 +234,7 @@ export default function Home() {
             Updates
           </p>
           <h2 className="font-display text-4xl text-white sm:text-5xl">
-            Be first to access Guidora.
+            Be first to access Guide Market.
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-white/68">
             Join the waitlist to receive updates when the first digital releases go live.

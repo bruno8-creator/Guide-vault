@@ -20,7 +20,7 @@ export function Footer() {
             <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#d8b45b]/35 bg-[#d8b45b]/10 text-sm font-bold text-[#f3d787]">
               G
             </span>
-            <span className="font-display text-xl text-white">Guidora</span>
+            <span className="font-display text-xl text-white">Guide Market</span>
           </div>
           <p className="max-w-md text-sm leading-6 text-white/62">
             Premium digital resources designed for clarity, structure, and action.

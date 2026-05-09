@@ -4,9 +4,9 @@ import { SectionWrapper } from "@/components/SectionWrapper";
 import { ShopEmptySections } from "@/components/ShopEmptySections";
 
 export const metadata: Metadata = {
-  title: "Guidora Store | Coming Soon",
+  title: "Guide Market Store | Coming Soon",
   description:
-    "The Guidora store is being prepared. Join the waitlist to be notified when the first digital releases go live.",
+    "The Guide Market store is being prepared. Join the waitlist to be notified when the first digital releases go live.",
 };
 
 export default function ShopPage() {
