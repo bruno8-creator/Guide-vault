@@ -27,12 +27,12 @@ export function Button({
   ...props
 }: ButtonProps) {
   const base =
-    "inline-flex min-h-12 items-center justify-center rounded-full px-6 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-[#d8b45b]/70 focus:ring-offset-2 focus:ring-offset-[#050806]";
+    "inline-flex min-h-12 items-center justify-center rounded-full px-6 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-[#ffb21b]/70 focus:ring-offset-2 focus:ring-offset-[#050806]";
   const variants = {
     primary:
-      "bg-[#d8b45b] text-[#07100c] shadow-[0_18px_50px_rgba(216,180,91,0.28)] hover:bg-[#f3d787]",
+      "bg-[#ffb21b] text-[#07100c] shadow-[0_18px_50px_rgba(255,153,0,0.28)] hover:bg-[#ffca63]",
     secondary:
-      "border border-white/15 bg-white/8 text-white shadow-[0_18px_50px_rgba(15,159,110,0.12)] hover:border-[#d8b45b]/55 hover:bg-white/12",
+      "border border-white/15 bg-white/8 text-white shadow-[0_18px_50px_rgba(18,168,244,0.12)] hover:border-[#ffb21b]/55 hover:bg-white/12",
     ghost: "text-white/78 hover:text-white",
   };
   const classes = `${base} ${variants[variant]} ${className}`;

@@ -27,13 +27,13 @@ export function WaitlistForm() {
         value={email}
         onChange={(event) => setEmail(event.target.value)}
         placeholder="Enter your email"
-        className="min-h-12 flex-1 rounded-full border border-white/14 bg-white/8 px-5 text-white outline-none transition placeholder:text-white/42 focus:border-[#d8b45b]/70 focus:bg-white/10"
+        className="min-h-12 flex-1 rounded-full border border-white/14 bg-white/8 px-5 text-white outline-none transition placeholder:text-white/42 focus:border-[#ffb21b]/70 focus:bg-white/10"
       />
       <Button type="submit" className="sm:min-w-40">
         Join Waitlist
       </Button>
       {submitted ? (
-        <p className="text-center text-sm text-[#93f5cc] sm:absolute sm:mt-16">
+        <p className="text-center text-sm text-[#a9f381] sm:absolute sm:mt-16">
           You are on the early updates list.
         </p>
       ) : null}

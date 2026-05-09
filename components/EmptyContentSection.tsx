@@ -25,13 +25,13 @@ export function EmptyContentSection({
       transition={{ duration: 0.65, ease: "easeOut" }}
       className="glass-panel relative overflow-hidden rounded-lg p-6 sm:p-8"
     >
-      <div className="absolute right-0 top-0 h-40 w-40 rounded-full bg-[#d8b45b]/12 blur-3xl" />
+      <div className="absolute right-0 top-0 h-40 w-40 rounded-full bg-[#ffb21b]/12 blur-3xl" />
       <div className="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
         <div className="max-w-xl">
-          <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg border border-[#d8b45b]/30 bg-[#d8b45b]/10 text-[#f3d787]">
+          <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg border border-[#ffb21b]/30 bg-[#ffb21b]/10 text-[#ffca63]">
             <Icon size={22} />
           </div>
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-[#d8b45b]">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-[#ffb21b]">
             {eyebrow}
           </p>
           <h2 className="font-display text-3xl text-white sm:text-4xl">{title}</h2>
@@ -54,7 +54,7 @@ export function EmptyContentSection({
         </div>
       </div>
 
-      <div className="relative mt-6 inline-flex items-center gap-2 rounded-full border border-[#0f9f6e]/35 bg-[#0f9f6e]/12 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#93f5cc]">
+      <div className="relative mt-6 inline-flex items-center gap-2 rounded-full border border-[#12a8f4]/35 bg-[#12a8f4]/12 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#a9f381]">
         <LockKeyhole size={14} />
         Coming Soon
       </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   BookOpen,
   ClipboardList,
@@ -77,9 +78,17 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, ease: "easeOut" }}
           >
-            <p className="mb-5 inline-flex rounded-full border border-[#d8b45b]/35 bg-[#d8b45b]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#f3d787]">
+            <p className="mb-5 inline-flex rounded-full border border-[#ffb21b]/35 bg-[#ffb21b]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#ffca63]">
               Premium digital store base
             </p>
+            <Image
+              src="/images/guide-market-logo.svg"
+              alt="Guide Market"
+              width={520}
+              height={300}
+              className="mb-6 h-auto w-full max-w-md drop-shadow-[0_24px_55px_rgba(18,168,244,0.2)]"
+              priority
+            />
             <h1 className="font-display text-6xl leading-[0.95] text-white sm:text-7xl lg:text-8xl">
               Guide Market
             </h1>
@@ -96,12 +105,12 @@ export default function Home() {
 
           <div className="relative min-h-[430px]">
             <motion.div
-              className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#d8b45b]/30 bg-[#d8b45b]/10 shadow-[0_0_120px_rgba(216,180,91,0.22)]"
+              className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#ffb21b]/30 bg-[#ffb21b]/10 shadow-[0_0_120px_rgba(255,153,0,0.22)]"
               animate={{ rotate: 360 }}
               transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
             />
             <div className="absolute left-1/2 top-1/2 flex h-44 w-44 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-lg border border-white/12 bg-white/8 text-center backdrop-blur-2xl">
-              <ShieldCheck className="text-[#f3d787]" size={54} />
+              <ShieldCheck className="text-[#ffca63]" size={54} />
             </div>
             {floatingCards.map((label, index) => {
               const positions = [
@@ -132,7 +141,7 @@ export default function Home() {
       <SectionWrapper>
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#d8b45b]">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#ffb21b]">
               Brand Value
             </p>
             <h2 className="font-display text-4xl text-white sm:text-5xl">
@@ -147,7 +156,7 @@ export default function Home() {
           <div className="grid gap-4 sm:grid-cols-3">
             {values.map((value) => (
               <GlowCard key={value.title}>
-                <value.icon className="mb-5 text-[#f3d787]" size={28} />
+                <value.icon className="mb-5 text-[#ffca63]" size={28} />
                 <h3 className="mb-3 text-xl font-semibold text-white">{value.title}</h3>
                 <p className="text-sm leading-6 text-white/64">{value.text}</p>
               </GlowCard>
@@ -158,7 +167,7 @@ export default function Home() {
 
       <SectionWrapper>
         <div className="mb-10 max-w-2xl">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#d8b45b]">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#ffb21b]">
             Future Categories
           </p>
           <h2 className="font-display text-4xl text-white sm:text-5xl">
@@ -175,7 +184,7 @@ export default function Home() {
       <SectionWrapper>
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
           <div>
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#d8b45b]">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#ffb21b]">
               Store Preview
             </p>
             <h2 className="font-display text-4xl text-white sm:text-5xl">
@@ -192,7 +201,7 @@ export default function Home() {
 
       <SectionWrapper>
         <div className="mb-10 max-w-2xl">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#d8b45b]">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#ffb21b]">
             Store Areas
           </p>
           <h2 className="font-display text-4xl text-white sm:text-5xl">
@@ -230,7 +239,7 @@ export default function Home() {
 
       <SectionWrapper id="waitlist" className="pb-24">
         <div className="glass-panel mx-auto max-w-4xl rounded-lg px-6 py-12 text-center sm:px-10">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#d8b45b]">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#ffb21b]">
             Updates
           </p>
           <h2 className="font-display text-4xl text-white sm:text-5xl">

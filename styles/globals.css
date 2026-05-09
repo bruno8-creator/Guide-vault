@@ -3,10 +3,13 @@
 :root {
   --background: #050806;
   --foreground: #f7f5ed;
-  --emerald: #0f9f6e;
-  --emerald-deep: #063f31;
-  --gold: #d8b45b;
-  --gold-soft: #f3d787;
+  --blue: #0a62c7;
+  --blue-bright: #12a8f4;
+  --green: #1f8f37;
+  --green-bright: #65cf3b;
+  --orange: #ff9900;
+  --gold: #ffb21b;
+  --gold-soft: #ffca63;
   --glass: rgba(255, 255, 255, 0.075);
 }
 
@@ -23,9 +26,10 @@ body {
   margin: 0;
   color: var(--foreground);
   background:
-    radial-gradient(circle at 15% 0%, rgba(15, 159, 110, 0.24), transparent 34rem),
-    radial-gradient(circle at 85% 10%, rgba(216, 180, 91, 0.18), transparent 30rem),
-    linear-gradient(135deg, #030504 0%, #07100c 44%, #0d120d 100%);
+    radial-gradient(circle at 15% 0%, rgba(18, 168, 244, 0.22), transparent 34rem),
+    radial-gradient(circle at 72% 12%, rgba(101, 207, 59, 0.16), transparent 30rem),
+    radial-gradient(circle at 90% 10%, rgba(255, 153, 0, 0.14), transparent 28rem),
+    linear-gradient(135deg, #020406 0%, #06111b 46%, #071109 100%);
   font-family: var(--font-inter), Arial, Helvetica, sans-serif;
 }
 

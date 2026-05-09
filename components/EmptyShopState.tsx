@@ -13,15 +13,15 @@ export function EmptyShopState() {
       className="glass-panel relative mx-auto max-w-4xl overflow-hidden rounded-lg p-8 text-center sm:p-12"
     >
       <motion.div
-        className="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-[#0f9f6e]/24 blur-3xl"
+        className="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-[#12a8f4]/24 blur-3xl"
         animate={{ scale: [1, 1.18, 1], opacity: [0.4, 0.78, 0.4] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
       />
-      <div className="relative mx-auto mb-7 flex h-24 w-24 items-center justify-center rounded-lg border border-[#d8b45b]/35 bg-[#d8b45b]/10 shadow-[0_0_80px_rgba(216,180,91,0.18)]">
-        <LockKeyhole className="text-[#f3d787]" size={42} />
+      <div className="relative mx-auto mb-7 flex h-24 w-24 items-center justify-center rounded-lg border border-[#ffb21b]/35 bg-[#ffb21b]/10 shadow-[0_0_80px_rgba(255,153,0,0.18)]">
+        <LockKeyhole className="text-[#ffca63]" size={42} />
       </div>
       <div className="relative">
-        <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#0f9f6e]/35 bg-[#0f9f6e]/12 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#93f5cc]">
+        <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#12a8f4]/35 bg-[#12a8f4]/12 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#a9f381]">
           <Sparkles size={14} />
           Digital releases in progress
         </p>

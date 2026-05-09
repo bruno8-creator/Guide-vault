@@ -13,7 +13,7 @@ export function PolicyLayout({
   return (
     <SectionWrapper className="pt-32">
       <div className="mx-auto max-w-3xl">
-        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#d8b45b]">
+        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#ffb21b]">
           Guide Market
         </p>
         <h1 className="font-display text-4xl text-white sm:text-6xl">{title}</h1>

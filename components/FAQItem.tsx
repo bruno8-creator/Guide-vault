@@ -16,7 +16,7 @@ export function FAQItem({ question, answer }: { question: string; answer: string
       >
         <span className="font-semibold text-white">{question}</span>
         <ChevronDown
-          className={`shrink-0 text-[#d8b45b] transition ${open ? "rotate-180" : ""}`}
+          className={`shrink-0 text-[#ffb21b] transition ${open ? "rotate-180" : ""}`}
           size={20}
         />
       </button>

@@ -18,7 +18,7 @@ export function ContactForm() {
           Name
           <input
             required
-            className="min-h-12 rounded-lg border border-white/12 bg-white/8 px-4 text-white outline-none transition focus:border-[#d8b45b]/70"
+            className="min-h-12 rounded-lg border border-white/12 bg-white/8 px-4 text-white outline-none transition focus:border-[#ffb21b]/70"
           />
         </label>
         <label className="grid gap-2 text-sm text-white/72">
@@ -26,7 +26,7 @@ export function ContactForm() {
           <input
             required
             type="email"
-            className="min-h-12 rounded-lg border border-white/12 bg-white/8 px-4 text-white outline-none transition focus:border-[#d8b45b]/70"
+            className="min-h-12 rounded-lg border border-white/12 bg-white/8 px-4 text-white outline-none transition focus:border-[#ffb21b]/70"
           />
         </label>
       </div>
@@ -35,13 +35,13 @@ export function ContactForm() {
         <textarea
           required
           rows={6}
-          className="resize-none rounded-lg border border-white/12 bg-white/8 px-4 py-3 text-white outline-none transition focus:border-[#d8b45b]/70"
+          className="resize-none rounded-lg border border-white/12 bg-white/8 px-4 py-3 text-white outline-none transition focus:border-[#ffb21b]/70"
         />
       </label>
       <Button type="submit" className="w-full sm:w-fit">
         Submit
       </Button>
-      {sent ? <p className="text-sm text-[#93f5cc]">Message ready for future form handling.</p> : null}
+      {sent ? <p className="text-sm text-[#a9f381]">Message ready for future form handling.</p> : null}
     </form>
   );
 }

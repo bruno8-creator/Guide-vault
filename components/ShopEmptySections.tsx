@@ -10,7 +10,7 @@ export function ShopEmptySections() {
     <>
       <SectionWrapper className="pt-0">
         <div className="mb-10 max-w-3xl">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#d8b45b]">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#ffb21b]">
             Store Layout
           </p>
           <h2 className="font-display text-4xl text-white sm:text-5xl">
@@ -55,7 +55,7 @@ export function ShopEmptySections() {
 
       <SectionWrapper className="pt-0">
         <div className="glass-panel mx-auto max-w-4xl rounded-lg px-6 py-12 text-center sm:px-10">
-          <Sparkles className="mx-auto mb-5 text-[#f3d787]" size={32} />
+          <Sparkles className="mx-auto mb-5 text-[#ffca63]" size={32} />
           <h2 className="font-display text-4xl text-white sm:text-5xl">
             Join before the store opens.
           </h2>

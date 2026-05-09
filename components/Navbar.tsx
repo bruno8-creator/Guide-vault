@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "./Button";
@@ -20,10 +21,14 @@ export function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/8 bg-[#050806]/72 backdrop-blur-2xl">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-          <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#d8b45b]/35 bg-[#d8b45b]/10 text-sm font-bold text-[#f3d787] shadow-[0_0_34px_rgba(216,180,91,0.18)]">
-            G
-          </span>
-          <span className="font-display text-xl text-white">Guide Market</span>
+          <Image
+            src="/images/guide-market-logo.svg"
+            alt="Guide Market"
+            width={220}
+            height={127}
+            className="h-12 w-auto drop-shadow-[0_12px_28px_rgba(18,168,244,0.16)]"
+            priority
+          />
         </Link>
         <div className="hidden items-center gap-8 lg:flex">
           {links.map((link) => (

@@ -14,7 +14,7 @@ export default function ShopPage() {
     <>
       <SectionWrapper className="pt-32">
         <div className="mb-10 text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#d8b45b]">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#ffb21b]">
             Digital resources coming soon.
           </p>
           <p className="mx-auto max-w-2xl text-sm leading-7 text-white/64">

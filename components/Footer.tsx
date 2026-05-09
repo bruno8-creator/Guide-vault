@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const footerLinks = [
   { href: "/", label: "Home" },
@@ -17,15 +18,18 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.2fr_1fr] lg:px-8">
         <div>
           <div className="mb-4 flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#d8b45b]/35 bg-[#d8b45b]/10 text-sm font-bold text-[#f3d787]">
-              G
-            </span>
-            <span className="font-display text-xl text-white">Guide Market</span>
+            <Image
+              src="/images/guide-market-logo.svg"
+              alt="Guide Market"
+              width={260}
+              height={150}
+              className="h-20 w-auto drop-shadow-[0_14px_32px_rgba(18,168,244,0.14)]"
+            />
           </div>
           <p className="max-w-md text-sm leading-6 text-white/62">
             Premium digital resources designed for clarity, structure, and action.
           </p>
-          <p className="mt-5 text-sm font-semibold text-[#d8b45b]">Products coming soon.</p>
+          <p className="mt-5 text-sm font-semibold text-[#ffb21b]">Products coming soon.</p>
         </div>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
           {footerLinks.map((link) => (
