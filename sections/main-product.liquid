@@ -1,16 +1,71 @@
 <section class="product-page">
   <div class="product-detail">
-    <div class="product-detail-media">
-      {% if product.featured_image %}
-        {{
-          product.featured_image
-          | image_url: width: 1200
-          | image_tag:
-            loading: 'eager',
-            widths: '540, 720, 900, 1200',
-            sizes: '(min-width: 990px) 50vw, 100vw',
-            alt: product.featured_image.alt | default: product.title | escape
-        }}
+    <div class="product-gallery">
+      {% if product.media.size > 0 %}
+        <div class="product-main-media">
+          {% for media in product.media %}
+            <div class="product-media-item{% if forloop.first %} active{% endif %}" id="Media-{{ media.id }}">
+              {% case media.media_type %}
+                {% when 'image' %}
+                  {% assign media_loading = 'lazy' %}
+                  {% if forloop.first %}
+                    {% assign media_loading = 'eager' %}
+                  {% endif %}
+                  {{
+                    media
+                    | image_url: width: 1400
+                    | image_tag:
+                      loading: media_loading,
+                      widths: '540, 720, 900, 1200, 1400',
+                      sizes: '(min-width: 990px) 50vw, 100vw',
+                      alt: media.alt | default: product.title | escape
+                  }}
+                {% when 'video' %}
+                  {{ media | video_tag: controls: true, image_size: '1200x' }}
+                {% when 'external_video' %}
+                  {{ media | external_video_tag }}
+                {% when 'model' %}
+                  {{ media | model_viewer_tag }}
+              {% endcase %}
+            </div>
+          {% endfor %}
+        </div>
+
+        {% if product.media.size > 1 %}
+          <div class="product-thumbnails" aria-label="Product media">
+            {% for media in product.media %}
+              <a href="#Media-{{ media.id }}" class="product-thumbnail{% if forloop.first %} active{% endif %}">
+                {% if media.preview_image %}
+                  {{
+                    media.preview_image
+                    | image_url: width: 220
+                    | image_tag:
+                      loading: 'lazy',
+                      widths: '120, 180, 220',
+                      sizes: '90px',
+                      alt: media.alt | default: product.title | escape
+                  }}
+                {% else %}
+                  <span>{{ media.media_type }}</span>
+                {% endif %}
+              </a>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% elsif product.featured_image %}
+        <div class="product-main-media">
+          <div class="product-media-item active">
+            {{
+              product.featured_image
+              | image_url: width: 1200
+              | image_tag:
+                loading: 'eager',
+                widths: '540, 720, 900, 1200',
+                sizes: '(min-width: 990px) 50vw, 100vw',
+                alt: product.featured_image.alt | default: product.title | escape
+            }}
+          </div>
+        </div>
       {% else %}
         <div class="product-card-placeholder large" aria-hidden="true">
           <span>Guidora</span>
@@ -27,6 +82,27 @@
         <p class="product-price large">{{ product.price | money }}</p>
       {% endif %}
 
+      {% if product.variants.size > 1 %}
+        <div class="variant-panel">
+          <label for="ProductVariantSelect">Choose version</label>
+          <select id="ProductVariantSelect" class="variant-select" name="id">
+            {% for variant in product.variants %}
+              <option
+                value="{{ variant.id }}"
+                data-price="{{ variant.price | money }}"
+                data-available="{{ variant.available }}"
+                {% if variant == product.selected_or_first_available_variant %}selected{% endif %}
+              >
+                {{ variant.title }}{% unless variant.available %} - Unavailable{% endunless %}
+              </option>
+            {% endfor %}
+          </select>
+          <p class="variant-help">
+            Versions are managed in Shopify Admin. If you added Spanish as a variant, it will appear here automatically.
+          </p>
+        </div>
+      {% endif %}
+
       {% if product.description != blank %}
         <div class="rte product-description">
           {{ product.description }}
@@ -37,11 +113,26 @@
 
       <div class="product-note">
         <span class="lock">Digital Product</span>
-        <p>Checkout and delivery settings should be reviewed in Shopify before launch.</p>
+        <p>Digital delivery and checkout settings should be reviewed in Shopify before launch.</p>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var select = document.getElementById('ProductVariantSelect');
+    var price = document.querySelector('.product-price.large');
+    if (!select || !price) return;
+
+    select.addEventListener('change', function () {
+      var selected = select.options[select.selectedIndex];
+      if (selected && selected.dataset.price) {
+        price.textContent = selected.dataset.price;
+      }
+    });
+  });
+</script>
 
 {% schema %}
 {
