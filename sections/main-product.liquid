@@ -34,7 +34,12 @@
         {% if product.media.size > 1 %}
           <div class="product-thumbnails" aria-label="Product media">
             {% for media in product.media %}
-              <a href="#Media-{{ media.id }}" class="product-thumbnail{% if forloop.first %} active{% endif %}">
+              <button
+                type="button"
+                class="product-thumbnail{% if forloop.first %} active{% endif %}"
+                data-media-target="Media-{{ media.id }}"
+                aria-label="Show product media {{ forloop.index }}"
+              >
                 {% if media.preview_image %}
                   {{
                     media.preview_image
@@ -48,7 +53,7 @@
                 {% else %}
                   <span>{{ media.media_type }}</span>
                 {% endif %}
-              </a>
+              </button>
             {% endfor %}
           </div>
         {% endif %}
@@ -123,13 +128,33 @@
   document.addEventListener('DOMContentLoaded', function () {
     var select = document.getElementById('ProductVariantSelect');
     var price = document.querySelector('.product-price.large');
-    if (!select || !price) return;
 
-    select.addEventListener('change', function () {
-      var selected = select.options[select.selectedIndex];
-      if (selected && selected.dataset.price) {
-        price.textContent = selected.dataset.price;
-      }
+    if (select && price) {
+      select.addEventListener('change', function () {
+        var selected = select.options[select.selectedIndex];
+        if (selected && selected.dataset.price) {
+          price.textContent = selected.dataset.price;
+        }
+      });
+    }
+
+    var thumbnails = document.querySelectorAll('[data-media-target]');
+    thumbnails.forEach(function (thumbnail) {
+      thumbnail.addEventListener('click', function () {
+        var targetId = thumbnail.getAttribute('data-media-target');
+        var target = document.getElementById(targetId);
+        if (!target) return;
+
+        document.querySelectorAll('.product-media-item').forEach(function (item) {
+          item.classList.remove('active');
+        });
+        document.querySelectorAll('.product-thumbnail').forEach(function (item) {
+          item.classList.remove('active');
+        });
+
+        target.classList.add('active');
+        thumbnail.classList.add('active');
+      });
     });
   });
 </script>
