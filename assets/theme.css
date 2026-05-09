@@ -1,0 +1,241 @@
+:root {
+  --bg: #050806;
+  --text: #f7f5ed;
+  --muted: rgba(247, 245, 237, 0.68);
+  --emerald: #0f9f6e;
+  --gold: #d8b45b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 15% 0%, rgba(15, 159, 110, 0.26), transparent 32rem),
+    radial-gradient(circle at 86% 12%, rgba(216, 180, 91, 0.18), transparent 28rem),
+    linear-gradient(135deg, #030504, #07100c 52%, #0d120d);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 10;
+}
+
+.site-header,
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.25rem clamp(1rem, 4vw, 4rem);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.site-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(5, 8, 6, 0.78);
+  backdrop-filter: blur(18px);
+}
+
+.brand,
+.nav,
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.brand-mark {
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  border: 1px solid rgba(216, 180, 91, 0.42);
+  border-radius: 0.5rem;
+  color: #f3d787;
+  background: rgba(216, 180, 91, 0.1);
+}
+
+.nav a {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  min-height: 78vh;
+  grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.8fr);
+  gap: 3rem;
+  align-items: center;
+  overflow: hidden;
+  padding: clamp(4rem, 10vw, 8rem) clamp(1rem, 4vw, 4rem);
+}
+
+.glow {
+  position: absolute;
+  width: 22rem;
+  height: 22rem;
+  border-radius: 999px;
+  filter: blur(70px);
+  opacity: 0.58;
+}
+
+.glow-emerald {
+  left: -7rem;
+  top: 4rem;
+  background: rgba(15, 159, 110, 0.35);
+}
+
+.glow-gold {
+  right: -6rem;
+  top: 5rem;
+  background: rgba(216, 180, 91, 0.28);
+}
+
+.hero-content,
+.vault-card,
+.page-section {
+  position: relative;
+}
+
+.eyebrow,
+.coming-soon {
+  color: #f3d787;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(3.8rem, 11vw, 8rem);
+  line-height: 0.95;
+}
+
+.lede {
+  max-width: 42rem;
+  color: var(--muted);
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  line-height: 1.7;
+}
+
+.button {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.8rem 1.25rem;
+  color: #07100c;
+  background: var(--gold);
+  font-weight: 800;
+  box-shadow: 0 18px 50px rgba(216, 180, 91, 0.22);
+}
+
+.button.secondary {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.vault-card,
+.page-section {
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 0.7rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.04));
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+  backdrop-filter: blur(22px);
+}
+
+.vault-card {
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.vault-card h2 {
+  margin: 1rem 0;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+}
+
+.vault-card p,
+.page-section p,
+.site-footer p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.lock {
+  display: inline-flex;
+  border: 1px solid rgba(15, 159, 110, 0.38);
+  border-radius: 999px;
+  padding: 0.4rem 0.75rem;
+  color: #93f5cc;
+  background: rgba(15, 159, 110, 0.12);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.page-section {
+  max-width: 56rem;
+  margin: 5rem auto;
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+.page-section h1 {
+  margin-bottom: 1.5rem;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+}
+
+.site-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-brand {
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 760px) {
+  .site-header,
+  .site-footer,
+  .hero {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+  }
+
+  .hero {
+    display: flex;
+  }
+
+  .actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}

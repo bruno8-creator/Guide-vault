@@ -1,0 +1,18 @@
+<header class="site-header">
+  <a class="brand" href="{{ routes.root_url }}" aria-label="{{ shop.name | escape }}">
+    <span class="brand-mark">G</span>
+    <span>Guidora</span>
+  </a>
+  <nav class="nav" aria-label="Main navigation">
+    <a href="{{ routes.root_url }}">Home</a>
+    <a href="/pages/about">About</a>
+    <a href="/pages/contact">Contact</a>
+  </nav>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": []
+}
+{% endschema %}
