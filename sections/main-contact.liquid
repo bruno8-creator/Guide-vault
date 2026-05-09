@@ -1,0 +1,33 @@
+<section class="page-section">
+  <p class="eyebrow">Contact</p>
+  <h1>Contact Guidora</h1>
+  <p>Use the form below to contact Guidora or join the waitlist for future digital releases.</p>
+  <p>Support email placeholder: <strong>support@guidora.com</strong></p>
+
+  {% form 'contact', class: 'contact-form' %}
+    {% if form.posted_successfully? %}
+      <p class="form-success">Thanks. Your message has been sent.</p>
+    {% endif %}
+    {{ form.errors | default_errors }}
+    <label>
+      Name
+      <input type="text" name="contact[name]" required>
+    </label>
+    <label>
+      Email
+      <input type="email" name="contact[email]" required>
+    </label>
+    <label>
+      Message
+      <textarea name="contact[body]" rows="6" required></textarea>
+    </label>
+    <button class="button" type="submit">Submit</button>
+  {% endform %}
+</section>
+
+{% schema %}
+{
+  "name": "Contact",
+  "settings": []
+}
+{% endschema %}

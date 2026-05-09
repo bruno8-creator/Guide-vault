@@ -54,7 +54,8 @@ a {
 
 .brand,
 .nav,
-.actions {
+.actions,
+.footer-links {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -79,6 +80,14 @@ a {
 .nav a {
   color: var(--muted);
   font-size: 0.95rem;
+}
+
+.nav-cta {
+  border: 1px solid rgba(216, 180, 91, 0.35);
+  border-radius: 999px;
+  padding: 0.55rem 0.9rem;
+  color: #f3d787 !important;
+  background: rgba(216, 180, 91, 0.1);
 }
 
 .hero {
@@ -116,7 +125,9 @@ a {
 .hero-content,
 .vault-card,
 .page-section,
-.store-sections {
+.store-sections,
+.content-band,
+.shop-page {
   position: relative;
 }
 
@@ -164,7 +175,8 @@ h1 {
 .vault-card,
 .page-section,
 .empty-section,
-.waitlist-panel {
+.waitlist-panel,
+.info-card {
   border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 0.7rem;
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.04));
@@ -176,6 +188,17 @@ h1 {
   padding: clamp(1.5rem, 4vw, 2.5rem);
 }
 
+.vault-card.centered {
+  max-width: 62rem;
+  margin: 0 auto clamp(3rem, 6vw, 5rem);
+  text-align: center;
+}
+
+.vault-card.centered .placeholder-grid {
+  max-width: 34rem;
+  margin: 2rem auto;
+}
+
 .vault-card h2 {
   margin: 1rem 0;
   font-size: clamp(2rem, 5vw, 3.6rem);
@@ -183,7 +206,9 @@ h1 {
 
 .vault-card p,
 .page-section p,
-.site-footer p {
+.site-footer p,
+.info-card p,
+.page-intro p {
   color: var(--muted);
   line-height: 1.7;
 }
@@ -212,10 +237,19 @@ h1 {
   font-size: clamp(2.5rem, 8vw, 5rem);
 }
 
+.content-band,
+.shop-page {
+  padding: clamp(3rem, 7vw, 6rem) clamp(1rem, 4vw, 4rem);
+}
+
 .store-sections {
   display: grid;
   gap: 1rem;
   padding: 0 clamp(1rem, 4vw, 4rem) clamp(4rem, 8vw, 7rem);
+}
+
+.store-sections.compact {
+  padding: 0;
 }
 
 .section-heading {
@@ -235,6 +269,30 @@ h1 {
 .waitlist-panel p {
   color: var(--muted);
   line-height: 1.7;
+}
+
+.card-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.card-grid.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.card-grid.four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.info-card {
+  position: relative;
+  overflow: hidden;
+  padding: 1.5rem;
+}
+
+.info-card h3 {
+  margin: 0.8rem 0;
+  font-size: 1.4rem;
 }
 
 .empty-section {
@@ -302,13 +360,75 @@ h1 {
   margin-top: 1rem;
 }
 
+.page-intro {
+  max-width: 52rem;
+  margin: 0 auto clamp(2rem, 5vw, 4rem);
+  text-align: center;
+}
+
+.page-intro h1 {
+  margin: 0;
+}
+
+.faq-page details {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.55rem;
+  margin-top: 0.8rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.faq-page summary {
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.contact-form {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.contact-form label {
+  display: grid;
+  gap: 0.45rem;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 0.55rem;
+  padding: 0.85rem 1rem;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.075);
+}
+
+.form-success {
+  color: #93f5cc !important;
+}
+
 .site-footer {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+  align-items: flex-start;
 }
 
 .footer-brand {
   font-weight: 800;
   font-size: 1.2rem;
+}
+
+.footer-links {
+  max-width: 30rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.footer-links a {
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 @media (max-width: 760px) {
@@ -329,6 +449,15 @@ h1 {
 
   .empty-section {
     grid-template-columns: 1fr;
+  }
+
+  .card-grid.three,
+  .card-grid.four {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-links {
+    justify-content: flex-start;
   }
 
   .actions {
