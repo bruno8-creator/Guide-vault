@@ -115,7 +115,8 @@ a {
 
 .hero-content,
 .vault-card,
-.page-section {
+.page-section,
+.store-sections {
   position: relative;
 }
 
@@ -161,7 +162,9 @@ h1 {
 }
 
 .vault-card,
-.page-section {
+.page-section,
+.empty-section,
+.waitlist-panel {
   border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 0.7rem;
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.04));
@@ -209,6 +212,96 @@ h1 {
   font-size: clamp(2.5rem, 8vw, 5rem);
 }
 
+.store-sections {
+  display: grid;
+  gap: 1rem;
+  padding: 0 clamp(1rem, 4vw, 4rem) clamp(4rem, 8vw, 7rem);
+}
+
+.section-heading {
+  max-width: 48rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-heading h2,
+.waitlist-panel h2 {
+  margin: 0;
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  line-height: 1;
+}
+
+.section-heading p,
+.empty-section p,
+.waitlist-panel p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.empty-section {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 26rem);
+  gap: 2rem;
+  align-items: center;
+  overflow: hidden;
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.empty-section::before,
+.waitlist-panel::before {
+  position: absolute;
+  inset: -8rem auto auto 55%;
+  width: 18rem;
+  height: 18rem;
+  border-radius: 999px;
+  background: rgba(216, 180, 91, 0.12);
+  filter: blur(70px);
+  content: "";
+}
+
+.empty-section h3 {
+  position: relative;
+  margin: 0;
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+}
+
+.placeholder-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.placeholder-grid span {
+  min-height: 6.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.55rem;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.025)),
+    rgba(255, 255, 255, 0.035);
+}
+
+.placeholder-grid.six span {
+  min-height: 5.7rem;
+}
+
+.empty-section .lock {
+  position: relative;
+  width: fit-content;
+}
+
+.waitlist-panel {
+  position: relative;
+  overflow: hidden;
+  margin-top: 1rem;
+  padding: clamp(2rem, 5vw, 3rem);
+  text-align: center;
+}
+
+.waitlist-panel .button {
+  margin-top: 1rem;
+}
+
 .site-footer {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -232,6 +325,10 @@ h1 {
 
   .hero {
     display: flex;
+  }
+
+  .empty-section {
+    grid-template-columns: 1fr;
   }
 
   .actions {
