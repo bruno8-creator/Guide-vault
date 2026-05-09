@@ -87,7 +87,7 @@
         <p class="product-price large">{{ product.price | money }}</p>
       {% endif %}
 
-      {% if product.variants.size > 1 %}
+      {% form 'product', product, class: 'purchase-panel' %}
         <div class="variant-panel">
           <label for="ProductVariantSelect">Choose version</label>
           <select id="ProductVariantSelect" class="variant-select" name="id">
@@ -103,10 +103,35 @@
             {% endfor %}
           </select>
           <p class="variant-help">
-            Versions are managed in Shopify Admin. If you added Spanish as a variant, it will appear here automatically.
+            Choose the language/version you want before adding it to cart.
           </p>
         </div>
-      {% endif %}
+
+        <div class="quantity-row">
+          <label for="ProductQuantity">Quantity</label>
+          <input id="ProductQuantity" type="number" name="quantity" value="1" min="1">
+        </div>
+
+        <div class="purchase-actions">
+          <button
+            id="AddToCartButton"
+            class="button buy-button"
+            type="submit"
+            {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}
+          >
+            Add to cart
+          </button>
+          <a class="button secondary" href="{{ routes.cart_url }}">Go to cart</a>
+        </div>
+
+        <p id="VariantAvailability" class="variant-help">
+          {% if product.selected_or_first_available_variant.available %}
+            Available now.
+          {% else %}
+            This version is currently unavailable.
+          {% endif %}
+        </p>
+      {% endform %}
 
       {% if product.description != blank %}
         <div class="rte product-description">
@@ -134,6 +159,16 @@
         var selected = select.options[select.selectedIndex];
         if (selected && selected.dataset.price) {
           price.textContent = selected.dataset.price;
+        }
+        var addButton = document.getElementById('AddToCartButton');
+        var availability = document.getElementById('VariantAvailability');
+        var available = selected && selected.dataset.available === 'true';
+        if (addButton) {
+          addButton.disabled = !available;
+          addButton.textContent = available ? 'Add to cart' : 'Unavailable';
+        }
+        if (availability) {
+          availability.textContent = available ? 'Available now.' : 'This version is currently unavailable.';
         }
       });
     }
