@@ -21,14 +21,16 @@
 {% if featured_product == blank %}
   {% assign featured_product = all_products['stop-being-broke'] %}
 {% endif %}
+{% if featured_product == blank and collections['home-page'].products_count > 0 %}
+  {% assign featured_product = collections['home-page'].products.first %}
+{% endif %}
 <section class="content-band featured-product-band">
   <div class="section-heading">
     <p class="eyebrow">Featured Release</p>
     <h2>Now added to Guidora.</h2>
     <p>
-      This section pulls from the real Shopify product with the handle
-      <strong>producto-digital</strong>. If the product is unpublished, Shopify will keep this
-      area in a safe placeholder state.
+      This section pulls from your real Shopify product. It checks the public product handle and
+      the Home page collection shown in Shopify Admin.
     </p>
   </div>
 

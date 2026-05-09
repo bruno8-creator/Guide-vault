@@ -3,6 +3,10 @@
   {% if featured_product == blank %}
     {% assign featured_product = all_products['stop-being-broke'] %}
   {% endif %}
+  {% assign home_collection = collections['home-page'] %}
+  {% if featured_product == blank and home_collection.products_count > 0 %}
+    {% assign featured_product = home_collection.products.first %}
+  {% endif %}
   <div class="page-intro">
     <p class="eyebrow">Digital resources</p>
     <h1>Guidora Store</h1>
@@ -12,6 +16,12 @@
   {% if collection.products_count > 0 %}
     <div class="product-grid">
       {% for product in collection.products %}
+        {% render 'product-card', product: product %}
+      {% endfor %}
+    </div>
+  {% elsif home_collection.products_count > 0 %}
+    <div class="product-grid">
+      {% for product in home_collection.products %}
         {% render 'product-card', product: product %}
       {% endfor %}
     </div>
