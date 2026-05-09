@@ -1,10 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BookOpen, ClipboardList, FileText, Gem, Layers3, ShieldCheck, Sparkles, Wand2 } from "lucide-react";
+import {
+  BookOpen,
+  ClipboardList,
+  FileText,
+  Gem,
+  Layers3,
+  MessageSquareQuote,
+  ShieldCheck,
+  Sparkles,
+  Star,
+  TrendingUp,
+  Wand2,
+} from "lucide-react";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
 import { Button } from "@/components/Button";
 import { CategoryCard } from "@/components/CategoryCard";
+import { EmptyContentSection } from "@/components/EmptyContentSection";
 import { GlowCard } from "@/components/GlowCard";
 import { SectionWrapper } from "@/components/SectionWrapper";
 import { StorePreview } from "@/components/StorePreview";
@@ -174,6 +187,44 @@ export default function Home() {
             </p>
           </div>
           <StorePreview />
+        </div>
+      </SectionWrapper>
+
+      <SectionWrapper>
+        <div className="mb-10 max-w-2xl">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#d8b45b]">
+            Store Areas
+          </p>
+          <h2 className="font-display text-4xl text-white sm:text-5xl">
+            Sections ready for future releases.
+          </h2>
+          <p className="mt-5 text-base leading-8 text-white/68">
+            Guidora already has premium store areas prepared for future catalog updates, customer
+            feedback, and featured digital resources.
+          </p>
+        </div>
+        <div className="grid gap-4">
+          <EmptyContentSection
+            eyebrow="Top Sells"
+            title="Future best-performing resources will appear here."
+            description="This area is reserved for real catalog data once Guidora launches digital releases. No products or sales data are shown yet."
+            icon={TrendingUp}
+            tiles={6}
+          />
+          <EmptyContentSection
+            eyebrow="Reviews"
+            title="Real customer feedback will live here."
+            description="Reviews are intentionally empty until real customers can share verified feedback after future releases go live."
+            icon={MessageSquareQuote}
+            tiles={3}
+          />
+          <EmptyContentSection
+            eyebrow="Featured"
+            title="Curated highlights are ready for launch."
+            description="This section is prepared for future featured resources, launch collections, or editorial picks without using placeholder products."
+            icon={Star}
+            tiles={4}
+          />
         </div>
       </SectionWrapper>
 
