@@ -10,7 +10,7 @@
   <div class="page-intro">
     <p class="eyebrow">Digital resources</p>
     <h1>Guide Market Store</h1>
-    <p>Browse official Guide Market releases as they become available.</p>
+    <p>Browse official Guide Market digital resources.</p>
   </div>
 
   {% if collection.products_count > 0 %}
@@ -31,41 +31,41 @@
         {% render 'product-card', product: featured_product %}
       </div>
     {% else %}
-      <div class="vault-card centered" aria-label="Products coming soon">
-        <span class="lock">Digital releases in progress</span>
-        <h2>Products coming soon.</h2>
-        <p>Guide Market is preparing its first digital releases. Join the waitlist to be notified when the store opens.</p>
+      <div class="vault-card centered" aria-label="Guide Market products">
+        <span class="lock">Store catalog</span>
+        <h2>Add your product to the Online Store channel.</h2>
+        <p>Once Stop Being Broke is published in Shopify, it will appear here automatically.</p>
         <div class="placeholder-grid six" aria-hidden="true">
           <span></span><span></span><span></span><span></span><span></span><span></span>
         </div>
-        <a class="button" href="/pages/contact">Join the Waitlist</a>
+        <a class="button" href="{{ routes.root_url }}">Back to home</a>
       </div>
     {% endif %}
   {% endif %}
 
-  <div class="store-sections compact" aria-label="Prepared empty store sections">
+  <div class="store-sections compact" aria-label="Store sections">
     <div class="empty-section">
       <div>
-        <p class="eyebrow">Top Sells</p>
-        <h3>Top sells will appear after launch.</h3>
-        <p>Reserved for real store data once Guide Market has active digital releases and verified performance.</p>
+        <p class="eyebrow">Top Sales</p>
+        <h3>Featured digital resource.</h3>
+        <p>The current storefront keeps attention on the main product.</p>
       </div>
       <div class="placeholder-grid six" aria-hidden="true">
         <span></span><span></span><span></span><span></span><span></span><span></span>
       </div>
-      <span class="lock">Coming Soon</span>
+      <span class="lock">Active section</span>
     </div>
 
     <div class="empty-section">
       <div>
         <p class="eyebrow">Reviews</p>
-        <h3>Verified reviews are coming later.</h3>
-        <p>Customer feedback will be shown only after real purchases or verified product experiences exist.</p>
+        <h3>Customer notes and feedback.</h3>
+        <p>Use this area for verified customer reviews as they arrive.</p>
       </div>
       <div class="placeholder-grid" aria-hidden="true">
         <span></span><span></span><span></span>
       </div>
-      <span class="lock">Coming Soon</span>
+      <span class="lock">Review area</span>
     </div>
   </div>
 </section>

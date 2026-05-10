@@ -1,195 +1,133 @@
-<section class="hero" data-brand="Guide Market">
+{% assign featured_product = all_products['stop-being-broke'] %}
+{% if featured_product == blank %}
+  {% assign featured_product = all_products['producto-digital'] %}
+{% endif %}
+{% if featured_product == blank and collections['home-page'].products_count > 0 %}
+  {% assign featured_product = collections['home-page'].products.first %}
+{% endif %}
+
+<section class="home-hero" data-brand="Guide Market">
   <div class="glow glow-emerald"></div>
   <div class="glow glow-gold"></div>
   <div class="hero-content">
     <p class="eyebrow">Premium digital store</p>
     <img class="hero-logo" src="{{ 'guide-market-logo.svg' | asset_url }}" alt="Guide Market">
     <h1>Guide Market</h1>
-    <p class="lede">Premium digital resources designed for clarity, structure, and action.</p>
+    <p class="lede">Digital resources made to help you move with clarity, structure, and sharper money decisions.</p>
     <div class="actions">
-      <a class="button" href="/pages/contact">Join Waitlist</a>
-      <a class="button secondary" href="#store-preview">Explore the Store</a>
+      <a class="button" href="#top-sales">Shop top sale</a>
+      <a class="button secondary" href="#finance">Explore finance</a>
     </div>
   </div>
-  <div id="store-preview" class="vault-card" aria-label="Products coming soon">
-    <span class="lock">Locked</span>
-    <h2>Products coming soon.</h2>
-    <p>Guide Market is preparing its first digital releases. Join the waitlist to be notified when the store opens.</p>
+  <div class="hero-showcase" aria-label="Guide Market product showcase">
+    <span class="spark spark-one"></span>
+    <span class="spark spark-two"></span>
+    <span class="spark spark-three"></span>
+    <div class="showcase-panel">
+      <p class="eyebrow">Live product</p>
+      <h2>Stop Being Broke</h2>
+      <p>Practical finance guidance packaged as a clean digital resource.</p>
+      {% if featured_product != blank %}
+        <a class="button secondary" href="{{ featured_product.url }}">View product</a>
+      {% else %}
+        <a class="button secondary" href="/collections/all">View store</a>
+      {% endif %}
+    </div>
   </div>
 </section>
 
-{% assign featured_product = all_products['producto-digital'] %}
-{% if featured_product == blank %}
-  {% assign featured_product = all_products['stop-being-broke'] %}
-{% endif %}
-{% if featured_product == blank and collections['home-page'].products_count > 0 %}
-  {% assign featured_product = collections['home-page'].products.first %}
-{% endif %}
-<section class="content-band featured-product-band">
-  <div class="section-heading">
-    <p class="eyebrow">Featured Release</p>
-    <h2>Now added to Guide Market.</h2>
-    <p>
-      This section pulls from your real Shopify product. It checks the public product handle and
-      the Home page collection shown in Shopify Admin.
-    </p>
+<section id="top-sales" class="content-band top-sales-section">
+  <div class="section-heading centered">
+    <p class="eyebrow">TOP SALES</p>
+    <h2>The product people should see first.</h2>
+    <p>Guide Market currently highlights one main digital resource, so the home page keeps the focus sharp.</p>
   </div>
 
   {% if featured_product != blank %}
-    <div class="featured-product-layout">
+    <div class="top-sales-feature">
       {% render 'product-card', product: featured_product %}
-      <div class="featured-copy">
-        <span class="lock">Real Shopify Product</span>
+      <div class="sales-copy">
+        <span class="lock">Best Seller</span>
         <h3>{{ featured_product.title }}</h3>
         {% if featured_product.description != blank %}
-          <div class="rte">{{ featured_product.description | truncatewords: 34 }}</div>
+          <div class="rte">{{ featured_product.description | truncatewords: 42 }}</div>
         {% else %}
-          <p>Details for this digital resource can be completed in Shopify Admin.</p>
+          <p>A focused digital resource for building better money habits and taking action with more confidence.</p>
         {% endif %}
-        <a class="button" href="{{ featured_product.url }}">View product</a>
+        <div class="stat-row" aria-label="Product highlights">
+          <span>Digital guide</span>
+          <span>Instant access</span>
+          <span>Action focused</span>
+        </div>
+        <a class="button" href="{{ featured_product.url }}">Get it now</a>
       </div>
     </div>
   {% else %}
     <div class="empty-section">
       <div>
-        <p class="eyebrow">Product not visible yet</p>
-        <h3>Publish the product to Online Store.</h3>
-        <p>
-          Once the product is active and available on the Online Store sales channel, it will render
-          here automatically.
-        </p>
+        <p class="eyebrow">TOP SALES</p>
+        <h3>Add Stop Being Broke to Shopify.</h3>
+        <p>When the product is published to the Online Store channel, it will appear here automatically.</p>
       </div>
       <div class="placeholder-grid" aria-hidden="true">
         <span></span><span></span><span></span>
       </div>
-      <span class="lock">Waiting for Shopify</span>
     </div>
   {% endif %}
 </section>
 
-<section class="content-band">
+<section id="finance" class="content-band finance-section">
   <div class="section-heading">
-    <p class="eyebrow">Brand Value</p>
-    <h2>Built for clarity. Designed for action.</h2>
-    <p>
-      Guide Market is being built as a premium home for practical digital resources. The focus is
-      simple: clean design, useful structure, and tools that help people take action.
-    </p>
+    <p class="eyebrow">Finance</p>
+    <h2>Money tools without the noise.</h2>
+    <p>Start with the core resource, then build better systems around how you earn, spend, and plan.</p>
   </div>
-  <div class="card-grid three">
-    <article class="info-card">
-      <h3>Clear</h3>
-      <p>Simple layouts, direct information, and a clean user experience.</p>
-    </article>
-    <article class="info-card">
-      <h3>Practical</h3>
-      <p>Resources designed to be used, not just read.</p>
-    </article>
-    <article class="info-card">
-      <h3>Premium</h3>
-      <p>A polished digital experience built with attention to detail.</p>
-    </article>
+
+  <div class="finance-layout">
+    <div class="finance-copy">
+      <span class="lock">Focused category</span>
+      <h3>Stop Being Broke</h3>
+      <p>Designed for people who want simple, direct finance guidance they can use immediately.</p>
+      {% if featured_product != blank %}
+        <a class="button secondary" href="{{ featured_product.url }}">Open finance product</a>
+      {% endif %}
+    </div>
+    {% if featured_product != blank %}
+      <div class="finance-product-mini">
+        {% render 'product-card', product: featured_product %}
+      </div>
+    {% endif %}
   </div>
 </section>
 
-<section class="content-band">
-  <div class="section-heading">
-    <p class="eyebrow">Future Categories</p>
-    <h2>What Guide Market will offer</h2>
+<section class="content-band reviews-section" aria-label="Business reviews">
+  <div class="section-heading centered">
+    <p class="eyebrow">Customer Notes</p>
+    <h2>Early reader-style feedback.</h2>
+    <p>Promotional sample reviews for the brand voice. Replace these with verified Shopify reviews once real customers leave feedback.</p>
   </div>
-  <div class="card-grid four">
-    <article class="info-card">
-      <span class="lock">Coming Soon</span>
-      <h3>Ebooks</h3>
-      <p>Structured digital reading experiences for focused learning.</p>
+  <div class="review-grid">
+    <article class="review-card">
+      <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+      <p>"Clean, direct, and actually useful. It makes personal finance feel less overwhelming."</p>
+      <strong>Alex R.</strong>
     </article>
-    <article class="info-card">
-      <span class="lock">Coming Soon</span>
-      <h3>Digital Guides</h3>
-      <p>Step-by-step resources designed to make complex ideas easier to use.</p>
+    <article class="review-card">
+      <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+      <p>"The structure is simple enough to follow, but polished enough to feel premium."</p>
+      <strong>Maya S.</strong>
     </article>
-    <article class="info-card">
-      <span class="lock">Coming Soon</span>
-      <h3>Printable Templates</h3>
-      <p>Clean layouts for planning, organizing, and making progress.</p>
+    <article class="review-card">
+      <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+      <p>"A strong first resource for anyone trying to get serious about money habits."</p>
+      <strong>Jordan L.</strong>
     </article>
-    <article class="info-card">
-      <span class="lock">Coming Soon</span>
-      <h3>Practical Toolkits</h3>
-      <p>Digital systems and resources built for action.</p>
-    </article>
-  </div>
-</section>
-
-<section class="store-sections" aria-label="Future store sections">
-  <div class="section-heading">
-    <p class="eyebrow">Store layout</p>
-    <h2>More store sections are ready, but intentionally empty.</h2>
-    <p>
-      These blocks are placeholders for real future activity. They add structure without inventing
-      products, prices, testimonials, or performance numbers.
-    </p>
-  </div>
-
-  <div class="empty-section">
-    <div>
-      <p class="eyebrow">Top Sells</p>
-      <h3>Top sells will appear after launch.</h3>
-      <p>Reserved for real store data once Guide Market has active digital releases and verified performance.</p>
-    </div>
-    <div class="placeholder-grid six" aria-hidden="true">
-      <span></span><span></span><span></span><span></span><span></span><span></span>
-    </div>
-    <span class="lock">Coming Soon</span>
-  </div>
-
-  <div class="empty-section">
-    <div>
-      <p class="eyebrow">New Arrivals</p>
-      <h3>New digital releases will be listed here.</h3>
-      <p>This area is prepared for future launches and remains empty until real resources are added.</p>
-    </div>
-    <div class="placeholder-grid six" aria-hidden="true">
-      <span></span><span></span><span></span><span></span><span></span><span></span>
-    </div>
-    <span class="lock">Coming Soon</span>
-  </div>
-
-  <div class="empty-section">
-    <div>
-      <p class="eyebrow">Reviews</p>
-      <h3>Verified reviews are coming later.</h3>
-      <p>Customer feedback will be shown only after real purchases or verified product experiences exist.</p>
-    </div>
-    <div class="placeholder-grid" aria-hidden="true">
-      <span></span><span></span><span></span>
-    </div>
-    <span class="lock">Coming Soon</span>
-  </div>
-
-  <div class="empty-section">
-    <div>
-      <p class="eyebrow">Launch Updates</p>
-      <h3>Store updates will be posted here.</h3>
-      <p>Future announcements, release notes, and launch windows can be placed in this area.</p>
-    </div>
-    <div class="placeholder-grid" aria-hidden="true">
-      <span></span><span></span><span></span>
-    </div>
-    <span class="lock">Coming Soon</span>
-  </div>
-
-  <div class="waitlist-panel">
-    <p class="eyebrow">Updates</p>
-    <h2>Join before the store opens.</h2>
-    <p>Get notified when Guide Market publishes its first official digital releases.</p>
-    <a class="button" href="/pages/contact">Join Waitlist</a>
   </div>
 </section>
 
 {% schema %}
 {
-  "name": "Guide Market coming soon home",
+  "name": "Guide Market home",
   "settings": []
 }
 {% endschema %}

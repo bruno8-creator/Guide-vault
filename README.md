@@ -6,14 +6,14 @@ The Next.js app remains on the `main` branch as a separate build, but Shopify Th
 
 Included Shopify theme areas:
 
-- Premium coming-soon home page
-- Empty shop template at `/collections/all`
+- Visual home page with TOP SALES and Finance sections
+- Shop template at `/collections/all`
 - About template
 - FAQ template
 - Contact template with Shopify contact form
 - Privacy Policy template
 - Terms of Service template
 - Refund Policy template
-- Empty Top Sells, New Arrivals, Reviews, and Launch Updates sections
+- Product page and cart flow for digital products
 
-No products, prices, cart logic, checkout buttons, fake reviews, or fake catalog data are included.
+The home page highlights the primary product, Stop Being Broke, and includes promotional sample reviews that should be replaced with verified Shopify reviews once customer feedback is available.
