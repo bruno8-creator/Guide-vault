@@ -5,6 +5,7 @@
 {% if featured_product == blank and collections['home-page'].products_count > 0 %}
   {% assign featured_product = collections['home-page'].products.first %}
 {% endif %}
+{% assign drained_product = all_products['stop-feeling-drained'] %}
 
 <section class="home-hero" data-brand="Guide Market">
   <div class="glow glow-emerald"></div>
@@ -13,7 +14,7 @@
     <p class="eyebrow">Premium digital store</p>
     <img class="hero-logo" src="{{ 'guide-market-logo.svg' | asset_url }}" alt="Guide Market">
     <h1>Guide Market</h1>
-    <p class="lede">Digital resources made to help you move with clarity, structure, and sharper money decisions.</p>
+    <p class="lede">Digital resources made to help you move with clarity, stronger habits, and sharper decisions.</p>
     <div class="actions">
       <a class="button" href="#top-sales">Shop top sale</a>
       <a class="button secondary" href="#finance">Explore finance</a>
@@ -24,20 +25,25 @@
 <section id="top-sales" class="content-band top-sales-section">
   <div class="section-heading centered">
     <p class="eyebrow">TOP SALES</p>
-    <h2>The product people should see first.</h2>
-    <p>Guide Market currently highlights one main digital resource, so the home page keeps the focus sharp.</p>
+    <h2>The products people should see first.</h2>
+    <p>Guide Market highlights its active digital resources in a compact, visual storefront.</p>
   </div>
 
-  {% if featured_product != blank %}
+  {% if featured_product != blank or drained_product != blank %}
     <div class="top-sales-feature">
-      {% render 'product-card', product: featured_product %}
+      {% if featured_product != blank %}
+        {% render 'product-card', product: featured_product %}
+      {% endif %}
+      {% if drained_product != blank %}
+        {% render 'product-card', product: drained_product %}
+      {% endif %}
     </div>
   {% else %}
     <div class="empty-section">
       <div>
         <p class="eyebrow">TOP SALES</p>
-        <h3>Add Stop Being Broke to Shopify.</h3>
-        <p>When the product is published to the Online Store channel, it will appear here automatically.</p>
+        <h3>Add your products to Shopify.</h3>
+        <p>When products are published to the Online Store channel, they will appear here automatically.</p>
       </div>
       <div class="placeholder-grid" aria-hidden="true">
         <span></span><span></span><span></span>
@@ -56,15 +62,22 @@
   <div class="finance-layout">
     <div class="finance-copy">
       <span class="lock">Focused category</span>
-      <h3>Stop Being Broke</h3>
-      <p>Designed for people who want simple, direct finance guidance they can use immediately.</p>
+      <h3>Finance and mindset resources</h3>
+      <p>Designed for people who want simple, direct guidance they can use immediately.</p>
       {% if featured_product != blank %}
         <a class="button secondary" href="{{ featured_product.url }}">Open finance product</a>
+      {% elsif drained_product != blank %}
+        <a class="button secondary" href="{{ drained_product.url }}">Open product</a>
       {% endif %}
     </div>
-    {% if featured_product != blank %}
+    {% if featured_product != blank or drained_product != blank %}
       <div class="finance-product-mini">
-        {% render 'product-card', product: featured_product %}
+        {% if featured_product != blank %}
+          {% render 'product-card', product: featured_product %}
+        {% endif %}
+        {% if drained_product != blank %}
+          {% render 'product-card', product: drained_product %}
+        {% endif %}
       </div>
     {% endif %}
   </div>
