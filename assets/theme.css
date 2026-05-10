@@ -131,6 +131,15 @@ a {
   padding: clamp(4rem, 10vw, 8rem) clamp(1rem, 4vw, 4rem);
 }
 
+.home-hero {
+  grid-template-columns: minmax(0, 1fr);
+  min-height: 68vh;
+}
+
+.home-hero .hero-content {
+  max-width: 62rem;
+}
+
 .hero::before,
 .home-hero::before {
   position: absolute;
