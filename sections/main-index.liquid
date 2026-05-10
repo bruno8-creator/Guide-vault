@@ -5,6 +5,7 @@
 {% if featured_product == blank and collections['home-page'].products_count > 0 %}
   {% assign featured_product = collections['home-page'].products.first %}
 {% endif %}
+{% assign top_sales_collection = collections['all'] %}
 {% assign drained_product = all_products['stop-feeling-drained'] %}
 {% if drained_product == blank %}
   {% assign drained_product = all_products['stop-feeling-drained-ai'] %}
@@ -50,7 +51,13 @@
     <p>Guide Market highlights its active digital resources in a compact, visual storefront.</p>
   </div>
 
-  {% if featured_product != blank or drained_product != blank %}
+  {% if top_sales_collection.products_count > 0 %}
+    <div class="top-sales-feature">
+      {% for product_item in top_sales_collection.products limit: 8 %}
+        {% render 'product-card', product: product_item %}
+      {% endfor %}
+    </div>
+  {% elsif featured_product != blank or drained_product != blank %}
     <div class="top-sales-feature">
       {% if featured_product != blank %}
         {% render 'product-card', product: featured_product %}
