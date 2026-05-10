@@ -518,6 +518,7 @@ h1 {
 .product-card {
   position: relative;
   overflow: hidden;
+  width: min(100%, 20rem);
 }
 
 .product-card-media {
@@ -564,7 +565,15 @@ h1 {
   padding: 1rem;
 }
 
+.product-card-meta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.85rem;
+}
+
 .product-card h3 {
+  flex: 1 1 auto;
   margin: 0.45rem 0 0.6rem;
   font-size: 1.16rem;
   line-height: 1.15;
@@ -579,8 +588,12 @@ h1 {
 }
 
 .product-price {
+  flex: 0 0 auto;
+  margin: 0.45rem 0 0.6rem;
   color: #ffca63;
   font-weight: 800;
+  text-align: right;
+  white-space: nowrap;
 }
 
 .product-price.large {
@@ -945,20 +958,18 @@ h1 {
 
 .top-sales-feature {
   position: relative;
-  display: grid;
-  grid-template-columns: minmax(16rem, 23rem) minmax(0, 1fr);
-  gap: clamp(1.2rem, 4vw, 3rem);
-  align-items: center;
-  max-width: 68rem;
+  display: flex;
+  justify-content: center;
+  max-width: 24rem;
   margin: 0 auto;
 }
 
 .top-sales-feature .product-card {
-  transform: rotate(-1.25deg);
+  transform: none;
 }
 
 .top-sales-feature .product-card:hover {
-  transform: translateY(-5px) rotate(0deg);
+  transform: translateY(-5px);
 }
 
 .sales-copy,
@@ -1027,7 +1038,7 @@ h1 {
 
 .finance-product-mini .product-card {
   font-size: 0.9rem;
-  transform: rotate(1.5deg);
+  transform: none;
 }
 
 .finance-product-mini .product-card-media {

@@ -18,14 +18,16 @@
   </a>
   <div class="product-card-body">
     <p class="eyebrow">Digital Resource</p>
-    <h3>
-      <a href="{{ product.url }}">{{ product.title }}</a>
-    </h3>
-    {% if product.price_varies %}
-      <p class="product-price">From {{ product.price_min | money }}</p>
-    {% else %}
-      <p class="product-price">{{ product.price | money }}</p>
-    {% endif %}
+    <div class="product-card-meta">
+      <h3>
+        <a href="{{ product.url }}">{{ product.title }}</a>
+      </h3>
+      {% if product.price_varies %}
+        <p class="product-price">From {{ product.price_min | money }}</p>
+      {% else %}
+        <p class="product-price">{{ product.price | money }}</p>
+      {% endif %}
+    </div>
     <a class="button secondary product-link" href="{{ product.url }}">View details</a>
   </div>
 </article>

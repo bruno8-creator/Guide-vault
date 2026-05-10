@@ -46,21 +46,6 @@
   {% if featured_product != blank %}
     <div class="top-sales-feature">
       {% render 'product-card', product: featured_product %}
-      <div class="sales-copy">
-        <span class="lock">Best Seller</span>
-        <h3>{{ featured_product.title }}</h3>
-        {% if featured_product.description != blank %}
-          <div class="rte">{{ featured_product.description | truncatewords: 42 }}</div>
-        {% else %}
-          <p>A focused digital resource for building better money habits and taking action with more confidence.</p>
-        {% endif %}
-        <div class="stat-row" aria-label="Product highlights">
-          <span>Digital guide</span>
-          <span>Instant access</span>
-          <span>Action focused</span>
-        </div>
-        <a class="button" href="{{ featured_product.url }}">Get it now</a>
-      </div>
     </div>
   {% else %}
     <div class="empty-section">
