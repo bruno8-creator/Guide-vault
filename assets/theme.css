@@ -1033,10 +1033,10 @@ h1 {
 .finance-layout {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(17rem, 36rem);
+  grid-template-columns: minmax(0, 1fr) minmax(13rem, 17rem);
   gap: clamp(1rem, 3vw, 2rem);
   align-items: center;
-  max-width: 76rem;
+  max-width: 58rem;
 }
 
 .finance-copy {
@@ -1050,12 +1050,6 @@ h1 {
 .finance-product-mini .product-card {
   font-size: 0.9rem;
   transform: none;
-}
-
-.finance-product-mini {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
-  gap: 1rem;
 }
 
 .finance-product-mini .product-card-media {

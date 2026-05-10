@@ -6,6 +6,27 @@
   {% assign featured_product = collections['home-page'].products.first %}
 {% endif %}
 {% assign drained_product = all_products['stop-feeling-drained'] %}
+{% if drained_product == blank %}
+  {% assign drained_product = all_products['stop-feeling-drained-ai'] %}
+{% endif %}
+{% if drained_product == blank and collections['home-page'].products_count > 0 %}
+  {% for product_item in collections['home-page'].products %}
+    {% assign product_title_downcase = product_item.title | downcase %}
+    {% if product_title_downcase contains 'stop feeling drained' %}
+      {% assign drained_product = product_item %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+{% if drained_product == blank and collections['all'].products_count > 0 %}
+  {% for product_item in collections['all'].products %}
+    {% assign product_title_downcase = product_item.title | downcase %}
+    {% if product_title_downcase contains 'stop feeling drained' %}
+      {% assign drained_product = product_item %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
 
 <section class="home-hero" data-brand="Guide Market">
   <div class="glow glow-emerald"></div>
@@ -62,22 +83,15 @@
   <div class="finance-layout">
     <div class="finance-copy">
       <span class="lock">Focused category</span>
-      <h3>Finance and mindset resources</h3>
-      <p>Designed for people who want simple, direct guidance they can use immediately.</p>
+      <h3>Stop Being Broke</h3>
+      <p>Designed for people who want simple, direct finance guidance they can use immediately.</p>
       {% if featured_product != blank %}
         <a class="button secondary" href="{{ featured_product.url }}">Open finance product</a>
-      {% elsif drained_product != blank %}
-        <a class="button secondary" href="{{ drained_product.url }}">Open product</a>
       {% endif %}
     </div>
-    {% if featured_product != blank or drained_product != blank %}
+    {% if featured_product != blank %}
       <div class="finance-product-mini">
-        {% if featured_product != blank %}
-          {% render 'product-card', product: featured_product %}
-        {% endif %}
-        {% if drained_product != blank %}
-          {% render 'product-card', product: drained_product %}
-        {% endif %}
+        {% render 'product-card', product: featured_product %}
       </div>
     {% endif %}
   </div>
