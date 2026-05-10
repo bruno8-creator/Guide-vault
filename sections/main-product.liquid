@@ -96,6 +96,7 @@
                 value="{{ variant.id }}"
                 data-price="{{ variant.price | money }}"
                 data-available="{{ variant.available }}"
+                data-title="{{ variant.title | escape }}"
                 {% if variant == product.selected_or_first_available_variant %}selected{% endif %}
               >
                 {{ variant.title }}{% unless variant.available %} - Unavailable{% endunless %}
@@ -158,22 +159,58 @@
     var select = document.getElementById('ProductVariantSelect');
     var price = document.querySelector('.product-price.large');
 
+    function syncSelectedVariant() {
+      if (!select || !price) return;
+      var selected = select.options[select.selectedIndex];
+      if (selected && selected.dataset.price) {
+        price.textContent = selected.dataset.price;
+      }
+      var addButton = document.getElementById('AddToCartButton');
+      var availability = document.getElementById('VariantAvailability');
+      var available = selected && selected.dataset.available === 'true';
+      if (addButton) {
+        addButton.disabled = !available;
+        addButton.textContent = available ? 'Add to cart' : 'Unavailable';
+      }
+      if (availability) {
+        availability.textContent = available ? 'Available now.' : 'This version is currently unavailable.';
+      }
+    }
+
+    function applyLanguageVariant(language) {
+      if (!select || !language) return;
+      var matchers = language === 'es'
+        ? ['spanish', 'español', 'espanol', 'castellano']
+        : ['english', 'inglés', 'ingles'];
+      var fallbackMatchers = language === 'es'
+        ? ['es']
+        : ['en'];
+      var options = Array.prototype.slice.call(select.options);
+      var match = options.find(function (option) {
+        var title = (option.dataset.title || option.textContent || '').toLowerCase();
+        return matchers.some(function (matcher) { return title.indexOf(matcher) !== -1; });
+      }) || options.find(function (option) {
+        var title = (option.dataset.title || option.textContent || '').toLowerCase();
+        return fallbackMatchers.some(function (matcher) { return title === matcher || title.indexOf(' ' + matcher + ' ') !== -1; });
+      });
+
+      if (match) {
+        select.value = match.value;
+        syncSelectedVariant();
+      }
+    }
+
     if (select && price) {
       select.addEventListener('change', function () {
-        var selected = select.options[select.selectedIndex];
-        if (selected && selected.dataset.price) {
-          price.textContent = selected.dataset.price;
-        }
-        var addButton = document.getElementById('AddToCartButton');
-        var availability = document.getElementById('VariantAvailability');
-        var available = selected && selected.dataset.available === 'true';
-        if (addButton) {
-          addButton.disabled = !available;
-          addButton.textContent = available ? 'Add to cart' : 'Unavailable';
-        }
-        if (availability) {
-          availability.textContent = available ? 'Available now.' : 'This version is currently unavailable.';
-        }
+        syncSelectedVariant();
+      });
+
+      if (window.GuideMarketLanguage) {
+        applyLanguageVariant(window.GuideMarketLanguage.get());
+      }
+
+      document.addEventListener('guide-market-language-change', function (event) {
+        applyLanguageVariant(event.detail && event.detail.language);
       });
     }
 
