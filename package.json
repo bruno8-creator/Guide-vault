@@ -1,0 +1,8 @@
+{
+  "name": "ia-para-todo-static-site",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "vercel-build": "echo 'Static HTML site: no build step required'"
+  }
+}
