@@ -2,14 +2,14 @@
 {% if featured_product == blank %}
   {% assign featured_product = all_products['producto-digital'] %}
 {% endif %}
-{% if featured_product == blank and collections['home-page'].products_count > 0 %}
+{% if featured_product == blank and collections['home-page'].products != blank %}
   {% assign featured_product = collections['home-page'].products.first %}
 {% endif %}
 {% assign habit_product = all_products['broke-by-habit'] %}
 {% if habit_product == blank %}
   {% assign habit_product = all_products['broke-by-habit-ai'] %}
 {% endif %}
-{% if habit_product == blank and collections['home-page'].products_count > 0 %}
+{% if habit_product == blank and collections['home-page'].products != blank %}
   {% for product_item in collections['home-page'].products %}
     {% assign product_title_downcase = product_item.title | downcase %}
     {% if product_title_downcase contains 'broke by habit' %}
@@ -18,7 +18,7 @@
     {% endif %}
   {% endfor %}
 {% endif %}
-{% if habit_product == blank and collections['all'].products_count > 0 %}
+{% if habit_product == blank and collections['all'].products != blank %}
   {% for product_item in collections['all'].products %}
     {% assign product_title_downcase = product_item.title | downcase %}
     {% if product_title_downcase contains 'broke by habit' %}
@@ -32,7 +32,7 @@
 {% if drained_product == blank %}
   {% assign drained_product = all_products['stop-feeling-drained-ai'] %}
 {% endif %}
-{% if drained_product == blank and collections['home-page'].products_count > 0 %}
+{% if drained_product == blank and collections['home-page'].products != blank %}
   {% for product_item in collections['home-page'].products %}
     {% assign product_title_downcase = product_item.title | downcase %}
     {% if product_title_downcase contains 'stop feeling drained' %}
@@ -41,7 +41,7 @@
     {% endif %}
   {% endfor %}
 {% endif %}
-{% if drained_product == blank and collections['all'].products_count > 0 %}
+{% if drained_product == blank and collections['all'].products != blank %}
   {% for product_item in collections['all'].products %}
     {% assign product_title_downcase = product_item.title | downcase %}
     {% if product_title_downcase contains 'stop feeling drained' %}
@@ -94,7 +94,7 @@
     <p>Focused digital products with clear steps, useful structure, and no unnecessary filler.</p>
   </div>
 
-  {% if top_sales_collection.products_count > 0 %}
+  {% if top_sales_collection.products != blank %}
     <div class="top-sales-feature">
       {% for product_item in top_sales_collection.products limit: 8 %}
         {% render 'product-card', product: product_item %}

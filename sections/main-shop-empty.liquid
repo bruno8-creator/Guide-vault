@@ -4,7 +4,7 @@
     {% assign featured_product = all_products['stop-being-broke'] %}
   {% endif %}
   {% assign home_collection = collections['home-page'] %}
-  {% if featured_product == blank and home_collection.products_count > 0 %}
+  {% if featured_product == blank and home_collection.products != blank %}
     {% assign featured_product = home_collection.products.first %}
   {% endif %}
   <div class="page-intro">
@@ -13,13 +13,13 @@
     <p>Browse official Guide Market digital resources.</p>
   </div>
 
-  {% if collection.products_count > 0 %}
+  {% if collection.products != blank %}
     <div class="product-grid">
       {% for product in collection.products %}
         {% render 'product-card', product: product %}
       {% endfor %}
     </div>
-  {% elsif home_collection.products_count > 0 %}
+  {% elsif home_collection.products != blank %}
     <div class="product-grid">
       {% for product in home_collection.products %}
         {% render 'product-card', product: product %}
