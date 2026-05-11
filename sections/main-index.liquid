@@ -5,6 +5,28 @@
 {% if featured_product == blank and collections['home-page'].products_count > 0 %}
   {% assign featured_product = collections['home-page'].products.first %}
 {% endif %}
+{% assign habit_product = all_products['broke-by-habit'] %}
+{% if habit_product == blank %}
+  {% assign habit_product = all_products['broke-by-habit-ai'] %}
+{% endif %}
+{% if habit_product == blank and collections['home-page'].products_count > 0 %}
+  {% for product_item in collections['home-page'].products %}
+    {% assign product_title_downcase = product_item.title | downcase %}
+    {% if product_title_downcase contains 'broke by habit' %}
+      {% assign habit_product = product_item %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+{% if habit_product == blank and collections['all'].products_count > 0 %}
+  {% for product_item in collections['all'].products %}
+    {% assign product_title_downcase = product_item.title | downcase %}
+    {% if product_title_downcase contains 'broke by habit' %}
+      {% assign habit_product = product_item %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
 {% assign top_sales_collection = collections['all'] %}
 {% assign drained_product = all_products['stop-feeling-drained'] %}
 {% if drained_product == blank %}
@@ -129,21 +151,28 @@
   <div class="section-heading">
     <p class="eyebrow">Finance</p>
     <h2>Money tools without the noise.</h2>
-    <p>Start with the core resource, then build better systems around how you earn, spend, and plan.</p>
+    <p>Practical guides for understanding your money habits, spotting patterns, and making cleaner everyday decisions.</p>
   </div>
 
   <div class="finance-layout">
     <div class="finance-copy">
       <span class="lock">Focused category</span>
-      <h3>Stop Being Broke</h3>
-      <p>Designed for people who want simple, direct finance guidance they can use immediately.</p>
+      <h3>Finance guides for better habits</h3>
+      <p>Start with the guide that fits your situation: build a money plan, or understand the habits keeping you stuck.</p>
       {% if featured_product != blank %}
-        <a class="button secondary" href="{{ featured_product.url }}">Open finance product</a>
+        <a class="button secondary" href="{{ featured_product.url }}">Open Stop Being Broke</a>
+      {% elsif habit_product != blank %}
+        <a class="button secondary" href="{{ habit_product.url }}">Open Broke by Habit</a>
       {% endif %}
     </div>
-    {% if featured_product != blank %}
+    {% if featured_product != blank or habit_product != blank %}
       <div class="finance-product-mini">
-        {% render 'product-card', product: featured_product %}
+        {% if featured_product != blank %}
+          {% render 'product-card', product: featured_product %}
+        {% endif %}
+        {% if habit_product != blank %}
+          {% render 'product-card', product: habit_product %}
+        {% endif %}
       </div>
     {% endif %}
   </div>

@@ -471,6 +471,31 @@ h1 {
   font-size: clamp(2.5rem, 8vw, 5rem);
 }
 
+.about-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+}
+
+.about-pillars div {
+  display: grid;
+  gap: 0.3rem;
+  border: 1px solid rgba(19, 35, 31, 0.12);
+  border-radius: 0.7rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.about-pillars strong {
+  color: var(--text);
+}
+
+.about-pillars span {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
 .content-band,
 .shop-page {
   padding: clamp(3rem, 7vw, 6rem) clamp(1rem, 4vw, 4rem);
@@ -1175,10 +1200,10 @@ h1 {
 .finance-layout {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(13rem, 17rem);
+  grid-template-columns: minmax(0, 1fr) minmax(17rem, 36rem);
   gap: clamp(1rem, 3vw, 2rem);
   align-items: center;
-  max-width: 58rem;
+  max-width: 76rem;
 }
 
 .finance-copy {
@@ -1192,6 +1217,12 @@ h1 {
 .finance-product-mini .product-card {
   font-size: 0.9rem;
   transform: none;
+}
+
+.finance-product-mini {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 1rem;
 }
 
 .finance-product-mini .product-card-media {
@@ -1584,6 +1615,7 @@ h1 {
 
   .card-grid.three,
   .card-grid.four,
+  .about-pillars,
   .trust-strip,
   .offer-grid,
   .product-grid,
