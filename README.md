@@ -8,8 +8,7 @@ Included Shopify theme areas:
 
 - Visual home page with TOP SALES and Finance sections
 - Shop template at `/collections/all`
-- About template
-- FAQ template
+- Health section for Stop Feeling Drained
 - Contact template with Shopify contact form
 - Privacy Policy template
 - Terms of Service template

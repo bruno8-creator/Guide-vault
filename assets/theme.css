@@ -1044,6 +1044,7 @@ h1 {
 .top-sales-section,
 .offer-section,
 .finance-section,
+.health-section,
 .buying-section,
 .reviews-section {
   position: relative;
@@ -1088,6 +1089,7 @@ h1 {
 .top-sales-section::before,
 .offer-section::before,
 .finance-section::before,
+.health-section::before,
 .buying-section::before,
 .reviews-section::before {
   position: absolute;
@@ -1206,7 +1208,17 @@ h1 {
   max-width: 76rem;
 }
 
-.finance-copy {
+.category-layout {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(13rem, 17rem);
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: center;
+  max-width: 58rem;
+}
+
+.finance-copy,
+.category-copy {
   min-height: 21rem;
   padding: clamp(1.4rem, 4vw, 2.4rem);
   background:
@@ -1214,7 +1226,27 @@ h1 {
     linear-gradient(145deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.52));
 }
 
-.finance-product-mini .product-card {
+.category-copy {
+  position: relative;
+  border: 1px solid rgba(19, 35, 31, 0.12);
+  border-radius: 0.7rem;
+  box-shadow: 0 24px 80px rgba(36, 62, 58, 0.16);
+  backdrop-filter: blur(22px);
+}
+
+.category-copy h3 {
+  margin: 0.9rem 0;
+  font-size: clamp(2rem, 5vw, 4.4rem);
+  line-height: 0.98;
+}
+
+.category-copy p {
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.finance-product-mini .product-card,
+.category-product-mini .product-card {
   font-size: 0.9rem;
   transform: none;
 }
@@ -1229,11 +1261,13 @@ h1 {
   aspect-ratio: 4 / 4.7;
 }
 
-.finance-product-mini .product-card-body {
+.finance-product-mini .product-card-body,
+.category-product-mini .product-card-body {
   padding: 0.85rem;
 }
 
-.finance-product-mini .button {
+.finance-product-mini .button,
+.category-product-mini .button {
   width: 100%;
   min-height: 2.65rem;
   padding: 0.65rem 0.9rem;
@@ -1623,6 +1657,7 @@ h1 {
   .featured-product-layout,
   .top-sales-feature,
   .finance-layout,
+  .category-layout,
   .buying-panel,
   .review-grid,
   .cart-panel,
@@ -1643,7 +1678,13 @@ h1 {
     margin: 0 auto;
   }
 
-  .finance-copy {
+  .category-layout {
+    max-width: 24rem;
+    margin: 0 auto;
+  }
+
+  .finance-copy,
+  .category-copy {
     min-height: auto;
   }
 

@@ -62,6 +62,7 @@
     <div class="actions">
       <a class="button" href="#top-sales">Shop digital guides</a>
       <a class="button secondary" href="#finance">Explore finance</a>
+      <a class="button secondary" href="#health">Explore health</a>
     </div>
     <div class="hero-trust-row" aria-label="Store benefits">
       <span>Instant access</span>
@@ -173,6 +174,30 @@
         {% if habit_product != blank %}
           {% render 'product-card', product: habit_product %}
         {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<section id="health" class="content-band health-section">
+  <div class="section-heading">
+    <p class="eyebrow">Health</p>
+    <h2>Energy tools for better days.</h2>
+    <p>Practical health and lifestyle guidance for people who want more energy, calmer routines, and clearer daily habits.</p>
+  </div>
+
+  <div class="category-layout">
+    <div class="category-copy">
+      <span class="lock">Health category</span>
+      <h3>Stop Feeling Drained</h3>
+      <p>A focused guide for understanding why your energy feels low and building simple routines that are easier to keep.</p>
+      {% if drained_product != blank %}
+        <a class="button secondary" href="{{ drained_product.url }}">Open Stop Feeling Drained</a>
+      {% endif %}
+    </div>
+    {% if drained_product != blank %}
+      <div class="category-product-mini">
+        {% render 'product-card', product: drained_product %}
       </div>
     {% endif %}
   </div>
