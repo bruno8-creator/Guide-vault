@@ -246,6 +246,23 @@ h1 {
   line-height: 1.7;
 }
 
+.hero-trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.4rem;
+}
+
+.hero-trust-row span {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  padding: 0.55rem 0.85rem;
+  color: #dff7db;
+  background: rgba(255, 255, 255, 0.065);
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
 .button {
   display: inline-flex;
   min-height: 3rem;
@@ -615,6 +632,23 @@ h1 {
   white-space: nowrap;
 }
 
+.product-card-perks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0.2rem 0 0.85rem;
+}
+
+.product-card-perks span {
+  border: 1px solid rgba(101, 207, 59, 0.24);
+  border-radius: 999px;
+  padding: 0.38rem 0.58rem;
+  color: #c8ffe5;
+  background: rgba(31, 143, 55, 0.11);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
 .product-price.large {
   font-size: 1.35rem;
 }
@@ -778,6 +812,32 @@ h1 {
 
 .dynamic-checkout {
   margin-top: 0.7rem;
+}
+
+.product-benefits {
+  display: grid;
+  gap: 0.7rem;
+  margin: 1.25rem 0;
+}
+
+.product-benefits div {
+  display: grid;
+  gap: 0.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.55rem;
+  padding: 0.85rem;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.product-benefits strong {
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.product-benefits span {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
 }
 
 .shopify-payment-button__button {
@@ -955,15 +1015,55 @@ h1 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.trust-strip,
 .top-sales-section,
+.offer-section,
 .finance-section,
+.buying-section,
 .reviews-section {
   position: relative;
   overflow: hidden;
 }
 
+.trust-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 0 clamp(1rem, 4vw, 4rem) clamp(2rem, 5vw, 3rem);
+}
+
+.trust-item,
+.offer-card,
+.buying-panel {
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 0.7rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.105), rgba(255, 255, 255, 0.035));
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(22px);
+}
+
+.trust-item {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1.1rem;
+}
+
+.trust-item strong {
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.trust-item span,
+.offer-card p,
+.buying-panel p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
 .top-sales-section::before,
+.offer-section::before,
 .finance-section::before,
+.buying-section::before,
 .reviews-section::before {
   position: absolute;
   inset: 10% auto auto 64%;
@@ -973,6 +1073,38 @@ h1 {
   background: rgba(18, 168, 244, 0.12);
   filter: blur(80px);
   content: "";
+}
+
+.offer-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.offer-card {
+  padding: 1.35rem;
+  transition: transform 0.28s var(--ease), border-color 0.28s ease, box-shadow 0.28s ease;
+}
+
+.offer-card:hover {
+  border-color: rgba(101, 207, 59, 0.34);
+  box-shadow: 0 30px 95px rgba(0, 0, 0, 0.36), 0 0 55px rgba(101, 207, 59, 0.1);
+  transform: translateY(-4px);
+}
+
+.offer-card span {
+  color: #ffca63;
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.offer-card h3 {
+  margin: 0.7rem 0 0.45rem;
+  font-size: 1.35rem;
 }
 
 .top-sales-feature {
@@ -1075,6 +1207,38 @@ h1 {
   min-height: 2.65rem;
   padding: 0.65rem 0.9rem;
   font-size: 0.86rem;
+}
+
+.buying-panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.7fr) auto;
+  gap: 1.25rem;
+  align-items: center;
+  max-width: 74rem;
+  margin: 0 auto;
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.buying-panel h2 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1;
+}
+
+.buying-steps {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.buying-steps span {
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 999px;
+  padding: 0.7rem 0.9rem;
+  color: #f7f5ed;
+  background: rgba(255, 255, 255, 0.065);
+  font-size: 0.9rem;
+  font-weight: 800;
 }
 
 .review-grid {
@@ -1420,11 +1584,14 @@ h1 {
 
   .card-grid.three,
   .card-grid.four,
+  .trust-strip,
+  .offer-grid,
   .product-grid,
   .product-detail,
   .featured-product-layout,
   .top-sales-feature,
   .finance-layout,
+  .buying-panel,
   .review-grid,
   .cart-panel,
   .cart-item {

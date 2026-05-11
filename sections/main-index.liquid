@@ -36,19 +36,39 @@
     <p class="eyebrow">Premium digital store</p>
     <img class="hero-logo" src="{{ 'guide-market-logo.svg' | asset_url }}" alt="Guide Market">
     <h1>Guide Market</h1>
-    <p class="lede">Digital resources made to help you move with clarity, stronger habits, and sharper decisions.</p>
+    <p class="lede">Premium digital guides for people who want clearer habits, better decisions, and a simple plan they can actually follow.</p>
     <div class="actions">
-      <a class="button" href="#top-sales">Shop top sale</a>
+      <a class="button" href="#top-sales">Shop digital guides</a>
       <a class="button secondary" href="#finance">Explore finance</a>
     </div>
+    <div class="hero-trust-row" aria-label="Store benefits">
+      <span>Instant access</span>
+      <span>Mobile friendly</span>
+      <span>Clear action steps</span>
+    </div>
+  </div>
+</section>
+
+<section class="trust-strip" aria-label="Guide Market benefits">
+  <div class="trust-item">
+    <strong>Quick to start</strong>
+    <span>No complicated setup. Open the guide and begin.</span>
+  </div>
+  <div class="trust-item">
+    <strong>Built for action</strong>
+    <span>Short, practical sections made for real-life use.</span>
+  </div>
+  <div class="trust-item">
+    <strong>Clean digital format</strong>
+    <span>Designed to be easy to read on phone or desktop.</span>
   </div>
 </section>
 
 <section id="top-sales" class="content-band top-sales-section">
   <div class="section-heading centered">
     <p class="eyebrow">TOP SALES</p>
-    <h2>The products people should see first.</h2>
-    <p>Guide Market highlights its active digital resources in a compact, visual storefront.</p>
+    <h2>Choose the guide that fits your next move.</h2>
+    <p>Focused digital products with clear steps, useful structure, and no unnecessary filler.</p>
   </div>
 
   {% if top_sales_collection.products_count > 0 %}
@@ -80,6 +100,31 @@
   {% endif %}
 </section>
 
+<section class="content-band offer-section" aria-label="Why buy from Guide Market">
+  <div class="section-heading centered">
+    <p class="eyebrow">Why Guide Market</p>
+    <h2>Simple guides. Clear outcomes.</h2>
+    <p>Each product is built to help you understand the problem, make a plan, and take the next step with less friction.</p>
+  </div>
+  <div class="offer-grid">
+    <article class="offer-card">
+      <span>01</span>
+      <h3>Less overwhelm</h3>
+      <p>Direct explanations and clean structure so customers know exactly where to start.</p>
+    </article>
+    <article class="offer-card">
+      <span>02</span>
+      <h3>Better daily decisions</h3>
+      <p>Guidance focused on practical choices, habits, and routines people can use right away.</p>
+    </article>
+    <article class="offer-card">
+      <span>03</span>
+      <h3>Premium feel</h3>
+      <p>A polished digital reading experience that feels intentional, not thrown together.</p>
+    </article>
+  </div>
+</section>
+
 <section id="finance" class="content-band finance-section">
   <div class="section-heading">
     <p class="eyebrow">Finance</p>
@@ -101,6 +146,22 @@
         {% render 'product-card', product: featured_product %}
       </div>
     {% endif %}
+  </div>
+</section>
+
+<section class="content-band buying-section" aria-label="How buying works">
+  <div class="buying-panel">
+    <div>
+      <p class="eyebrow">How it works</p>
+      <h2>Buy once. Start immediately.</h2>
+      <p>Pick a guide, complete checkout, and use the digital resource at your own pace.</p>
+    </div>
+    <div class="buying-steps">
+      <span>Choose your guide</span>
+      <span>Checkout securely</span>
+      <span>Start reading</span>
+    </div>
+    <a class="button" href="#top-sales">See products</a>
   </div>
 </section>
 
