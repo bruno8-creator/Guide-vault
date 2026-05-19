@@ -4,5 +4,8 @@
   "private": true,
   "scripts": {
     "vercel-build": "echo 'Static HTML site: no build step required'"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
   }
 }
