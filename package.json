@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "vercel-build": "echo 'Static HTML site: no build step required'"
+    "build": "node scripts/prepare-sitemap-public.js",
+    "postbuild": "next-sitemap",
+    "vercel-build": "npm run build"
   },
   "dependencies": {
-    "@vercel/analytics": "^2.0.1"
+    "@vercel/analytics": "^2.0.1",
+    "next-sitemap": "^4.2.3"
   }
 }
