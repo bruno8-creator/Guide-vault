@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const siteUrl = "https://guide-market.com";
+const siteUrl = "https://www.guide-market.com";
 
 const exclude = [
   "/admin/*",
