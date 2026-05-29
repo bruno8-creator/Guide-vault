@@ -1,1 +1,46 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc"><title id="title">Best Stocks to Watch in 2026: A Practical Research List</title><desc id="desc">Companies, valuation and portfolio roles</desc><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f8fbff"/><stop offset="1" stop-color="#e7f4ed"/></linearGradient><filter id="s" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#102a43" flood-opacity=".14"/></filter></defs><rect width="1200" height="700" fill="url(#g)"/><circle cx="1000" cy="120" r="180" fill="#0f766e" opacity=".12"/><circle cx="170" cy="560" r="150" fill="#106b45" opacity=".09"/><rect x="95" y="95" width="1010" height="510" rx="44" fill="#fff" filter="url(#s)"/><text x="145" y="178" font-family="Inter,Arial,sans-serif" font-size="40" font-weight="900" fill="#0f172a">Guide Market</text><text x="145" y="245" font-family="Inter,Arial,sans-serif" font-size="72" font-weight="950" fill="#101828">Best Stocks to Watch in 2026: A Practical Research List</text><text x="145" y="304" font-family="Inter,Arial,sans-serif" font-size="30" font-weight="700" fill="#536174">Companies, valuation and portfolio roles</text><g transform="translate(145 370)"><rect x="8" y="118" width="72" height="90" rx="12" fill="#106b45"/><rect x="100" y="78" width="72" height="130" rx="12" fill="#2563eb"/><rect x="192" y="34" width="72" height="174" rx="12" fill="#f59e0b"/><path d="M18 54 L92 84 L163 52 L254 18" fill="none" stroke="#101828" stroke-width="14" stroke-linecap="round"/><rect x="330" y="25" width="245" height="140" rx="28" fill="#f7fafc" stroke="#d9e2ee"/><text x="354" y="78" font-family="Inter,Arial,sans-serif" font-size="28" font-weight="900" fill="#101828">Stocks</text><text x="354" y="118" font-family="Inter,Arial,sans-serif" font-size="22" font-weight="700" fill="#536174">quality, moat, valuation</text></g><g transform="translate(720 345)"><rect x="0" y="0" width="300" height="185" rx="28" fill="#f7fafc" stroke="#d9e2ee"/><path d="M48 128 L107 86 L161 111 L242 54" fill="none" stroke="#0f766e" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/><circle cx="48" cy="128" r="12" fill="#0f766e"/><circle cx="107" cy="86" r="12" fill="#0f766e"/><circle cx="161" cy="111" r="12" fill="#0f766e"/><circle cx="242" cy="54" r="12" fill="#0f766e"/><text x="32" y="160" font-family="Inter,Arial,sans-serif" font-size="20" font-weight="800" fill="#536174">research first</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Stocks to Watch 2026</title>
+  <desc id="desc">Quality companies, valuation and research process</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff7ed"/>
+      <stop offset="0.52" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#fff7ed"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c2410c"/>
+      <stop offset="1" stop-color="#fb923c"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="20" stdDeviation="24" flood-color="#0f172a" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <circle cx="1310" cy="160" r="210" fill="#fb923c" opacity="0.16"/>
+  <circle cx="170" cy="830" r="260" fill="#c2410c" opacity="0.11"/>
+  <g filter="url(#shadow)">
+    <rect x="120" y="118" width="1360" height="764" rx="44" fill="#fff" stroke="#d8e2ee" stroke-width="3"/>
+    <rect x="120" y="118" width="1360" height="178" rx="44" fill="url(#accent)"/>
+    <rect x="120" y="244" width="1360" height="52" fill="url(#accent)"/>
+  </g>
+  <g transform="translate(215 190)">
+    <rect x="0" y="0" width="150" height="150" rx="34" fill="#fff" opacity="0.96"/>
+    <path d="M43 98h64M43 75h84M43 52h52" stroke="#c2410c" stroke-width="16" stroke-linecap="round"/>
+  </g>
+  <text x="215" y="438" fill="#0f172a" font-family="Inter, Arial, sans-serif" font-size="82" font-weight="900" letter-spacing="-1">Stocks to Watch 2026</text>
+  <text x="218" y="525" fill="#475569" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="700">Quality companies, valuation and research process</text>
+  <g transform="translate(215 650)">
+    <rect x="0" y="0" width="360" height="76" rx="22" fill="#fff7ed" stroke="#d8e2ee"/>
+    <text x="32" y="50" fill="#c2410c" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="900">Guide Market</text>
+    <rect x="410" y="0" width="240" height="76" rx="22" fill="#f8fafc" stroke="#d8e2ee"/>
+    <text x="442" y="50" fill="#334155" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="850">Reviewed guide</text>
+  </g>
+  <g transform="translate(1020 550)" opacity="0.95">
+    <rect x="0" y="0" width="310" height="210" rx="28" fill="#f8fafc" stroke="#d8e2ee"/>
+    <path d="M58 142l58-58 45 42 84-94" fill="none" stroke="#c2410c" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="58" cy="142" r="18" fill="#fb923c"/>
+    <circle cx="116" cy="84" r="18" fill="#fb923c"/>
+    <circle cx="161" cy="126" r="18" fill="#fb923c"/>
+    <circle cx="245" cy="32" r="18" fill="#fb923c"/>
+  </g>
+</svg>

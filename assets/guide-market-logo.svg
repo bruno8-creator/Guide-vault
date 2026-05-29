@@ -1,41 +1,7 @@
-<svg width="900" height="520" viewBox="0 0 900 520" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">Guide Market</title>
-  <desc id="desc">Guide Market logo with an open book, upward arrow, and shopping bag handle.</desc>
-  <defs>
-    <linearGradient id="blue" x1="248" y1="164" x2="412" y2="284" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#10A7F3"/>
-      <stop offset="1" stop-color="#063E9B"/>
-    </linearGradient>
-    <linearGradient id="green" x1="465" y1="166" x2="606" y2="308" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#66CF3A"/>
-      <stop offset="1" stop-color="#0E742D"/>
-    </linearGradient>
-    <linearGradient id="orange" x1="421" y1="88" x2="520" y2="144" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FFB21B"/>
-      <stop offset="1" stop-color="#FF8800"/>
-    </linearGradient>
-    <filter id="softShadow" x="170" y="68" width="560" height="330" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-      <feDropShadow dx="0" dy="14" stdDeviation="10" flood-color="#000000" flood-opacity="0.28"/>
-    </filter>
-  </defs>
-
-  <g filter="url(#softShadow)">
-    <path d="M405 143C405 98 438 73 475 73C512 73 545 98 545 143" stroke="url(#orange)" stroke-width="18" stroke-linecap="round"/>
-    <path d="M256 163C320 160 372 178 421 218V314C372 281 319 270 256 278V163Z" fill="url(#blue)"/>
-    <path d="M256 163V298C322 291 372 303 421 338V314C372 281 319 270 256 278V163Z" fill="#053E9B"/>
-    <path d="M256 298C319 291 372 303 421 338" stroke="#021B46" stroke-width="8" stroke-linecap="round"/>
-    <path d="M421 218C470 178 522 160 586 163V278C523 270 470 281 421 314V218Z" fill="url(#green)"/>
-    <path d="M421 314C470 281 523 270 586 278V163L610 170V302C546 296 488 307 421 338V314Z" fill="#0B6E2C"/>
-    <path d="M421 218L498 268L560 196L526 202L549 182L594 174L586 226L566 246L571 211L504 292L421 238V218Z" fill="#0B1E12" opacity="0.38"/>
-    <path d="M434 223L505 268L566 197L535 202L560 181L604 174L595 225L574 246L579 211L508 296L434 247V223Z" fill="#0B1110"/>
-    <path d="M234 176H250V313H392C335 292 291 292 234 300V176Z" fill="#073073"/>
-    <path d="M610 176H626V300C568 292 523 293 466 314H610V176Z" fill="#0D5A28"/>
-  </g>
-
-  <text x="142" y="416" font-family="Arial, Helvetica, sans-serif" font-size="86" font-weight="800" letter-spacing="-3">
-    <tspan fill="#064AA8">Guide</tspan><tspan fill="#198537"> Market</tspan>
-  </text>
-  <text x="250" y="466" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="800" letter-spacing="2" fill="#5D6670">
-    SMART GUIDES - INSTANT KNOWLEDGE
-  </text>
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="300" viewBox="0 0 420 300" role="img" aria-labelledby="title">
+  <title id="title">Guide Market logo</title>
+  <rect width="420" height="300" rx="52" fill="#f4fbf7"/>
+  <path d="M95 205V95h76c38 0 66 24 66 58s-28 58-66 58h-30v-42h28c13 0 23-7 23-17s-10-17-23-17h-28v70H95Z" fill="#106b45"/>
+  <path d="M218 205V95h47l41 58 41-58h43v110h-45v-54l-32 45h-18l-32-45v54h-45Z" fill="#0f172a"/>
+  <text x="92" y="250" fill="#536174" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="900">Guide Market</text>
 </svg>
