@@ -3,98 +3,111 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Guide Market | Articles, Ideas and Useful Guides</title>
-  <meta name="description" content="Guide Market is an editorial website for practical articles about AI, technology, money, productivity, lifestyle and useful digital tools.">
+  <title>Guide Market | Practical Guides for the Digital World</title>
+  <meta name="description" content="Guide Market is an editorial website with expert-written guides about AI, technology, money, productivity and digital tools.">
   <link rel="canonical" href="https://www.guide-market.com/">
   <meta name="robots" content="index, follow, max-image-preview:large">
-  <meta name="theme-color" content="#f8fafc">
+  <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="assets/guide-market-logo.svg" type="image/svg+xml">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Guide Market">
-  <meta property="og:title" content="Guide Market | Articles, Ideas and Useful Guides">
-  <meta property="og:description" content="Practical articles about AI, technology, money, productivity, lifestyle and useful digital tools.">
+  <meta property="og:title" content="Guide Market | Practical Guides for the Digital World">
+  <meta property="og:description" content="Expert-written guides about AI, technology, money, productivity and digital tools.">
   <meta property="og:url" content="https://www.guide-market.com/">
-  <meta property="og:image" content="https://www.guide-market.com/assets/guide-market-logo.svg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Guide Market | Articles, Ideas and Useful Guides">
-  <meta name="twitter:description" content="Practical articles about AI, technology, money, productivity, lifestyle and useful digital tools.">
-  <meta name="twitter:image" content="https://www.guide-market.com/assets/guide-market-logo.svg">
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Guide Market",
+    "url": "https://www.guide-market.com/",
+    "description": "Expert-written guides about AI, technology, money, productivity and digital tools.",
+    "publisher": {
+      "@type": "Organization",
       "name": "Guide Market",
-      "url": "https://www.guide-market.com/",
-      "description": "Editorial website for practical articles about AI, technology, money, productivity, lifestyle and useful digital tools.",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Guide Market",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://www.guide-market.com/assets/guide-market-logo.svg"
-        }
-      }
+      "logo": { "@type": "ImageObject", "url": "https://www.guide-market.com/assets/guide-market-logo.svg" }
     }
+  }
   </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="styles.css">
   <script type="module" src="analytics.js"></script>
 </head>
 <body>
+
   <header class="site-header">
-    <a class="brand" href="index.html" aria-label="Guide Market home">
-      <img src="assets/guide-market-logo.svg" alt="Guide Market logo">
-      <span>Guide Market</span>
-    </a>
-    <nav class="nav" aria-label="Main navigation">
-      <a href="#ia">IA</a>
-      <a href="#topics">Topics</a>
-    </nav>
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="Guide Market home">
+        <img src="assets/guide-market-logo.svg" alt="Guide Market logo" width="34" height="34">
+        <span>Guide Market</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#ai">AI</a>
+        <a href="#technology">Technology</a>
+        <a href="#money">Money</a>
+        <a href="#productivity">Productivity</a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="hero-copy">
-        <p class="eyebrow">Digital guides and articles</p>
-        <h1>Guide Market</h1>
-        <p>Clear, practical articles about artificial intelligence, technology, money, productivity and everyday digital tools.</p>
-      </div>
-      <div class="logo-panel" aria-label="Guide Market logo">
-        <img src="assets/guide-market-logo.svg" alt="">
+
+    <!-- ===== FEATURED HERO ===== -->
+    <section class="hero-featured">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="category-tag tag-ai">AI</div>
+          <h1 class="hero-title">The 5 Best AI Tools in 2026: Real Testing, Pros, Cons &amp; Expert Comparison</h1>
+          <p class="hero-excerpt">AI has moved far beyond novelty. We analyzed the most popular platforms and ranked the five tools that consistently deliver the best real-world results in 2026.</p>
+          <div class="hero-meta">
+            <span>June 1, 2026</span>
+            <span class="meta-sep">·</span>
+            <span>12 min read</span>
+            <span class="meta-sep">·</span>
+            <span>Guide Market Editorial Team</span>
+          </div>
+          <a href="articles/best-ai-tools-2026.html" class="btn-read" id="hero-cta">Read the Guide →</a>
+        </div>
+        <div class="hero-image-wrap">
+          <a href="articles/best-ai-tools-2026.html" aria-label="Read: The 5 Best AI Tools in 2026">
+            <img src="assets/ai-tools-2026-cover.png" alt="The 5 Best AI Tools in 2026" loading="eager">
+          </a>
+        </div>
       </div>
     </section>
 
-    <section class="section" id="ia">
-      <div class="section-heading">
-        <p class="eyebrow">Category</p>
-        <h2>IA</h2>
-        <p>Articles about artificial intelligence tools, workflows, comparisons and practical use cases.</p>
-      </div>
+    <!-- ===== AI SECTION ===== -->
+    <div class="section-header" id="ai">
+      <h2 class="section-label">AI</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="articles-section">
       <div class="article-grid">
-        <a class="article-card" href="articles/best-ai-tools-2026.html">
-          <img src="assets/ai-tools-2026-overview.svg" alt="Logos of the AI tools compared in the article">
-          <div>
-            <span>IA</span>
-            <h3>The 5 Best AI Tools in 2026</h3>
-            <p>ChatGPT, Claude, Gemini, Perplexity and Copilot compared with pros, cons, use cases and expert verdicts.</p>
+        <a class="article-card" href="articles/best-ai-tools-2026.html" id="card-ai-tools-2026">
+          <div class="card-img-wrap">
+            <img src="assets/ai-tools-2026-cover.png" alt="The 5 Best AI Tools in 2026" loading="lazy">
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-ai">AI</span>
+            <h3 class="card-title">The 5 Best AI Tools in 2026: Real Testing, Pros, Cons &amp; Expert Comparison</h3>
+            <p class="card-excerpt"><span translate="no">ChatGPT</span>, <span translate="no">Claude</span>, <span translate="no">Gemini</span>, <span translate="no">Perplexity</span> and <span translate="no">Copilot</span> — who actually comes out on top?</p>
+            <div class="card-meta">June 1, 2026 · 12 min read</div>
           </div>
         </a>
       </div>
-    </section>
+    </div>
 
-    <section class="section topics" id="topics">
-      <div class="section-heading">
-        <p class="eyebrow">Coming topics</p>
-        <h2>More categories soon</h2>
-        <p>The website is prepared to add new article sections beyond IA.</p>
-      </div>
-      <div class="topic-list">
-        <span>Technology</span>
-        <span>Money</span>
-        <span>Productivity</span>
-        <span>Lifestyle</span>
-        <span>Business</span>
-      </div>
-    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <img src="assets/guide-market-logo.svg" alt="" width="26" height="26">
+      <span>Guide Market</span>
+    </div>
+    <p class="footer-tagline">Practical guides for the digital world.</p>
+    <p class="footer-copy">© 2026 Guide Market. All rights reserved.</p>
+  </footer>
+
 </body>
 </html>
