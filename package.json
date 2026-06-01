@@ -1,10 +1,9 @@
 {
-  "name": "ia-para-todo-static-site",
+  "name": "guide-market-blank-site",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "build": "node scripts/prepare-sitemap-public.js",
-    "postbuild": "next-sitemap",
     "vercel-build": "npm run build"
   },
   "dependencies": {
