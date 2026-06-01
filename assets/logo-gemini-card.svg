@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="0 0 900 900" role="img" aria-labelledby="title desc">
+  <title id="title">Gemini logo card</title>
+  <desc id="desc">Editorial logo card for Gemini in the best AI tools article.</desc>
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4285f4"/><stop offset=".5" stop-color="#a855f7"/><stop offset="1" stop-color="#34a853"/></linearGradient></defs>
+  <rect width="900" height="900" rx="70" fill="#f5f7ff"/>
+  <path d="M450 150c46 134 76 164 210 210-134 46-164 76-210 210-46-134-76-164-210-210 134-46 164-76 210-210z" fill="url(#g)"/>
+  <text x="450" y="650" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="102" font-weight="950" fill="#111827">Gemini</text>
+  <text x="450" y="715" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="34" font-weight="800" fill="#5f6b7a">Best for Google users</text>
+</svg>
