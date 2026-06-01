@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="0 0 900 900" role="img" aria-labelledby="title desc">
-  <title id="title">Perplexity AI logo card</title>
-  <desc id="desc">Editorial logo card for Perplexity AI in the best AI tools article.</desc>
-  <rect width="900" height="900" rx="70" fill="#eefdfb"/>
-  <rect x="270" y="170" width="360" height="360" rx="72" fill="#0f766e"/>
-  <path d="M345 250h210v210H345zM555 250L345 460M345 250l210 210" fill="none" stroke="#fff" stroke-width="36" stroke-linecap="round"/>
-  <text x="450" y="650" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="82" font-weight="950" fill="#111827">Perplexity</text>
-  <text x="450" y="715" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="34" font-weight="800" fill="#0f766e">Research and sources</text>
-</svg>

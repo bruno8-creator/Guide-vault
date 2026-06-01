@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="0 0 900 900" role="img" aria-labelledby="title desc">
-  <title id="title">ChatGPT logo card</title>
-  <desc id="desc">Editorial logo card for ChatGPT in the best AI tools article.</desc>
-  <rect width="900" height="900" rx="70" fill="#f8fafc"/>
-  <circle cx="450" cy="330" r="170" fill="#111827"/>
-  <path d="M325 394c70-86 180-86 250 0M335 323h230M385 250h130" fill="none" stroke="#fff" stroke-width="42" stroke-linecap="round"/>
-  <text x="450" y="650" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="92" font-weight="950" fill="#111827">ChatGPT</text>
-  <text x="450" y="715" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="34" font-weight="800" fill="#5f6b7a">Best overall AI platform</text>
-</svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">Microsoft Copilot</title>
+  <desc id="desc">Microsoft Copilot multicolor ribbon-style logo.</desc>
+  <defs>
+    <linearGradient id="left" x1="120" y1="160" x2="620" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22c3ff"/>
+      <stop offset=".45" stop-color="#43c06f"/>
+      <stop offset="1" stop-color="#ffd21e"/>
+    </linearGradient>
+    <linearGradient id="right" x1="520" y1="160" x2="900" y2="850" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1d4ed8"/>
+      <stop offset=".46" stop-color="#c052dc"/>
+      <stop offset="1" stop-color="#ff8a4c"/>
+    </linearGradient>
+    <linearGradient id="bottom" x1="260" y1="725" x2="640" y2="960" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffcc33"/>
+      <stop offset=".5" stop-color="#ef4444"/>
+      <stop offset="1" stop-color="#f97316"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#left)" d="M270 110h395c-78 18-114 78-141 174L403 710c-28 98-82 156-177 156H142c-78 0-122-52-101-127L154 327c36-132 74-217 116-217Z"/>
+  <path fill="url(#right)" d="M662 110h106c76 0 116 54 96 128l-36 134c-22 82 17 138 102 138h19c76 0 115 52 96 126L936 842c-34 129-79 182-160 182H383c84-17 119-79 147-177l120-426c28-99 78-157 174-157h31l14-51c18-67-39-103-207-103Z"/>
+  <path fill="url(#bottom)" d="M226 866h176c86 0 137-57 164-154l41-144 194 456H391c-79 0-132-45-156-118l-9-40Z"/>
+</svg>

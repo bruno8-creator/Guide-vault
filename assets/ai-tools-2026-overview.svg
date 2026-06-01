@@ -1,21 +1,44 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
-  <title id="title">Best AI tools in 2026 overview</title>
-  <desc id="desc">Editorial cover showing ChatGPT, Claude, Gemini, Perplexity and Microsoft Copilot as the five tools compared in the article.</desc>
+  <title id="title">Best AI tools in 2026 logo cover</title>
+  <desc id="desc">Cover with the logos of ChatGPT, Claude, Gemini, Perplexity and Microsoft Copilot.</desc>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8fafc"/><stop offset="1" stop-color="#e7f3ee"/></linearGradient>
-    <filter id="shadow"><feDropShadow dx="0" dy="20" stdDeviation="24" flood-color="#111827" flood-opacity=".14"/></filter>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#edf7f1"/>
+    </linearGradient>
+    <linearGradient id="gemini" x1="690" y1="555" x2="895" y2="350" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f8d33a"/>
+      <stop offset=".32" stop-color="#36c777"/>
+      <stop offset=".64" stop-color="#3287ff"/>
+      <stop offset="1" stop-color="#f0527a"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="20" stdDeviation="24" flood-color="#111827" flood-opacity=".12"/>
+    </filter>
   </defs>
   <rect width="1600" height="900" fill="url(#bg)"/>
-  <circle cx="1360" cy="120" r="260" fill="#106b45" opacity=".10"/>
-  <circle cx="120" cy="760" r="240" fill="#6366f1" opacity=".10"/>
-  <text x="110" y="150" font-family="Inter,Arial,sans-serif" font-size="48" font-weight="950" fill="#106b45">Guide Market</text>
-  <text x="110" y="235" font-family="Inter,Arial,sans-serif" font-size="86" font-weight="950" fill="#111827">The 5 Best AI Tools</text>
-  <text x="114" y="300" font-family="Inter,Arial,sans-serif" font-size="34" font-weight="750" fill="#5f6b7a">ChatGPT · Claude · Gemini · Perplexity · Copilot</text>
-  <g transform="translate(110 395)" filter="url(#shadow)">
-    <g><rect width="250" height="250" rx="42" fill="#fff"/><circle cx="125" cy="92" r="48" fill="#111827"/><path d="M78 150c28-34 66-34 94 0M88 113h74M104 76h42" fill="none" stroke="#fff" stroke-width="14" stroke-linecap="round"/><text x="52" y="210" font-family="Inter,Arial,sans-serif" font-size="30" font-weight="900" fill="#111827">ChatGPT</text></g>
-    <g transform="translate(285 0)"><rect width="250" height="250" rx="42" fill="#fff"/><text x="73" y="128" font-family="Georgia,serif" font-size="94" font-weight="700" fill="#c15f3c">C</text><text x="58" y="210" font-family="Inter,Arial,sans-serif" font-size="30" font-weight="900" fill="#111827">Claude</text></g>
-    <g transform="translate(570 0)"><rect width="250" height="250" rx="42" fill="#fff"/><path d="M125 44c18 53 31 66 84 84-53 18-66 31-84 84-18-53-31-66-84-84 53-18 66-31 84-84z" fill="#4285f4"/><path d="M125 44c18 53 31 66 84 84-53 18-66 31-84 84" fill="#a855f7" opacity=".65"/><text x="60" y="210" font-family="Inter,Arial,sans-serif" font-size="30" font-weight="900" fill="#111827">Gemini</text></g>
-    <g transform="translate(855 0)"><rect width="250" height="250" rx="42" fill="#fff"/><rect x="72" y="54" width="106" height="106" rx="24" fill="#111827"/><path d="M98 78h54v54H98zM152 78l-54 54" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round"/><text x="42" y="210" font-family="Inter,Arial,sans-serif" font-size="30" font-weight="900" fill="#111827">Perplexity</text></g>
-    <g transform="translate(1140 0)"><rect width="250" height="250" rx="42" fill="#fff"/><rect x="68" y="70" width="52" height="52" rx="12" fill="#f25022"/><rect x="130" y="70" width="52" height="52" rx="12" fill="#7fba00"/><rect x="68" y="132" width="52" height="52" rx="12" fill="#00a4ef"/><rect x="130" y="132" width="52" height="52" rx="12" fill="#ffb900"/><text x="62" y="210" font-family="Inter,Arial,sans-serif" font-size="30" font-weight="900" fill="#111827">Copilot</text></g>
+  <circle cx="1360" cy="140" r="260" fill="#106b45" opacity=".1"/>
+  <circle cx="150" cy="760" r="260" fill="#2563eb" opacity=".09"/>
+  <text x="110" y="150" font-family="Inter,Arial,sans-serif" font-size="46" font-weight="950" fill="#106b45">Guide Market</text>
+  <text x="110" y="236" font-family="Inter,Arial,sans-serif" font-size="86" font-weight="950" fill="#111827">The 5 Best AI Tools</text>
+  <text x="114" y="304" font-family="Inter,Arial,sans-serif" font-size="34" font-weight="760" fill="#5f6b7a">Original-style logos compared for real productivity in 2026</text>
+  <g transform="translate(105 405)" filter="url(#shadow)">
+    <rect x="0" y="0" width="250" height="250" rx="40" fill="#fff"/>
+    <path transform="translate(53 46) scale(6)" fill="#111827" d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9811 4.18a5.9847 5.9847 0 0 0-3.9987 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0462 6.0462 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0462 6.0462 0 0 0-.7475-7.0729Zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.0194 1.165a.071.071 0 0 1 .0385.052v5.5826a4.504 4.504 0 0 1-4.4944 4.498Zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464ZM2.34 7.8956a4.485 4.485 0 0 1 2.3655-1.9728v5.5183a.779.779 0 0 0 .3927.6813l5.8144 3.3543-2.0194 1.165a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.34 7.8956Zm16.5963 3.8558-5.8192-3.3685L15.1365 7.22a.0757.0757 0 0 1 .071 0l4.8303 2.7912a4.4944 4.4944 0 0 1-.676 8.1042v-5.683a.784.784 0 0 0-.4255-.681Zm2.0101-2.7349-.142-.0852-4.7782-2.7582a.7712.7712 0 0 0-.7807 0L9.4027 9.5416V7.2092a.0804.0804 0 0 1 .0331-.0615l4.8304-2.7865a4.4992 4.4992 0 0 1 6.6802 4.6553ZM8.3065 12.863l-2.0194-1.165a.0804.0804 0 0 1-.0385-.052V6.0632a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805-4.7783 2.7582a.7948.7948 0 0 0-.3927.6813Zm1.091 1.2608V9.8858L13.07 7.7668l3.6725 2.119v4.238l-3.6725 2.119Z"/>
+    <text x="125" y="220" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="28" font-weight="900" fill="#111827">ChatGPT</text>
+    <rect x="285" y="0" width="250" height="250" rx="40" fill="#fff"/>
+    <path transform="translate(345 38) scale(.17)" fill="#D97757" d="M496 0 382 48 242 0 188 116 46 191l18 131L0 454l86 112-14 152 142 45 86 132 150-38 132 99 116-96 150 14 48-144 128-82-44-144 44-140-132-76-58-140-150 10L744 44 594 82 496 0Z"/>
+    <text x="410" y="220" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="28" font-weight="900" fill="#111827">Claude</text>
+    <rect x="570" y="0" width="250" height="250" rx="40" fill="#fff"/>
+    <path fill="url(#gemini)" d="M695 44c28 84 48 104 132 132-84 28-104 48-132 132-28-84-48-104-132-132 84-28 104-48 132-132Z"/>
+    <text x="695" y="220" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="28" font-weight="900" fill="#111827">Gemini</text>
+    <rect x="855" y="0" width="250" height="250" rx="40" fill="#fff"/>
+    <path transform="translate(910 50) scale(6)" fill="#22b8c8" d="M22.3977 7.0896h-2.3106V.0676l-7.5094 6.3542V.1577h-1.1553v6.2641L3.913 0v7.0896H1.6023v8.4322h2.3106v7.0896l7.5095-6.3542v6.2641h1.1553v-6.2641l7.5094 6.3542v-7.0896h2.3106Zm-2.3106 1.1552v6.1218h-6.7612l5.6058-4.7455v-1.3763Zm-7.5094-.3188 6.354-5.3797v6.0564l-6.354 5.3798Zm-1.1553 0v6.0565L5.0682 8.6027V2.5463Zm0 7.8104-6.3542 5.3797v-6.0564l6.3542-5.3798Zm1.1553 0 6.354 5.3797v-6.0564l-6.354-5.3798ZM2.7576 14.3666V8.2448h6.7612l-5.6059 4.7455v1.3763Z"/>
+    <text x="980" y="220" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="28" font-weight="900" fill="#111827">Perplexity</text>
+    <rect x="1140" y="0" width="250" height="250" rx="40" fill="#fff"/>
+    <path transform="translate(1185 40) scale(.18)" fill="#22c3ff" d="M270 110h395c-78 18-114 78-141 174L403 710c-28 98-82 156-177 156H142c-78 0-122-52-101-127L154 327c36-132 74-217 116-217Z"/>
+    <path transform="translate(1185 40) scale(.18)" fill="#c052dc" d="M662 110h106c76 0 116 54 96 128l-36 134c-22 82 17 138 102 138h19c76 0 115 52 96 126L936 842c-34 129-79 182-160 182H383c84-17 119-79 147-177l120-426c28-99 78-157 174-157h31l14-51c18-67-39-103-207-103Z"/>
+    <path transform="translate(1185 40) scale(.18)" fill="#f97316" d="M226 866h176c86 0 137-57 164-154l41-144 194 456H391c-79 0-132-45-156-118l-9-40Z"/>
+    <text x="1265" y="220" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="28" font-weight="900" fill="#111827">Copilot</text>
   </g>
 </svg>
