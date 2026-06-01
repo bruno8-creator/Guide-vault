@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap');
 
 /* ===== TOKENS ===== */
 :root {
@@ -15,7 +15,7 @@
   --tag-ai-bg: #F5F3FF;
   --radius: 16px;
   --container: 1200px;
-  --font-display: 'Playfair Display', Georgia, serif;
+  --font-display: 'Outfit', 'Inter', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
   --shadow-card: 0 1px 3px rgba(0,0,0,0.04), 0 8px 32px rgba(0,0,0,0.06);
   --shadow-hover: 0 4px 6px rgba(0,0,0,0.04), 0 20px 48px rgba(0,0,0,0.1);
