@@ -35,6 +35,7 @@ function markdown(src) {
   const blocks = src.trim().split(/\n\s*\n/);
   for (const b of blocks) {
     const lines = b.split("\n");
+    if (/^<!--[\s\S]*-->$/.test(b.trim())) continue; // editor notes, never published
     if (/^## /.test(b)) out.push(`<h2 id="${slug(b.slice(3))}">${inline(b.slice(3))}</h2>`);
     else if (/^### /.test(b)) out.push(`<h3>${inline(b.slice(4))}</h3>`);
     else if (lines.every((l) => /^- /.test(l))) out.push(`<ul>${lines.map((l) => `<li>${inline(l.slice(2))}</li>`).join("")}</ul>`);
@@ -82,7 +83,7 @@ function layout({ title, description, path, body, head = "" }) {
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${SITE.adsenseClient}" crossorigin="anonymous"></script>
 ${head}
@@ -91,7 +92,7 @@ ${head}
 <a class="skip" href="#main">Skip to content</a>
 <header class="masthead">
   <div class="wrap masthead-inner">
-    <a class="logo" href="/">Guide&nbsp;Market</a>
+    <a class="logo" href="/"><span class="logo-mark" aria-hidden="true">G</span>Guide Market</a>
     <nav class="nav" aria-label="Sections">${nav}</nav>
   </div>
 </header>
@@ -101,7 +102,7 @@ ${body}
 <footer class="footer">
   <div class="wrap footer-inner">
     <div>
-      <p class="logo logo-small">Guide Market</p>
+      <p class="logo logo-small"><span class="logo-mark" aria-hidden="true">G</span>Guide Market</p>
       <p class="muted">${SITE.tagline}</p>
     </div>
     <nav aria-label="Site">
@@ -120,7 +121,7 @@ ${body}
 }
 
 const card = (a, big = false) => `
-<article class="card${big ? " card-big" : ""}">
+<article class="card${big ? " card-big" : ""}" data-cat="${a.category}">
   <a class="kicker" href="/category/${a.category}">${CATEGORIES[a.category].name}</a>
   <h${big ? 2 : 3}><a href="/articles/${a.slug}">${esc(a.title)}</a></h${big ? 2 : 3}>
   <p>${esc(a.description)}</p>
@@ -139,7 +140,7 @@ const write = (p, html) => {
 };
 
 const articles = readdirSync(join(ROOT, "content"))
-  .filter((f) => f.endsWith(".md"))
+  .filter((f) => f.endsWith(".md") && f !== "PLAN.md")
   .map((f) => ({ slug: f.replace(/\.md$/, ""), ...parse(join(ROOT, "content", f)) }))
   .filter((a) => a.draft !== "true")
   .sort((a, b) => b.date.localeCompare(a.date));
@@ -206,7 +207,7 @@ for (const a of articles) {
     path: `/articles/${a.slug}`,
     head: `<script type="application/ld+json">${JSON.stringify(ld)}</script>`,
     body: `
-<article class="post">
+<article class="post" data-cat="${a.category}">
   <header class="wrap-narrow post-head">
     <a class="kicker" href="/category/${a.category}">${CATEGORIES[a.category].name}</a>
     <h1>${esc(a.title)}</h1>
