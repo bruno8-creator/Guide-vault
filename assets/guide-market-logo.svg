@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="420" height="300" viewBox="0 0 420 300" role="img" aria-labelledby="title">
-  <title id="title">Guide Market logo</title>
-  <rect width="420" height="300" rx="52" fill="#f4fbf7"/>
-  <path d="M95 205V95h76c38 0 66 24 66 58s-28 58-66 58h-30v-42h28c13 0 23-7 23-17s-10-17-23-17h-28v70H95Z" fill="#106b45"/>
-  <path d="M218 205V95h47l41 58 41-58h43v110h-45v-54l-32 45h-18l-32-45v54h-45Z" fill="#0f172a"/>
-  <text x="92" y="250" fill="#536174" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="900">Guide Market</text>
-</svg>
