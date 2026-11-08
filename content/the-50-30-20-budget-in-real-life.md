@@ -4,6 +4,10 @@ description: The most popular budgeting rule is simple and often unrealistic. Ho
 category: money
 date: 2026-10-15
 author: Bruno
+cover: https://images.pexels.com/photos/6328966/pexels-photo-6328966.jpeg
+coverAlt: A person writes budget notes in a notebook on a wooden table beside cash, coins and a phone.
+coverCredit: Karola G / Pexels
+coverPage: https://www.pexels.com/photo/a-person-writing-on-notebook-6328966/
 ---
 The 50/30/20 rule is probably the most repeated piece of budgeting advice there is. Take your income after tax and split it: 50% on needs, 30% on wants, 20% on savings and paying off debt.
 

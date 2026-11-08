@@ -104,7 +104,24 @@ function parse(file) {
   const body = m[2];
   const words = body.split(/\s+/).length;
   const { html, images, toc } = markdown(body, file);
+  // Optional cover photo for cards and the article header:
+  //   cover: https://images.pexels.com/...   coverAlt: ...   coverCredit: Name / Pexels   coverPage: https://www.pexels.com/photo/...
+  if (meta.cover) {
+    const host = new URL(meta.cover).hostname;
+    if (!IMAGE_HOSTS.includes(host)) throw new Error(`${file}: cover host "${host}" not allowed (use Pexels or Unsplash)`);
+    if (!meta.coverAlt || meta.coverAlt.length < 15) throw new Error(`${file}: cover needs coverAlt (15+ chars)`);
+    if (!/pexels|unsplash/i.test(meta.coverCredit || "")) throw new Error(`${file}: cover needs coverCredit (Name / Pexels|Unsplash)`);
+  }
   return { ...meta, body, html, images, toc, words, minutes: Math.max(3, Math.round(words / 230)) };
+}
+
+// Cover image for an article: frontmatter cover, else first photo in the body, else none (styled placeholder).
+const coverOf = (a) => a.cover || a.images[0] || "";
+function thumb(a, w, cls = "thumb", eager = false) {
+  const src = coverOf(a);
+  if (!src) return `<div class="${cls} ph" aria-hidden="true"><span>${CATEGORIES[a.category].name}</span></div>`;
+  const alt = a.coverAlt || "";
+  return `<div class="${cls}"><img src="${esc(sizedImage(src, w))}" srcset="${esc(sizedImage(src, Math.round(w / 2)))} ${Math.round(w / 2)}w, ${esc(sizedImage(src, w))} ${w}w" sizes="(max-width: 760px) 100vw, ${Math.round(w / 2)}px" alt="${esc(alt)}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"></div>`;
 }
 
 const fmtDate = (d) => new Date(d + "T12:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
@@ -131,7 +148,7 @@ ${image ? `<meta property="og:image" content="${esc(image)}">\n<meta name="twitt
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${SITE.adsenseClient}" crossorigin="anonymous"></script>
 ${head}
@@ -140,8 +157,13 @@ ${head}
 <a class="skip" href="#main">Skip to content</a>
 <header class="masthead">
   <div class="wrap masthead-inner">
-    <a class="logo" href="/"><span class="logo-mark" aria-hidden="true">G</span>Guide Market</a>
+    <a class="brand" href="/" aria-label="Guide Market home">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="17" width="6" height="11" rx="2"/><rect x="13" y="11" width="6" height="17" rx="2"/><rect x="23" y="4" width="6" height="24" rx="2"/></svg>
+      <span class="brand-name">Guide Market</span>
+    </a>
+    <p class="brand-tag">AI, economy, money and tech —<br>explained in plain English</p>
     <nav class="nav" aria-label="Sections">${nav}</nav>
+    <a class="search-btn" href="/search" aria-label="Search articles"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></a>
   </div>
 </header>
 <main id="main">
@@ -150,9 +172,10 @@ ${body}
 <footer class="footer">
   <div class="wrap footer-inner">
     <div>
-      <p class="logo logo-small"><span class="logo-mark" aria-hidden="true">G</span>Guide Market</p>
+      <p class="brand"><svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="17" width="6" height="11" rx="2"/><rect x="13" y="11" width="6" height="17" rx="2"/><rect x="23" y="4" width="6" height="24" rx="2"/></svg><span class="brand-name">Guide Market</span></p>
       <p class="muted">${SITE.tagline}</p>
     </div>
+    <nav aria-label="Sections">${Object.entries(CATEGORIES).map(([k, c]) => `<a href="/category/${k}">${c.name}</a>`).join("")}</nav>
     <nav aria-label="Site">
       <a href="/about">About</a>
       <a href="/editorial-policy">Editorial policy</a>
@@ -168,13 +191,66 @@ ${body}
 </html>`;
 }
 
-const card = (a, big = false) => `
-<article class="card${big ? " card-big" : ""}" data-cat="${a.category}">
-  <a class="kicker" href="/category/${a.category}">${CATEGORIES[a.category].name}</a>
-  <h${big ? 2 : 3}><a href="/articles/${a.slug}">${esc(a.title)}</a></h${big ? 2 : 3}>
-  <p>${esc(a.description)}</p>
-  <p class="meta">${fmtDate(a.date)} · ${a.minutes} min read</p>
+const shortDate = (d) => new Date(d + "T12:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+const clock = `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>`;
+const metaLine = (a) => `<p class="meta"><time datetime="${a.date}">${shortDate(a.date)}</time><span class="dot">·</span>${clock}${a.minutes} min read</p>`;
+const pill = (a) => `<a class="pill" href="/category/${a.category}">${CATEGORIES[a.category].name}</a>`;
+
+// Big image card with the text over the photo (hero).
+const heroCard = (a, size = "lg") => `
+<article class="hcard hcard-${size}" data-cat="${a.category}">
+  ${thumb(a, size === "lg" ? 1400 : 800, "hcard-img", size === "lg")}
+  <div class="hcard-body">
+    ${pill(a)}
+    <h${size === "lg" ? 2 : 3}><a href="/articles/${a.slug}">${esc(a.title)}</a></h${size === "lg" ? 2 : 3}>
+    ${size === "lg" ? `<p class="hcard-desc">${esc(a.description)}</p>` : ""}
+    ${metaLine(a)}
+  </div>
 </article>`;
+
+// Row card: thumbnail left, text right (latest lists).
+const rowCard = (a) => `
+<article class="rcard" data-cat="${a.category}">
+  ${thumb(a, 640)}
+  <div class="rcard-body">
+    ${pill(a)}
+    <h3><a href="/articles/${a.slug}">${esc(a.title)}</a></h3>
+    <p class="rcard-desc">${esc(a.description)}</p>
+    ${metaLine(a)}
+  </div>
+</article>`;
+
+// Vertical card: image on top (shelves, "keep reading").
+const card = (a) => `
+<article class="vcard" data-cat="${a.category}">
+  ${thumb(a, 800)}
+  <div class="vcard-body">
+    ${pill(a)}
+    <h3><a href="/articles/${a.slug}">${esc(a.title)}</a></h3>
+    ${metaLine(a)}
+  </div>
+</article>`;
+
+// Sidebar: numbered list + about box.
+const sidebar = (list, title = "Editor's picks") => `
+<aside class="sidebar">
+  <section class="side-box">
+    <h2 class="side-title"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>${title}</h2>
+    <ol class="ranked">${list.map((a, i) => `<li data-cat="${a.category}"><span class="rank">${i + 1}</span><div><a href="/articles/${a.slug}">${esc(a.title)}</a><p class="meta">${shortDate(a.date)}<span class="dot">·</span><span class="cat-text">${CATEGORIES[a.category].name}</span></p></div></li>`).join("")}</ol>
+  </section>
+  <section class="side-box side-about">
+    <h2 class="side-title">About Guide Market</h2>
+    <p>Independent, plain-English guides on the decisions technology and money throw at you. Researched from primary sources, written and checked by a person.</p>
+    <a class="btn" href="/about">How we work <span aria-hidden="true">→</span></a>
+  </section>
+</aside>`;
+
+const topics = () => `
+<nav class="topics" aria-label="Topics">
+  <span class="topics-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>Topics</span>
+  ${Object.entries(CATEGORIES).map(([k, c]) => `<a class="chip" href="/category/${k}" data-cat="${k}">${c.name}</a>`).join("")}
+  <a class="chip" href="/search">All articles</a>
+</nav>`;
 
 // ---------- build ----------
 rmSync(OUT, { recursive: true, force: true });
@@ -198,28 +274,37 @@ for (const a of articles) {
 }
 
 // Home
-const [lead, ...rest] = articles;
+// Editor's picks: the newest article from each category, then the rest by date.
+const picks = [...Object.keys(CATEGORIES).map((k) => articles.find((a) => a.category === k)).filter(Boolean), ...articles]
+  .filter((a, i, all) => all.indexOf(a) === i).slice(0, 5);
+const sectionHead = (title, href, label) => `<div class="section-head"><h2>${title}</h2>${href ? `<a href="${href}">${label} <span aria-hidden="true">›</span></a>` : ""}</div>`;
+
+const [lead, side1, side2] = articles;
+const featured = new Set([lead, side1, side2].filter(Boolean));
 write("/", layout({
   path: "/",
+  image: lead ? coverOf(lead) : "",
   body: `
-<section class="wrap intro">
-  <p class="intro-text">${SITE.tagline}</p>
+<h1 class="sr-only">${SITE.name}: ${SITE.tagline}</h1>
+<section class="wrap hero">
+  ${lead ? heroCard(lead, "lg") : ""}
+  <div class="hero-side">${[side1, side2].filter(Boolean).map((a) => heroCard(a, "sm")).join("")}</div>
 </section>
-<section class="wrap home-grid">
-  <div class="lead">${lead ? card(lead, true) : ""}</div>
-  <div class="latest">
-    <h2 class="section-label">Latest</h2>
-    ${rest.slice(0, 4).map((a) => card(a)).join("")}
+<div class="wrap">${topics()}</div>
+<div class="wrap with-sidebar">
+  <div class="main-col">
+    <section>
+      ${sectionHead("Latest articles", "/search", "See all articles")}
+      <div class="rows">${articles.filter((a) => !featured.has(a)).slice(0, 8).map(rowCard).join("") || articles.slice(0, 6).map(rowCard).join("")}</div>
+    </section>
+    ${Object.entries(CATEGORIES).map(([k, c]) => {
+      const list = articles.filter((a) => a.category === k).slice(0, 3);
+      if (!list.length) return "";
+      return `<section class="shelf" data-cat="${k}">${sectionHead(c.name, `/category/${k}`, `All ${c.name}`)}<div class="shelf-row">${list.map(card).join("")}</div></section>`;
+    }).join("")}
   </div>
-</section>
-${Object.entries(CATEGORIES).map(([k, c]) => {
-  const list = articles.filter((a) => a.category === k).slice(0, 3);
-  if (!list.length) return "";
-  return `<section class="wrap shelf">
-  <div class="shelf-head"><h2 class="section-label">${c.name}</h2><a href="/category/${k}">All ${c.name} →</a></div>
-  <div class="shelf-row">${list.map((a) => card(a)).join("")}</div>
-</section>`;
-}).join("")}`,
+  ${sidebar(picks)}
+</div>`,
 }));
 
 // Categories
@@ -229,10 +314,48 @@ for (const [k, c] of Object.entries(CATEGORIES)) {
     title: c.name,
     description: c.blurb,
     path: `/category/${k}`,
-    body: `<section class="wrap page-head"><h1>${c.name}</h1><p class="lede">${c.blurb}</p></section>
-<section class="wrap list">${list.length ? list.map((a) => card(a)).join("") : "<p>New articles are on the way.</p>"}</section>`,
+    body: `<section class="wrap cat-head" data-cat="${k}"><span class="pill pill-static">${c.name}</span><h1>${c.name}</h1><p class="lede">${c.blurb}</p></section>
+<div class="wrap">${topics()}</div>
+<div class="wrap with-sidebar">
+  <div class="main-col"><div class="rows">${list.length ? list.map(rowCard).join("") : "<p>New articles are on the way.</p>"}</div></div>
+  ${sidebar(picks.filter((a) => a.category !== k).slice(0, 4).concat(picks.filter((a) => a.category === k)).slice(0, 5))}
+</div>`,
   }));
 }
+
+// Search page + index (all client-side, no server needed)
+writeFileSync(join(OUT, "search-index.json"), JSON.stringify(articles.map((a) => ({
+  slug: a.slug, title: a.title, description: a.description, category: a.category, cat: CATEGORIES[a.category].name,
+  date: shortDate(a.date), minutes: a.minutes, text: a.body.replace(/[#>*`|\[\]()!_-]/g, " ").replace(/\s+/g, " ").toLowerCase(),
+}))));
+write("/search", layout({
+  title: "Search",
+  description: "Search every Guide Market article.",
+  path: "/search",
+  body: `<section class="wrap-narrow search-head"><h1>Search articles</h1>
+<form class="search-form" role="search" onsubmit="return false"><label class="sr-only" for="q">Search</label><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" placeholder="Inflation, passkeys, budgeting…" autocomplete="off" autofocus></form>
+<p class="muted small" id="count"></p></section>
+<div class="wrap-narrow"><div class="rows" id="results">${articles.map(rowCard).join("")}</div></div>
+<script>
+(async () => {
+  const q = document.getElementById("q"), results = document.getElementById("results"), count = document.getElementById("count");
+  const cards = [...results.children];
+  const idx = await fetch("/search-index.json").then((r) => r.json());
+  const run = () => {
+    const terms = q.value.toLowerCase().trim().split(/\\s+/).filter(Boolean);
+    let n = 0;
+    idx.forEach((a, i) => {
+      const hay = (a.title + " " + a.description + " " + a.cat + " " + a.text).toLowerCase();
+      const hit = terms.every((t) => hay.includes(t));
+      cards[i].hidden = !hit; if (hit) n++;
+    });
+    count.textContent = terms.length ? n + (n === 1 ? " article" : " articles") + " found" : idx.length + " articles";
+  };
+  const p = new URLSearchParams(location.search).get("q"); if (p) q.value = p;
+  q.addEventListener("input", run); run();
+})();
+</script>`,
+}));
 
 // Articles
 for (const a of articles) {
@@ -259,7 +382,7 @@ for (const a of articles) {
     title: a.title,
     description: a.description,
     path: `/articles/${a.slug}`,
-    image: a.images[0] || "",
+    image: coverOf(a),
     head: `<script type="application/ld+json">${JSON.stringify(ld)}</script>`,
     body: `
 <article class="post" data-cat="${a.category}">
@@ -267,8 +390,9 @@ for (const a of articles) {
     <a class="kicker" href="/category/${a.category}">${CATEGORIES[a.category].name}</a>
     <h1>${esc(a.title)}</h1>
     <p class="lede">${esc(a.description)}</p>
-    <p class="meta">By ${esc(a.author)} · ${fmtDate(a.date)}${a.updated ? ` · Updated ${fmtDate(a.updated)}` : ""} · ${a.minutes} min read</p>
+    <p class="meta byline"><span class="avatar" aria-hidden="true">${esc(a.author[0])}</span>By ${esc(a.author)}<span class="dot">·</span>${fmtDate(a.date)}${a.updated ? `<span class="dot">·</span>Updated ${fmtDate(a.updated)}` : ""}<span class="dot">·</span>${clock}${a.minutes} min read</p>
   </header>
+  ${a.cover ? `<figure class="wrap post-cover">${thumb(a, 1600, "post-cover-img", true)}<figcaption>Photo: ${a.coverPage ? `<a href="${esc(a.coverPage)}" rel="noopener">${esc(a.coverCredit)}</a>` : esc(a.coverCredit)}</figcaption></figure>` : ""}
   <div class="wrap-narrow prose">
 ${toc}
 ${a.html}
@@ -278,8 +402,8 @@ ${a.html}
   </footer>
 </article>
 <section class="wrap shelf">
-  <h2 class="section-label">Keep reading</h2>
-  <div class="shelf-row">${more.map((x) => card(x)).join("")}</div>
+  ${sectionHead("Keep reading", `/category/${a.category}`, `More ${CATEGORIES[a.category].name}`)}
+  <div class="shelf-row">${articles.filter((x) => x.slug !== a.slug).sort((x, y) => (y.category === a.category) - (x.category === a.category)).slice(0, 3).map(card).join("")}</div>
 </section>`,
   }));
 }
@@ -300,7 +424,7 @@ for (const f of readdirSync(join(ROOT, "pages")).filter((f) => f.endsWith(".md")
 write("/404", layout({ title: "Page not found", path: "/404", body: `<section class="wrap-narrow page-head"><h1>Page not found</h1><p class="lede">That page doesn't exist (any more). Try the <a href="/">home page</a>.</p></section>` }));
 
 // Sitemap
-const urls = ["/", ...Object.keys(CATEGORIES).map((k) => `/category/${k}`), ...articles.map((a) => `/articles/${a.slug}`),
+const urls = ["/", "/search", ...Object.keys(CATEGORIES).map((k) => `/category/${k}`), ...articles.map((a) => `/articles/${a.slug}`),
   ...readdirSync(join(ROOT, "pages")).filter((f) => f.endsWith(".md")).map((f) => `/${f.replace(/\.md$/, "")}`)];
 writeFileSync(join(OUT, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

@@ -4,6 +4,10 @@ description: Chatbots sound equally confident when they're right and when they'r
 category: ai
 date: 2026-11-06
 author: Bruno
+cover: https://images.pexels.com/photos/16094041/pexels-photo-16094041.jpeg
+coverAlt: A man types on a laptop showing an AI chat interface, with his glasses resting nearby on the desk.
+coverCredit: Matheus Bertelli / Pexels
+coverPage: https://www.pexels.com/photo/man-using-laptop-wit-chat-gpt-16094041/
 ---
 The most useful thing to understand about AI chatbots is also the least intuitive: they don't sound less sure when they're wrong. A made-up court case, a book that was never written, a statistic with a precise-looking decimal point — all of it comes out in the same calm, fluent tone as the correct answers.
 

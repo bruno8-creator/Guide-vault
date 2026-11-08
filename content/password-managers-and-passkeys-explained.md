@@ -4,6 +4,10 @@ description: If you use the same few passwords everywhere, you're not alone. A r
 category: tech
 date: 2026-10-08
 author: Bruno
+cover: https://images.pexels.com/photos/27742642/pexels-photo-27742642.jpeg
+coverAlt: Close-up of a finger entering a passcode on a smartphone lock screen to unlock the device securely.
+coverCredit: indra projects / Pexels
+coverPage: https://www.pexels.com/photo/a-person-s-finger-is-touching-a-tablet-screen-27742642/
 ---
 Let's start with a confession that a lot of people share: you probably have two or three passwords that you vary slightly and use almost everywhere. Maybe one "strong" one for banking and a simpler one for everything else.
 

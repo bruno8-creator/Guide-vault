@@ -4,6 +4,10 @@ description: When a central bank moves rates, some parts of your finances react 
 category: economy
 date: 2026-10-22
 author: Bruno
+cover: https://images.pexels.com/photos/5849563/pexels-photo-5849563.jpeg
+coverAlt: Overhead view of a loan agreement for an apartment, with a calculator and cash on a blue desk.
+coverCredit: Monstera Production / Pexels
+coverPage: https://www.pexels.com/photo/5849563/
 ---
 Central bank announcements get treated like major news events, with live coverage of a decision that usually moves rates by a quarter of a percentage point. It's fair to wonder what difference that actually makes to anyone outside a trading floor.
 

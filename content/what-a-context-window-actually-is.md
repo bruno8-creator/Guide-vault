@@ -4,6 +4,10 @@ description: Long conversations get worse for a reason. A plain explanation of t
 category: ai
 date: 2026-10-29
 author: Bruno
+cover: https://images.pexels.com/photos/30530412/pexels-photo-30530412.jpeg
+coverAlt: Close-up of a laptop screen showing an AI chatbot prompt in dark mode in a dim room.
+coverCredit: Matheus Bertelli / Pexels
+coverPage: https://www.pexels.com/photo/ai-interface-on-laptop-screen-in-dark-mode-30530412/
 ---
 If you've had a long session with an AI assistant, you've probably seen it happen. Early on, it follows your instructions perfectly. Two hours later it's ignoring the format you asked for, repeating suggestions you already rejected, or contradicting something it said at the start.
 

@@ -4,6 +4,10 @@ description: The headline rate can be falling while your shopping bill keeps hur
 category: economy
 date: 2026-11-02
 author: Bruno
+cover: https://images.pexels.com/photos/4959907/pexels-photo-4959907.jpeg
+coverAlt: A person holds up a long shopping receipt against a plain background, showing a list of grocery prices.
+coverCredit: Karola G / Pexels
+coverPage: https://www.pexels.com/photo/woman-holding-a-receipt-4959907/
 ---
 Every month the news reports an inflation figure, and every month plenty of people look at it and think: that can't be right. Their rent went up more than that. Their weekly shop definitely went up more than that.
 
