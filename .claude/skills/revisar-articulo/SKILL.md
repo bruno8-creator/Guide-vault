@@ -27,7 +27,7 @@ Lee el artículo completo y comprueba cada punto. Corrige directamente lo que pu
 - [ ] Frontmatter completo y válido; `category` es ai, economy, money o tech; fecha AAAA-MM-DD.
 - [ ] `title` ≤ ~65 caracteres; `description` 120–160 caracteres y distinta del título.
 - [ ] H2 descriptivos; no hay H1 en el cuerpo.
-- [ ] 1.500–4.000 palabras (`wc -w`), sin relleno.
+- [ ] 2.500–4.000 palabras (`wc -w`), sin relleno; portada, 2+ imágenes, 1+ gráfico con fuente, 1+ tabla.
 - [ ] 1–2 enlaces internos a otros artículos si existen relacionados.
 - [ ] `node scripts/build.mjs` compila sin errores.
 

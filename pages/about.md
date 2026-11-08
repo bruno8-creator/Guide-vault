@@ -10,9 +10,9 @@ Most explanations of these topics fall into one of two camps. Either they're wri
 
 Every article aims to answer three questions: what is this, why does it matter to me, and what can I actually do about it?
 
-## Who writes it
+## Who we are
 
-Guide Market is run by Bruno, an independent writer interested in how technology and money affect ordinary life. Articles are researched from primary sources where possible — official statistics, central bank publications, product documentation and published research — and are updated when things change.
+Guide Market is an independent publication about how technology and money affect ordinary life. Articles are researched from primary sources where possible — official statistics, central bank publications, product documentation and published research — and are updated when things change.
 
 We're not financial advisers, and nothing on this site is personal financial, legal or medical advice. When a topic genuinely needs a professional, we say so.
 

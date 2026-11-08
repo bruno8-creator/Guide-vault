@@ -25,3 +25,5 @@ Comprobadas: N afirmaciones · Corregidas: N · Eliminadas: N
 ```
 
 **Devuelve al redactor** solo si un dato falso sostiene una sección entera o el argumento principal: explica qué es falso, qué dice la fuente y qué habría que cambiar.
+
+- Gráficos (bloques ```chart): comprueba **cada número** contra la fuente enlazada en `source:`; si no coincide exactamente o la fuente no lo contiene, corrige el dato o elimina el gráfico.

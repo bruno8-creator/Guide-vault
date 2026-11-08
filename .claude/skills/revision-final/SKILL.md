@@ -23,7 +23,7 @@ Puntúa cada bloque de **0 a 10** con los criterios de abajo. Empieza en 10 y re
 ## 2. Contenido → `redactor`
 
 - Responde la pregunta del brief mejor o de forma más práctica que lo típico de Google, con el ángulo propio prometido. **(bloqueante si no)**
-- Entre 1.500 y 4.000 palabras, y ningún párrafo de relleno: si se borra y no se pierde nada, resta.
+- Entre 2.500 y 4.000 palabras, con portada, 2+ imágenes, 1+ gráfico con datos de fuente oficial y 1+ tabla; ningún párrafo de relleno: si se borra y no se pierde nada, resta.
 - Algo accionable: pasos, checklist, regla práctica o ejemplo con números.
 - Reconoce límites o contraargumentos donde los hay.
 - `trabajo/<fecha>/verificacion.md` existe y dice OK; ningún dato sin fuente. **(bloqueante si falta)**

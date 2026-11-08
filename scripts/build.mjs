@@ -39,6 +39,55 @@ function sizedImage(url, w) {
   if (u.hostname === "images.unsplash.com") { u.searchParams.set("w", w); u.searchParams.set("q", "75"); u.searchParams.set("auto", "format"); u.searchParams.set("fit", "crop"); }
   return u.toString();
 }
+// ---------- charts ----------
+// A chart is one block (no blank lines inside):
+//   ```chart
+//   type: bar            (bar = horizontal bars, column = vertical bars)
+//   title: UK CPI inflation, annual rate
+//   unit: %              (optional, appended to values)
+//   source: Office for National Statistics | https://www.ons.gov.uk/...
+//   note: optional one-line note under the chart
+//   2021: 2.6
+//   2022: 9.1
+//   ```
+// Every chart must cite a source with a link; the build fails otherwise.
+function chart(lines, where) {
+  const body = lines.slice(1, lines[lines.length - 1].trim() === "```" ? -1 : undefined);
+  const opts = {};
+  const data = [];
+  for (const l of body) {
+    const m = l.match(/^\s*([^:]+?)\s*:\s*(.+?)\s*$/);
+    if (!m) continue;
+    const [, k, v] = m;
+    if (["type", "title", "unit", "source", "note"].includes(k.toLowerCase())) opts[k.toLowerCase()] = v;
+    else {
+      const n = Number(v.replace(/[, ]/g, ""));
+      if (Number.isNaN(n)) throw new Error(`${where}: chart value "${v}" is not a number`);
+      data.push({ label: k, value: n });
+    }
+  }
+  if (!opts.title) throw new Error(`${where}: chart needs a title`);
+  if (!opts.source || !opts.source.includes("|")) throw new Error(`${where}: chart needs "source: Name | https://url"`);
+  if (data.length < 2) throw new Error(`${where}: chart needs at least 2 data rows`);
+  const [srcName, srcUrl] = opts.source.split("|").map((x) => x.trim());
+  const unit = opts.unit || "";
+  const max = Math.max(...data.map((d) => Math.abs(d.value))) || 1;
+  const fmt = (n) => `${n.toLocaleString("en-GB", { maximumFractionDigits: 2 })}${unit}`;
+  const type = opts.type === "column" ? "column" : "bar";
+  const rows = data.map((d) => {
+    const pct = Math.max(2, (Math.abs(d.value) / max) * 100).toFixed(1);
+    return type === "bar"
+      ? `<div class="chart-row"><span class="chart-label">${inline(d.label)}</span><span class="chart-track"><span class="chart-fill${d.value < 0 ? " neg" : ""}" style="width:${pct}%"></span></span><span class="chart-val">${fmt(d.value)}</span></div>`
+      : `<div class="chart-col"><span class="chart-val">${fmt(d.value)}</span><span class="chart-track"><span class="chart-fill${d.value < 0 ? " neg" : ""}" style="height:${pct}%"></span></span><span class="chart-label">${inline(d.label)}</span></div>`;
+  }).join("");
+  const table = `<table class="sr-only"><caption>${esc(opts.title)}</caption><tbody>${data.map((d) => `<tr><th scope="row">${esc(d.label)}</th><td>${fmt(d.value)}</td></tr>`).join("")}</tbody></table>`;
+  return `<figure class="chart chart-${type}">
+<figcaption class="chart-title">${inline(opts.title)}</figcaption>
+<div class="chart-body" aria-hidden="true">${rows}</div>${table}
+<p class="chart-source">${opts.note ? `${inline(opts.note)} · ` : ""}Source: <a href="${esc(srcUrl)}" rel="noopener">${esc(srcName)}</a></p>
+</figure>`;
+}
+
 const cells = (row) => row.trim().replace(/^\||\|$/g, "").split("|").map((c) => c.trim());
 
 function markdown(src, where = "") {
@@ -51,6 +100,10 @@ function markdown(src, where = "") {
     const lines = b.split("\n");
     const img = lines[0].match(/^!\[(.*?)\]\((\S+?)\)$/);
     if (/^<!--[\s\S]*-->$/.test(b.trim())) continue; // editor notes, never published
+    if (/^```chart\s*$/.test(lines[0])) {
+      out.push(chart(lines, where));
+      continue;
+    }
     if (img) {
       // ![alt text](https://images.pexels.com/...)
       // Caption line(s) underneath, ending with the credit: *Photo: Name / Pexels*
@@ -193,7 +246,7 @@ ${body}
 
 const shortDate = (d) => new Date(d + "T12:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
 const clock = `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>`;
-const metaLine = (a) => `<p class="meta"><time datetime="${a.date}">${shortDate(a.date)}</time><span class="dot">·</span>${clock}${a.minutes} min read</p>`;
+const metaLine = (a) => `<p class="meta"><time datetime="${a.date}">${shortDate(a.date)}</time></p>`;
 const pill = (a) => `<a class="pill" href="/category/${a.category}">${CATEGORIES[a.category].name}</a>`;
 
 // Big image card with the text over the photo (hero).
@@ -368,7 +421,7 @@ for (const a of articles) {
     description: a.description,
     datePublished: a.date,
     dateModified: a.updated || a.date,
-    author: { "@type": "Person", name: a.author },
+    author: { "@type": "Organization", name: SITE.name, url: SITE.url },
     publisher: { "@type": "Organization", name: SITE.name },
     mainEntityOfPage: `${SITE.url}/articles/${a.slug}`,
     wordCount: a.words,
@@ -390,7 +443,7 @@ for (const a of articles) {
     <a class="kicker" href="/category/${a.category}">${CATEGORIES[a.category].name}</a>
     <h1>${esc(a.title)}</h1>
     <p class="lede">${esc(a.description)}</p>
-    <p class="meta byline"><span class="avatar" aria-hidden="true">${esc(a.author[0])}</span>By ${esc(a.author)}<span class="dot">·</span>${fmtDate(a.date)}${a.updated ? `<span class="dot">·</span>Updated ${fmtDate(a.updated)}` : ""}<span class="dot">·</span>${clock}${a.minutes} min read</p>
+    <p class="meta byline"><time datetime="${a.date}">${fmtDate(a.date)}</time>${a.updated ? `<span class="dot">·</span>Updated ${fmtDate(a.updated)}` : ""}</p>
   </header>
   ${a.cover ? `<figure class="wrap post-cover">${thumb(a, 1600, "post-cover-img", true)}<figcaption>Photo: ${a.coverPage ? `<a href="${esc(a.coverPage)}" rel="noopener">${esc(a.coverCredit)}</a>` : esc(a.coverCredit)}</figcaption></figure>` : ""}
   <div class="wrap-narrow prose">
