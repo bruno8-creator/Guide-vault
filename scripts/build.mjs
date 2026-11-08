@@ -30,20 +30,66 @@ function inline(s) {
     .replace(/`(.+?)`/g, "<code>$1</code>")
     .replace(/\[(.+?)\]\((.+?)\)/g, (_, t, h) => `<a href="${h}"${h.startsWith("http") ? ' rel="noopener"' : ""}>${t}</a>`);
 }
-function markdown(src) {
+// Only free-licence photo hosts are allowed, so a build can never ship an image we have no right to use.
+const IMAGE_HOSTS = ["images.pexels.com", "images.unsplash.com"];
+// Ask the CDN for a compressed, right-sized version (fast pages, good Core Web Vitals).
+function sizedImage(url, w) {
+  const u = new URL(url);
+  if (u.hostname === "images.pexels.com") { u.search = ""; u.searchParams.set("auto", "compress"); u.searchParams.set("cs", "tinysrgb"); u.searchParams.set("w", w); }
+  if (u.hostname === "images.unsplash.com") { u.searchParams.set("w", w); u.searchParams.set("q", "75"); u.searchParams.set("auto", "format"); u.searchParams.set("fit", "crop"); }
+  return u.toString();
+}
+const cells = (row) => row.trim().replace(/^\||\|$/g, "").split("|").map((c) => c.trim());
+
+function markdown(src, where = "") {
   const out = [];
-  const blocks = src.trim().split(/\n\s*\n/);
+  const images = [];
+  const toc = [];
+  // A heading always ends its block, even if the writer forgot the blank line after it.
+  const blocks = src.trim().replace(/^(#{2,3} .*)$/gm, "$1\n").split(/\n\s*\n/);
   for (const b of blocks) {
     const lines = b.split("\n");
+    const img = lines[0].match(/^!\[(.*?)\]\((\S+?)\)$/);
     if (/^<!--[\s\S]*-->$/.test(b.trim())) continue; // editor notes, never published
-    if (/^## /.test(b)) out.push(`<h2 id="${slug(b.slice(3))}">${inline(b.slice(3))}</h2>`);
-    else if (/^### /.test(b)) out.push(`<h3>${inline(b.slice(4))}</h3>`);
+    if (img) {
+      // ![alt text](https://images.pexels.com/...)
+      // Caption line(s) underneath, ending with the credit: *Photo: Name / Pexels*
+      const [, alt, url] = img;
+      const host = new URL(url).hostname;
+      if (!IMAGE_HOSTS.includes(host)) throw new Error(`${where}: image host "${host}" not allowed (use Pexels or Unsplash)`);
+      if (alt.trim().length < 15) throw new Error(`${where}: image needs a descriptive alt text (15+ chars)`);
+      const caption = lines.slice(1).join(" ").trim();
+      if (!/pexels|unsplash/i.test(caption)) throw new Error(`${where}: image caption must credit the photographer and Pexels/Unsplash`);
+      const first = images.length === 0;
+      images.push(sizedImage(url, 1200));
+      out.push(`<figure>
+<img src="${esc(sizedImage(url, 1200))}" srcset="${esc(sizedImage(url, 640))} 640w, ${esc(sizedImage(url, 1200))} 1200w" sizes="(max-width: 760px) 100vw, 720px" alt="${esc(alt)}" width="1200" height="800" ${first ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">
+<figcaption>${inline(caption)}</figcaption>
+</figure>`);
+    } else if (lines.length >= 2 && lines.every((l) => /^\s*\|/.test(l)) && /^\s*\|[\s:|-]+\|?\s*$/.test(lines[1])) {
+      // | Header | Header |
+      // |---|---|
+      // | cell | cell |
+      const head = cells(lines[0]);
+      const rows = lines.slice(2).map(cells);
+      out.push(`<div class="table-wrap"><table><thead><tr>${head.map((h) => `<th scope="col">${inline(h)}</th>`).join("")}</tr></thead><tbody>${rows.map((r) => `<tr>${r.map((c) => `<td>${inline(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`);
+    } else if (/^## /.test(b)) {
+      const text = b.slice(3);
+      toc.push({ id: slug(text), text });
+      out.push(`<h2 id="${slug(text)}">${inline(text)}</h2>`);
+    } else if (/^### /.test(b)) out.push(`<h3>${inline(b.slice(4))}</h3>`);
     else if (lines.every((l) => /^- /.test(l))) out.push(`<ul>${lines.map((l) => `<li>${inline(l.slice(2))}</li>`).join("")}</ul>`);
     else if (lines.every((l) => /^\d+\. /.test(l))) out.push(`<ol>${lines.map((l) => `<li>${inline(l.replace(/^\d+\. /, ""))}</li>`).join("")}</ol>`);
-    else if (lines.every((l) => /^> ?/.test(l))) out.push(`<blockquote><p>${inline(lines.map((l) => l.replace(/^> ?/, "")).join(" "))}</p></blockquote>`);
+    else if (lines.every((l) => /^>> ?/.test(l))) {
+      // >> **In short:** a highlighted box (summary, tip, warning)
+      const inner = lines.map((l) => l.replace(/^>> ?/, ""));
+      const items = inner.filter((l) => /^- /.test(l));
+      const text = inner.filter((l) => !/^- /.test(l)).join(" ");
+      out.push(`<aside class="callout">${text ? `<p>${inline(text)}</p>` : ""}${items.length ? `<ul>${items.map((l) => `<li>${inline(l.slice(2))}</li>`).join("")}</ul>` : ""}</aside>`);
+    } else if (lines.every((l) => /^> ?/.test(l))) out.push(`<blockquote><p>${inline(lines.map((l) => l.replace(/^> ?/, "")).join(" "))}</p></blockquote>`);
     else out.push(`<p>${inline(lines.join(" "))}</p>`);
   }
-  return out.join("\n");
+  return { html: out.join("\n"), images, toc };
 }
 const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
@@ -57,13 +103,14 @@ function parse(file) {
   }
   const body = m[2];
   const words = body.split(/\s+/).length;
-  return { ...meta, body, html: markdown(body), minutes: Math.max(3, Math.round(words / 230)) };
+  const { html, images, toc } = markdown(body, file);
+  return { ...meta, body, html, images, toc, words, minutes: Math.max(3, Math.round(words / 230)) };
 }
 
 const fmtDate = (d) => new Date(d + "T12:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
 
 // ---------- layout ----------
-function layout({ title, description, path, body, head = "" }) {
+function layout({ title, description, path, body, head = "", image = "" }) {
   const full = title ? `${title} — ${SITE.name}` : `${SITE.name} — ${SITE.tagline}`;
   const nav = Object.entries(CATEGORIES)
     .map(([k, c]) => `<a href="/category/${k}"${path === `/category/${k}` ? ' aria-current="page"' : ""}>${c.name}</a>`)
@@ -80,6 +127,7 @@ function layout({ title, description, path, body, head = "" }) {
 <meta property="og:description" content="${esc(description || SITE.tagline)}">
 <meta property="og:type" content="${head.includes("BlogPosting") ? "article" : "website"}">
 <meta property="og:url" content="${SITE.url}${path}">
+${image ? `<meta property="og:image" content="${esc(image)}">\n<meta name="twitter:card" content="summary_large_image">\n<link rel="preconnect" href="https://${new URL(image).hostname}">` : ""}
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -200,11 +248,18 @@ for (const a of articles) {
     author: { "@type": "Person", name: a.author },
     publisher: { "@type": "Organization", name: SITE.name },
     mainEntityOfPage: `${SITE.url}/articles/${a.slug}`,
+    wordCount: a.words,
+    ...(a.images.length ? { image: a.images } : {}),
   };
+  // Table of contents for long reads (4+ sections).
+  const toc = a.toc.length >= 4
+    ? `<nav class="toc" aria-label="In this article"><p class="toc-title">In this article</p><ol>${a.toc.map((h) => `<li><a href="#${h.id}">${inline(h.text)}</a></li>`).join("")}</ol></nav>`
+    : "";
   write(`/articles/${a.slug}`, layout({
     title: a.title,
     description: a.description,
     path: `/articles/${a.slug}`,
+    image: a.images[0] || "",
     head: `<script type="application/ld+json">${JSON.stringify(ld)}</script>`,
     body: `
 <article class="post" data-cat="${a.category}">
@@ -215,6 +270,7 @@ for (const a of articles) {
     <p class="meta">By ${esc(a.author)} · ${fmtDate(a.date)}${a.updated ? ` · Updated ${fmtDate(a.updated)}` : ""} · ${a.minutes} min read</p>
   </header>
   <div class="wrap-narrow prose">
+${toc}
 ${a.html}
   </div>
   <footer class="wrap-narrow post-foot">
@@ -248,7 +304,10 @@ const urls = ["/", ...Object.keys(CATEGORIES).map((k) => `/category/${k}`), ...a
   ...readdirSync(join(ROOT, "pages")).filter((f) => f.endsWith(".md")).map((f) => `/${f.replace(/\.md$/, "")}`)];
 writeFileSync(join(OUT, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map((u) => `  <url><loc>${SITE.url}${u === "/" ? "" : u}</loc></url>`).join("\n")}
+${urls.map((u) => {
+  const a = articles.find((x) => `/articles/${x.slug}` === u);
+  return `  <url><loc>${SITE.url}${u === "/" ? "" : u}</loc>${a ? `<lastmod>${a.updated || a.date}</lastmod>` : ""}</url>`;
+}).join("\n")}
 </urlset>
 `);
 

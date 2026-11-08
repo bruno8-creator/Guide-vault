@@ -1,6 +1,6 @@
 ---
 name: publicar-web
-description: Compila Guide Market, comprueba que todo funciona y, solo con aprobación explícita de Bruno, la publica en GitHub/Vercel. Úsala cuando haya cambios listos para salir.
+description: Compila Guide Market, comprueba que todo funciona, deja una vista previa en una rama para que Bruno la revise y, solo con su "ok" explícito, la publica en main/Vercel. Úsala cuando haya cambios listos para salir.
 ---
 # Publicar Guide Market
 
@@ -13,14 +13,21 @@ description: Compila Guide Market, comprueba que todo funciona y, solo con aprob
 - `git status` para ver qué cambia.
 - Commit con un mensaje claro en inglés que diga qué se añade o cambia.
 
-## 3. Publicar (requiere permiso)
-- **Pide aprobación a Bruno** indicando qué se va a publicar (lista de artículos/páginas). No hagas `git push` hasta que diga que sí en la conversación actual.
-- Con su sí: `git push origin main`.
+## 3. Vista previa para Bruno (sin permiso, nunca a `main`)
+- Trabaja en una rama `articulo/<fecha>-<slug>` creada desde `main` actualizado (`git fetch origin main` antes).
+- Commit y `git push origin articulo/<fecha>-<slug>`. Vercel crea una vista previa de la rama.
+- Consulta los despliegues del proyecto **guide-vault** (el que sirve guide-market.com), busca el de esa rama y espera a `READY`. Pasa su URL a Bruno. Si acaba en `ERROR`, lee los logs, arregla y vuelve a empujar la rama.
 
-## 4. Verificar el despliegue
-- Si tienes el conector de Vercel, consulta los últimos despliegues del proyecto `guide-vault-fresh` y confirma que el nuevo está en `READY`. Si está en `ERROR`, lee los eventos/logs del despliegue y explica el fallo.
-- Si no, pide a Bruno que mire el panel de Vercel.
-- Actualiza los estados a `publicado` en `content/PLAN.md` y haz commit de ese cambio.
+## 4. Publicar (requiere el "ok" de Bruno)
+- **No toques `main` hasta que Bruno diga "ok"** (o un sí claro) en la conversación actual, para esa rama concreta.
+- Con su ok: `git fetch origin main`, `git checkout main`, `git merge --ff-only origin/main`, `git merge --no-ff articulo/<fecha>-<slug>`, compila otra vez y `git push origin main`.
+- Si el merge da conflictos, no los resuelvas a ciegas: explícale a Bruno qué choca.
+
+## 5. Verificar el despliegue
+- Con el conector de Vercel, confirma que el despliegue de producción del proyecto **guide-vault** llega a `READY` y que `https://www.guide-market.com/articles/<slug>` responde. Si está en `ERROR`, lee los eventos/logs y explica el fallo.
+- Si no tienes el conector, pide a Bruno que mire el panel de Vercel.
+- Marca el artículo como `publicado` en `content/PLAN.md`, commit y push a `main` (ya cubierto por el ok).
+- Borra la rama remota del artículo: `git push origin --delete articulo/<fecha>-<slug>`.
 
 ## Recuperar la versión anterior de la web
 La web antigua está en la rama `respaldo-web-anterior` y la etiqueta `respaldo-2026-11-08`. No la toques salvo que Bruno lo pida.

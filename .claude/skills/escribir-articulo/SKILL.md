@@ -19,7 +19,13 @@ author: Bruno
 Primer párrafo...
 ```
 
-Markdown admitido por el generador: párrafos, `## H2`, `### H3`, listas `- ` y `1. `, `> cita`, **negrita**, *cursiva*, `código`, [enlaces](url). Nada de HTML, tablas ni imágenes.
+Markdown admitido por el generador (nada de HTML):
+
+- Párrafos, `## H2`, `### H3`, listas `- ` y `1. `, `> cita`, **negrita**, *cursiva*, `código`, [enlaces](url).
+- **Caja destacada** (resumen, consejo, aviso): cada línea empieza por `>>`, admite una frase y viñetas `>> - `.
+- **Tabla**: `| Columna | Columna |`, luego `|---|---|`, luego las filas.
+- **Imagen** (solo Pexels o Unsplash, ver skill `imagenes-libres`): en su propio párrafo, `![texto alternativo descriptivo](https://images.pexels.com/...)` y en la línea de abajo el pie con crédito: `*Photo: Nombre / [Pexels](url-de-la-foto)*`. El build falla si el host no es Pexels/Unsplash, si falta el crédito o si el texto alternativo es pobre.
+- Con 4 o más `## H2`, el generador añade un índice al principio.
 
 ## Estructura
 
@@ -29,7 +35,9 @@ Markdown admitido por el generador: párrafos, `## H2`, `### H3`, listas `- ` y 
 4. **Cierre** con un H2 "The takeaway" (o similar) de 1–2 párrafos. Sin "In conclusion".
 5. Si es de finanzas: termina con `*This article is general information, not personal financial advice.*`
 
-Longitud: 900–1.500 palabras. Más largo solo si aporta.
+Longitud: **1.500–4.000 palabras**. La decide lo que haga falta para responder bien a la pregunta; nunca se rellena para llegar al mínimo.
+
+Elementos visuales: caja `>> **In short:**` tras la entrada, al menos una tabla cuando el tema compare opciones o datos, 1–4 imágenes que ayuden a entender (no decorativas) y subtítulos cada 250–400 palabras.
 
 ## Voz de la casa
 
@@ -53,4 +61,4 @@ Longitud: 900–1.500 palabras. Más largo solo si aporta.
 - No inventes experiencias personales de Bruno. Si el artículo ganaría con una, deja `<!-- BRUNO: añade aquí ... -->` (el generador lo ignorará como texto: pon la marca en su propio párrafo).
 - Enlaza 1–2 artículos propios relacionados con rutas `/articles/<slug>` cuando tenga sentido.
 
-Al terminar, pasa el artículo por la skill `revisar-articulo` y actualiza su estado en `content/PLAN.md`.
+Al terminar, pasa el artículo por la skill `revisar-articulo`. Antes de publicar, el revisor final lo puntúa con la skill `revision-final`.
