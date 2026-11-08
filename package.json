@@ -1,0 +1,9 @@
+{
+  "name": "guide-market",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/build.mjs && npx -y serve dist -l 4321"
+  }
+}
