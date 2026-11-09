@@ -3,6 +3,7 @@ title: How to Spot Phishing Emails, Scam Texts and Fake Calls
 description: A practical guide to recognising phishing emails, smishing texts and scam calls, what to do in the first hour if you clicked, and how to report it.
 category: tech
 date: 2026-11-01
+updated: 2026-11-09
 author: Guide Market
 cover: https://images.unsplash.com/photo-1740479048945-46fe33480214
 coverAlt: Wooden letter blocks spelling the word phishing laid out on a table
@@ -229,7 +230,7 @@ The honest limits: none of these tools stops you from voluntarily sending money 
 
 ### Can you get hacked just by opening a phishing email?
 
-For a typical, fully updated phone or computer, simply opening an email is very unlikely to compromise it. The risk comes from clicking links, opening attachments, enabling macros or entering details. Keeping your operating system, browser and email app updated closes most of the rare flaws that could be exploited without a click.
+For a typical, fully updated phone or computer, simply opening an email is very unlikely to compromise it. The risk comes from clicking links, opening attachments, enabling macros or entering details. Keeping your operating system, browser and email app updated closes most of the rare flaws that could be exploited without a click. That only works while the manufacturer still ships patches, so it is worth checking whether [your device is still getting security updates](/articles/is-your-device-still-getting-security-updates).
 
 ### What should you do if you replied to a scam text?
 

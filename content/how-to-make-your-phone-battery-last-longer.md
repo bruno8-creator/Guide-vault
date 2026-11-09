@@ -183,7 +183,7 @@ Prices change and depend on model and country, so always check the official esti
 
 For Pixel and Galaxy phones, Google and Samsung route repairs through their own support sites and authorised partners, and quotes vary by model and region. Start from the repair section of Google's Pixel Help centre or Samsung's support site for your country, and get a quote for your exact model.
 
-Seen against the price of a new mid-range or flagship phone, a battery swap is usually the better deal if the rest of the phone still does what you need and still receives software updates. If your phone is out of security update support, that changes the calculation: a fresh battery will not fix the security gap.
+Seen against the price of a new mid-range or flagship phone, a battery swap is usually the better deal if the rest of the phone still does what you need and still receives software updates. If your phone is out of security update support, that changes the calculation: a fresh battery will not fix the security gap. Our guide to [checking whether your phone still gets security updates](/articles/is-your-device-still-getting-security-updates) shows how to check where your model stands before you pay for the repair.
 
 >> **Worked example:** your iPhone 13 is three years old, battery health reads 79%, and it dies by 4pm. A battery replacement at Apple's out-of-warranty fee (check the estimator for today's price) costs a fraction of a new phone and should restore close to a full day of use. If the phone is otherwise fine and still getting updates, that is the sensible first move.
 
