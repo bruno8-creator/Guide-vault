@@ -3,6 +3,7 @@ title: Is Your Computer or Phone Still Getting Security Updates?
 description: Check in five minutes whether your Windows PC, Mac, iPhone or Android still gets security updates, the real Windows 10 dates, and what each fix costs.
 category: tech
 date: 2026-11-09
+updated: 2026-11-11
 author: Guide Market
 cover: https://images.unsplash.com/photo-1542351967-d5ae722fed71
 coverAlt: A switched-on Android smartphone lying next to two laptops on a desk, seen from above.
@@ -217,6 +218,8 @@ What patches do protect against is the quieter category of attacks that need lit
 **The risk also depends on what the device is for.** An old laptop that only plays music in the kitchen and never logs into anything is a very different case from the phone that receives your bank's one-time codes and holds your email. I'd be relaxed about the first and strict about the second.
 
 Say your teenager inherits your old phone once its patches have stopped. Used for music and games on home Wi-Fi, it's a modest risk. Signed into the family email, with a payment card in the app store, it becomes the weakest door into accounts the whole household shares. Same phone, very different exposure.
+
+Streaming boxes are the exception to that rule. A no-name Android box behind the TV can come with malware built into its firmware, which a factory reset or the usual updates won't remove, so it's worth knowing [how to check whether your cheap Android TV box is safe](/articles/is-your-cheap-android-tv-box-safe) even if you never sign in to anything important on it.
 
 ## If you can't upgrade or replace it yet
 

@@ -214,6 +214,8 @@ Their advantage is structural, not a matter of you being careful. A passkey is t
 
 A password manager stores a unique password for every site, which limits the damage when one is stolen. It also has a quieter benefit that matters here: it fills in your details only on the domain where you saved them. If your manager does not offer to fill your bank login on a page that looks exactly like your bank, stop. The software checks the real domain while your eyes check the logo.
 
+Unique passwords also matter because phishing isn't the only way logins leak. A device you've signed in on can be the weak point too: in November 2026 Google announced the takedown of a botnet of more than a million cheap Android TV boxes that shipped with a factory-installed backdoor able to collect account details, and our guide to [checking whether your Android TV box is safe](/articles/is-your-cheap-android-tv-box-safe) shows how to tell if yours is one of them.
+
 The honest limits: none of these tools stops you from voluntarily sending money to a scammer who has convinced you of a story, and passkey support is still uneven across sites.
 
 ## A two-minute checklist for any suspicious message
