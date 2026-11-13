@@ -218,7 +218,7 @@ The sequence that resolves the tension:
 4. **Return to the emergency fund** and build it to the full target.
 5. **Only then** speed up lower-interest debt such as a mortgage or federal student loans, or invest more beyond your retirement match.
 
-One caveat: if your employer matches retirement contributions, contributing at least enough to get the full match usually makes sense even during steps two and three, because the match is an immediate return on your money that is hard to beat.
+One caveat: if your employer matches retirement contributions, contributing at least enough to get the full match usually makes sense even during steps two and three, because the match is an immediate return on your money that is hard to beat. In the US, lower-income savers may also get a government match from 2027: see [who qualifies for the Saver's Match and how much it pays](/articles/savers-match-explained).
 
 >> **Worked example:** someone with $6,000 on a credit card and $1,200 in savings is tempted to wipe out $1,200 of the card balance. The interest saved is real, but the next $900 tyre-and-brake bill would go back on the card, possibly at the same rate. Keeping the $1,200 as a starter fund and sending every extra dollar to the card each month gets the debt paid off almost as quickly, without the risk of rebuilding it.
 

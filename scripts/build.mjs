@@ -72,7 +72,12 @@ function chart(lines, where) {
   const [srcName, srcUrl] = opts.source.split("|").map((x) => x.trim());
   const unit = opts.unit || "";
   const max = Math.max(...data.map((d) => Math.abs(d.value))) || 1;
-  const fmt = (n) => `${n.toLocaleString("en-GB", { maximumFractionDigits: 2 })}${unit}`;
+  const fmt = (n) => {
+    const num = Math.abs(n).toLocaleString("en-GB", { maximumFractionDigits: 2 });
+    const sign = n < 0 ? "-" : "";
+    // Currency symbols go before the number: $35,500, $12bn
+    return unit.startsWith("$") ? `${sign}$${num}${unit.slice(1)}` : `${sign}${num}${unit}`;
+  };
   const type = opts.type === "column" ? "column" : "bar";
   const rows = data.map((d) => {
     const pct = Math.max(2, (Math.abs(d.value) / max) * 100).toFixed(1);
