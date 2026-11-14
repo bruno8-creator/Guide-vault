@@ -23,7 +23,7 @@ That gap between the headline and your own accounts is what this guide is about:
 
 On October 28, 2026, the Federal Open Market Committee [kept the federal funds target range at 3.75% to 4.00%](https://federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm). The vote was 10 to 2, and the two dissenters, Lisa Cook and Beth Hammack, wanted to *raise* rates by a quarter point, with the statement still describing inflation as elevated. The committee's next scheduled meeting is [December 8–9, 2026](https://federalreserve.gov/monetarypolicy/fomccalendars.htm).
 
-So the current situation is a pause with a hawkish tilt: no change for now, and at least some officials more worried about inflation than about growth. Treat these figures as a snapshot. Everything below works the same whether the next move is up, down or nowhere.
+So the current situation is a pause with a hawkish tilt: no change for now, and at least some officials more worried about inflation than about growth. If you're wondering why the Fed won't try to push prices back to where they were, our guide to [why prices stay high even when inflation slows](/articles/why-prices-stay-high-when-inflation-slows) explains. Treat these figures as a snapshot. Everything below works the same whether the next move is up, down or nowhere.
 
 ## How Fed interest rate changes reach your accounts
 

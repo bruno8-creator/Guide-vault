@@ -167,7 +167,7 @@ That is not a reason to change careers in a panic. It is a reason to be honest a
 
 ### Prices
 
-The usual pattern is that inflation slows during and after a recession. Weaker demand makes it harder for businesses to push through price rises, and some prices, such as fuel, often fall sharply. That is cold comfort if your income has fallen, but it does mean groceries and petrol stop rising as fast.
+The usual pattern is that inflation slows during and after a recession. Weaker demand makes it harder for businesses to push through price rises, and some prices, such as fuel, often fall sharply. That is cold comfort if your income has fallen, but it does mean groceries and petrol stop rising as fast. Rising more slowly is not the same as getting cheaper, though, which is [why prices stay high even when inflation slows](/articles/why-prices-stay-high-when-inflation-slows).
 
 There are exceptions. The recessions of the 1970s were set off partly by oil price shocks, and high inflation and rising unemployment arrived together, a combination that came to be called stagflation. A recession caused by a supply shock does not automatically bring relief at the till.
 

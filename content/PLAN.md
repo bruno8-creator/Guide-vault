@@ -1,10 +1,10 @@
 # Plan editorial — Guide Market
-Actualizado: 2026-11-09 · Publicados: 10 · Meta AdSense: 20
+Actualizado: 2026-11-14 · Publicados: 10 · Meta AdSense: 20
 
 ## Próximos (por prioridad)
 | # | Título provisional | Categoría | Pregunta que responde | Ángulo propio | Estado |
 |---|---|---|---|---|---|
-| 2 | Why Prices Are Still High When Inflation Is Down | economy | ¿Por qué no bajan los precios? | Ejemplo numérico, disinflation vs deflation | idea |
+| 2 | Why Prices Stay High Even When Inflation Slows (why-prices-stay-high-when-inflation-slows) | economy | ¿Por qué no bajan los precios? | Ejemplo numérico, disinflation vs deflation, inflación personal | listo |
 | 3 | Passkeys vs Passwords: What Happens If You Lose Your Phone | tech | ¿Uso passkeys y cómo recupero la cuenta? | Guía neutral centrada en recuperación | idea |
 | 4 | Is Your Cheap Streaming Box Safe? | tech | ¿Mi caja Android TV es segura? | A raíz de la botnet de nov. 2026 | idea |
 | 5 | What to Do When You're Told Your Data Was in a Breach | tech | ¿Qué hago tras una brecha? | Pasos concretos, distinto de phishing | idea |

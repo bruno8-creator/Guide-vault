@@ -72,7 +72,16 @@ function chart(lines, where) {
   const [srcName, srcUrl] = opts.source.split("|").map((x) => x.trim());
   const unit = opts.unit || "";
   const max = Math.max(...data.map((d) => Math.abs(d.value))) || 1;
-  const fmt = (n) => `${n.toLocaleString("en-GB", { maximumFractionDigits: 2 })}${unit}`;
+  // Unit placement: currency symbols go before the number ("$1,799", "$5.7bn", "-$20"),
+  // symbols like "%" stick after it ("37%"), and word units get a space ("321,136 complaints", "1.08 USD").
+  const fmt = (n) => {
+    const num = Math.abs(n).toLocaleString("en-GB", { maximumFractionDigits: 2 });
+    const sign = n < 0 ? "-" : "";
+    const cur = unit.match(/^([$€£¥])(.*)$/);
+    if (cur) return `${sign}${cur[1]}${num}${cur[2]}`;
+    if (!unit) return `${sign}${num}`;
+    return /^[A-Za-z]/.test(unit) ? `${sign}${num} ${unit}` : `${sign}${num}${unit}`;
+  };
   const type = opts.type === "column" ? "column" : "bar";
   const rows = data.map((d) => {
     const pct = Math.max(2, (Math.abs(d.value) / max) * 100).toFixed(1);
@@ -90,7 +99,7 @@ function chart(lines, where) {
 
 const cells = (row) => row.trim().replace(/^\||\|$/g, "").split("|").map((c) => c.trim());
 
-function markdown(src, where = "") {
+function markdown(src, where = "", opts = {}) {
   const out = [];
   const images = [];
   const toc = [];
@@ -113,7 +122,8 @@ function markdown(src, where = "") {
       if (alt.trim().length < 15) throw new Error(`${where}: image needs a descriptive alt text (15+ chars)`);
       const caption = lines.slice(1).join(" ").trim();
       if (!/pexels|unsplash/i.test(caption)) throw new Error(`${where}: image caption must credit the photographer and Pexels/Unsplash`);
-      const first = images.length === 0;
+      // Only the first body photo of an article without a cover is above the fold; everything else loads lazily.
+      const first = images.length === 0 && !opts.hasCover;
       images.push(sizedImage(url, 1200));
       out.push(`<figure>
 <img src="${esc(sizedImage(url, 1200))}" srcset="${esc(sizedImage(url, 640))} 640w, ${esc(sizedImage(url, 1200))} 1200w" sizes="(max-width: 760px) 100vw, 720px" alt="${esc(alt)}" width="1200" height="800" ${first ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">
@@ -156,7 +166,7 @@ function parse(file) {
   }
   const body = m[2];
   const words = body.split(/\s+/).length;
-  const { html, images, toc } = markdown(body, file);
+  const { html, images, toc } = markdown(body, file, { hasCover: Boolean(meta.cover) });
   // Optional cover photo for cards and the article header:
   //   cover: https://images.pexels.com/...   coverAlt: ...   coverCredit: Name / Pexels   coverPage: https://www.pexels.com/photo/...
   if (meta.cover) {
@@ -197,7 +207,7 @@ function layout({ title, description, path, body, head = "", image = "" }) {
 <meta property="og:description" content="${esc(description || SITE.tagline)}">
 <meta property="og:type" content="${head.includes("BlogPosting") ? "article" : "website"}">
 <meta property="og:url" content="${SITE.url}${path}">
-${image ? `<meta property="og:image" content="${esc(image)}">\n<meta name="twitter:card" content="summary_large_image">\n<link rel="preconnect" href="https://${new URL(image).hostname}">` : ""}
+${image ? `<meta property="og:image" content="${esc(sizedImage(image, 1200))}">\n<meta name="twitter:card" content="summary_large_image">\n<link rel="preconnect" href="https://${new URL(image).hostname}">` : ""}
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -425,7 +435,8 @@ for (const a of articles) {
     publisher: { "@type": "Organization", name: SITE.name },
     mainEntityOfPage: `${SITE.url}/articles/${a.slug}`,
     wordCount: a.words,
-    ...(a.images.length ? { image: a.images } : {}),
+    // Cover first: it's the image Google and social cards should pick for the article.
+    ...(a.cover || a.images.length ? { image: [...(a.cover ? [sizedImage(a.cover, 1200)] : []), ...a.images] } : {}),
   };
   // Table of contents for long reads (4+ sections).
   const toc = a.toc.length >= 4
