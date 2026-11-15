@@ -70,7 +70,7 @@ What you are looking for is the **domain**, the part after the @. A bank sends f
 
 ### Look-alike domains
 
-Scammers register domains that pass a glance: a letter swapped (`arnazon` with "rn" instead of "m"), an extra word (`yourbank-secure.com`), a different ending (`.co` instead of `.com`) or a subdomain trick: in `yourbank.com.account-check.net`, the real domain is `account-check.net`. Read the address from the right, starting just before the first single slash, to see who owns the page.
+Scammers register domains that pass a glance: a letter swapped (`arnazon` with "rn" instead of "m"), an extra word (`yourbank-secure.com`), a different ending (`.co` instead of `.com`) or a subdomain trick: in `yourbank.com.account-check.net`, the real domain is `account-check.net`. Read the address from the right, starting just before the first single slash, to see who owns the page. Fake online shops use the same tricks, and an AI assistant shopping on your behalf can fall for them too; our guide on [whether it is safe to let AI shop for you](/articles/is-it-safe-to-let-ai-shop-for-you) covers what to check before an agent pays.
 
 ### Where the link really goes
 

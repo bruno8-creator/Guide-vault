@@ -72,7 +72,17 @@ function chart(lines, where) {
   const [srcName, srcUrl] = opts.source.split("|").map((x) => x.trim());
   const unit = opts.unit || "";
   const max = Math.max(...data.map((d) => Math.abs(d.value))) || 1;
-  const fmt = (n) => `${n.toLocaleString("en-GB", { maximumFractionDigits: 2 })}${unit}`;
+  // Unit placement: currency symbols go before the number ("$50", "$12bn"),
+  // symbols like % stick after it ("31%"), word units get a space ("8 products", "120 USD").
+  const fmt = (n) => {
+    const num = Math.abs(n).toLocaleString("en-GB", { maximumFractionDigits: 2 });
+    const sign = n < 0 ? "-" : "";
+    const cur = unit.match(/^([$£€¥₹])(.*)$/);
+    if (cur) return `${sign}${cur[1]}${num}${cur[2]}`;
+    if (!unit) return `${sign}${num}`;
+    if (/^[%‰°]/.test(unit) || /^(k|m|bn|x|pp)$/i.test(unit)) return `${sign}${num}${unit}`;
+    return `${sign}${num} ${unit}`;
+  };
   const type = opts.type === "column" ? "column" : "bar";
   const rows = data.map((d) => {
     const pct = Math.max(2, (Math.abs(d.value) / max) * 100).toFixed(1);
@@ -90,7 +100,7 @@ function chart(lines, where) {
 
 const cells = (row) => row.trim().replace(/^\||\|$/g, "").split("|").map((c) => c.trim());
 
-function markdown(src, where = "") {
+function markdown(src, where = "", hasCover = false) {
   const out = [];
   const images = [];
   const toc = [];
@@ -113,7 +123,8 @@ function markdown(src, where = "") {
       if (alt.trim().length < 15) throw new Error(`${where}: image needs a descriptive alt text (15+ chars)`);
       const caption = lines.slice(1).join(" ").trim();
       if (!/pexels|unsplash/i.test(caption)) throw new Error(`${where}: image caption must credit the photographer and Pexels/Unsplash`);
-      const first = images.length === 0;
+      // With a cover photo, the cover is the priority image; body photos load lazily.
+      const first = images.length === 0 && !hasCover;
       images.push(sizedImage(url, 1200));
       out.push(`<figure>
 <img src="${esc(sizedImage(url, 1200))}" srcset="${esc(sizedImage(url, 640))} 640w, ${esc(sizedImage(url, 1200))} 1200w" sizes="(max-width: 760px) 100vw, 720px" alt="${esc(alt)}" width="1200" height="800" ${first ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">
@@ -156,7 +167,7 @@ function parse(file) {
   }
   const body = m[2];
   const words = body.split(/\s+/).length;
-  const { html, images, toc } = markdown(body, file);
+  const { html, images, toc } = markdown(body, file, Boolean(meta.cover));
   // Optional cover photo for cards and the article header:
   //   cover: https://images.pexels.com/...   coverAlt: ...   coverCredit: Name / Pexels   coverPage: https://www.pexels.com/photo/...
   if (meta.cover) {
