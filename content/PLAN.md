@@ -1,9 +1,10 @@
 # Plan editorial — Guide Market
-Actualizado: 2026-11-09 · Publicados: 10 · Meta AdSense: 20
+Actualizado: 2026-11-16 · Publicados: 12 · Meta AdSense: 20
 
 ## Próximos (por prioridad)
 | # | Título provisional | Categoría | Pregunta que responde | Ángulo propio | Estado |
 |---|---|---|---|---|---|
+| 1 | Does Buy Now, Pay Later Affect Your Credit Score? | money | ¿BNPL me baja la puntuación? | Tabla verificada por proveedor + qué puntuaciones lo usan | listo (rama articulo/2026-11-16-does-buy-now-pay-later-affect-your-credit-score) |
 | 2 | Why Prices Are Still High When Inflation Is Down | economy | ¿Por qué no bajan los precios? | Ejemplo numérico, disinflation vs deflation | idea |
 | 3 | Passkeys vs Passwords: What Happens If You Lose Your Phone | tech | ¿Uso passkeys y cómo recupero la cuenta? | Guía neutral centrada en recuperación | idea |
 | 4 | Is Your Cheap Streaming Box Safe? | tech | ¿Mi caja Android TV es segura? | A raíz de la botnet de nov. 2026 | idea |
@@ -15,6 +16,8 @@ Actualizado: 2026-11-09 · Publicados: 10 · Meta AdSense: 20
 - how-credit-scores-work-and-how-to-improve-yours — 2 frases sin buscar en la comprobación de plagio
 
 ## Publicados
+- how-fed-interest-rate-changes-affect-you — economy — 2026-11-09
+- is-your-device-still-getting-security-updates — tech — 2026-11-09
 - how-to-write-ai-prompts-that-work — ai — 2026-11-09
 - is-it-safe-to-share-personal-data-with-ai-chatbots — ai — 2026-11-08
 - what-a-recession-means-for-your-money — economy — 2026-11-07

@@ -3,6 +3,7 @@ title: How Credit Scores Work and How to Improve Yours
 description: What really moves a US credit score, how long negative marks last, how to fix report errors and a realistic plan to raise your score step by step.
 category: money
 date: 2026-11-02
+updated: 2026-11-16
 author: Guide Market
 cover: https://images.pexels.com/photos/6963031/pexels-photo-6963031.jpeg
 coverAlt: A couple at a kitchen table going through bills with a calculator, a phone and a notebook
@@ -36,7 +37,7 @@ Second, the only way to change the number is to change the data underneath it. N
 
 ### What your score does not see
 
-Because a FICO Score is [calculated from the information in your credit report](https://www.myfico.com/credit-education/credit-scores), things that never reach the bureaus do not count. Your salary is not in your report. Neither is your savings balance, your rent history (unless a landlord or service reports it), or whether you are married. Lenders may weigh income and debts separately when they decide on an application, but the score itself is blind to them. A high earner who misses payments can have a worse score than a part-time worker who never has.
+Because a FICO Score is [calculated from the information in your credit report](https://www.myfico.com/credit-education/credit-scores), things that never reach the bureaus do not count. Your salary is not in your report. Neither is your savings balance, your rent history (unless a landlord or service reports it), or whether you are married. Lenders may weigh income and debts separately when they decide on an application, but the score itself is blind to them. A high earner who misses payments can have a worse score than a part-time worker who never has. Many buy now, pay later plans fall into the same blind spot: some providers don't report them at all, and the scores most lenders use ignore the ones that are reported, as our guide to [whether buy now, pay later affects your credit score](/articles/does-buy-now-pay-later-affect-your-credit-score) explains provider by provider.
 
 ## The five factors behind a FICO Score, and what they really weigh
 

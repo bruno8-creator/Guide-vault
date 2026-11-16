@@ -233,7 +233,7 @@ Things that pass the test: losing your job or a large chunk of income; a medical
 
 Things that fail it: a holiday, even a cheap one; a new phone because the current one is slow; the annual car insurance bill (predictable, so it belongs in a sinking fund); a sale you do not want to miss; a down payment.
 
-That distinction between emergencies and *predictable irregular costs* is where many funds quietly leak away. Christmas, back-to-school costs, car registration and annual subscriptions all arrive every year. Give them their own savings pots, sometimes called sinking funds, and fund them monthly. The emergency fund then only ever covers the things you could not see coming.
+That distinction between emergencies and *predictable irregular costs* is where many funds quietly leak away. Christmas, back-to-school costs, car registration and annual subscriptions all arrive every year. Give them their own savings pots, sometimes called sinking funds, and fund them monthly. The emergency fund then only ever covers the things you could not see coming. Without a Christmas pot, gifts tend to end up on a card balance or a stack of pay-in-4 plans; our guide on [how buy now, pay later affects your credit score](/articles/does-buy-now-pay-later-affect-your-credit-score) covers what that can mean if a payment fails.
 
 When something does qualify, use the fund without guilt. Putting a $1,900 transmission repair on a credit card to "protect" your savings defeats the purpose of having them.
 

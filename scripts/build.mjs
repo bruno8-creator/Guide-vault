@@ -90,7 +90,7 @@ function chart(lines, where) {
 
 const cells = (row) => row.trim().replace(/^\||\|$/g, "").split("|").map((c) => c.trim());
 
-function markdown(src, where = "") {
+function markdown(src, where = "", hasCover = false) {
   const out = [];
   const images = [];
   const toc = [];
@@ -113,7 +113,7 @@ function markdown(src, where = "") {
       if (alt.trim().length < 15) throw new Error(`${where}: image needs a descriptive alt text (15+ chars)`);
       const caption = lines.slice(1).join(" ").trim();
       if (!/pexels|unsplash/i.test(caption)) throw new Error(`${where}: image caption must credit the photographer and Pexels/Unsplash`);
-      const first = images.length === 0;
+      const first = !hasCover && images.length === 0; // the cover, when there is one, is the priority image
       images.push(sizedImage(url, 1200));
       out.push(`<figure>
 <img src="${esc(sizedImage(url, 1200))}" srcset="${esc(sizedImage(url, 640))} 640w, ${esc(sizedImage(url, 1200))} 1200w" sizes="(max-width: 760px) 100vw, 720px" alt="${esc(alt)}" width="1200" height="800" ${first ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">
@@ -156,7 +156,7 @@ function parse(file) {
   }
   const body = m[2];
   const words = body.split(/\s+/).length;
-  const { html, images, toc } = markdown(body, file);
+  const { html, images, toc } = markdown(body, file, Boolean(meta.cover));
   // Optional cover photo for cards and the article header:
   //   cover: https://images.pexels.com/...   coverAlt: ...   coverCredit: Name / Pexels   coverPage: https://www.pexels.com/photo/...
   if (meta.cover) {
@@ -425,7 +425,7 @@ for (const a of articles) {
     publisher: { "@type": "Organization", name: SITE.name },
     mainEntityOfPage: `${SITE.url}/articles/${a.slug}`,
     wordCount: a.words,
-    ...(a.images.length ? { image: a.images } : {}),
+    ...(coverOf(a) ? { image: [...new Set([a.cover ? sizedImage(a.cover, 1200) : "", ...a.images].filter(Boolean))] } : {}),
   };
   // Table of contents for long reads (4+ sections).
   const toc = a.toc.length >= 4
