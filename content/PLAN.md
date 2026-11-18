@@ -1,5 +1,5 @@
 # Plan editorial — Guide Market
-Actualizado: 2026-11-09 · Publicados: 10 · Meta AdSense: 20
+Actualizado: 2026-11-18 · Publicados: 12 · Meta AdSense: 20
 
 ## Próximos (por prioridad)
 | # | Título provisional | Categoría | Pregunta que responde | Ángulo propio | Estado |
@@ -7,7 +7,7 @@ Actualizado: 2026-11-09 · Publicados: 10 · Meta AdSense: 20
 | 2 | Why Prices Are Still High When Inflation Is Down | economy | ¿Por qué no bajan los precios? | Ejemplo numérico, disinflation vs deflation | idea |
 | 3 | Passkeys vs Passwords: What Happens If You Lose Your Phone | tech | ¿Uso passkeys y cómo recupero la cuenta? | Guía neutral centrada en recuperación | idea |
 | 4 | Is Your Cheap Streaming Box Safe? | tech | ¿Mi caja Android TV es segura? | A raíz de la botnet de nov. 2026 | idea |
-| 5 | What to Do When You're Told Your Data Was in a Breach | tech | ¿Qué hago tras una brecha? | Pasos concretos, distinto de phishing | idea |
+| 5 | What to Do After a Data Breach Notice (what-to-do-after-a-data-breach-notice) | tech | ¿Qué hago tras una brecha? | Tabla qué se filtró → qué haces, congelación en 3 bureaus, opinión sobre monitorización gratis | listo (rama articulo/2026-11-18-what-to-do-after-a-data-breach-notice, pendiente del ok de Bruno) |
 | 6 | The Saver's Match Explained | money | ¿Cómo consigo hasta $1.000 de la IRS? | Empieza en 2027 | idea |
 
 ## Pendientes de revisión

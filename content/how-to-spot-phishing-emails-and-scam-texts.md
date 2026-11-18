@@ -161,7 +161,7 @@ Clicking a phishing link is not, by itself, a disaster. The damage comes from wh
 5. **Turn on, or reset, two-step verification.** If you read out or typed a code, assume the attacker used it to add their own device. Remove unknown devices and set up verification again.
 6. **Call your bank or card issuer if money or card details are involved.** Use the number on the back of your card and ask them to block it. The faster you call, the better the chance of stopping a payment.
 7. **Scan and clean the device if you opened a file or installed anything.** The FTC's advice is to update your security software, run a scan and remove anything it flags. If you gave a stranger remote access, uninstall that tool.
-8. **Protect your identity if sensitive numbers leaked.** In the US, [IdentityTheft.gov](https://www.identitytheft.gov/) builds a recovery plan based on what was exposed, and a credit freeze stops new accounts being opened in your name.
+8. **Protect your identity if sensitive numbers leaked.** In the US, [IdentityTheft.gov](https://www.identitytheft.gov/) builds a recovery plan based on what was exposed, and a credit freeze stops new accounts being opened in your name. Our guide to [what to do after a data breach notice](/articles/what-to-do-after-a-data-breach-notice) goes through the steps for each type of leaked data, including how to freeze your credit at all three bureaus.
 9. **Report it.** The next section explains where.
 
 ![Combination padlock resting on a laptop keyboard on a wooden surface](https://images.unsplash.com/photo-1768839720936-87ce3adf2d08)

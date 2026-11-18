@@ -150,7 +150,7 @@ Read the bottom bar carefully: for about one participant in twenty, fixing error
 Go through each report with a pen and your own records:
 
 - **Identity details.** Misspelled names, addresses you never lived at, a Social Security number with a digit wrong. Mixed files, where another person's data lands in yours, often start here.
-- **Accounts you do not recognise.** These can be honest mistakes or signs of identity theft.
+- **Accounts you do not recognise.** These can be honest mistakes or signs of identity theft. If you have recently received a breach letter, our guide on [what to do after a data breach notice](/articles/what-to-do-after-a-data-breach-notice) explains when a free credit freeze makes sense.
 - **Late payments you know were on time.** Bank statements are your evidence.
 - **Wrong balances or limits.** A card showing a $1,000 limit when it is really $5,000 inflates your utilisation.
 - **Duplicates.** The same debt listed twice, for instance by the original lender and by a collector, both showing a balance.
